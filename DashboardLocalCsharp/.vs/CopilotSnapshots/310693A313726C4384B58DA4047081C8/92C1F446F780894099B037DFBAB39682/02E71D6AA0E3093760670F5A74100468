@@ -120,7 +120,6 @@ namespace Formulario
         private Button bdOpenFolderBtn;
         private int bdFramesCaptured = 0;
         private long bdVideoSizeBytes = 0;
-        private byte[] lastProcessedVidFrame = null;
 
         // Variables de paginación para vuelos
         private int flightPageIndex = 0;
@@ -1570,33 +1569,44 @@ namespace Formulario
         {
             if (!bdVideoRecording) return;
 
-            byte[] currentRef;
+            byte[] jpeg;
             lock (jpegLock)
             {
-                currentRef = latestJpegBytes;
+                if (latestJpegBytes == null) return;
+                jpeg = new byte[latestJpegBytes.Length];
+                Array.Copy(latestJpegBytes, jpeg, latestJpegBytes.Length);
             }
 
-            if (currentRef == null || object.ReferenceEquals(currentRef, lastProcessedVidFrame))
-                return;
-
-            lastProcessedVidFrame = currentRef;
-
-            byte[] jpeg = new byte[currentRef.Length];
-            Array.Copy(currentRef, jpeg, currentRef.Length);
-
-            bdVideoFrames.Add(jpeg);
-            bdVideoSizeBytes += jpeg.Length;
-            bdFramesCaptured++;
-
-            // Actualizar estado cada 5 frames
-            if (bdFramesCaptured % 5 == 0)
+            if (jpeg != null && jpeg.Length > 0)
             {
-                if (bdRecordingStatusLabel != null)
+                // Evitar frames duplicados (si el frame es idéntico al anterior, no grabarlo)
+                if (bdVideoFrames.Count == 0 || !FramesAreIdentical(bdVideoFrames[bdVideoFrames.Count - 1], jpeg))
                 {
-                    bdRecordingStatusLabel.Text = $"🔴 GRABANDO: {System.IO.Path.GetFileName(bdVideoFilePath)} | {bdFramesCaptured} frames | {bdVideoSizeBytes / 1024} KB";
-                    bdRecordingStatusLabel.ForeColor = Color.Red;
+                    bdVideoFrames.Add(jpeg);
+                    bdVideoSizeBytes += jpeg.Length;
+                    bdFramesCaptured++;
+
+                    // Actualizar estado cada 5 frames
+                    if (bdFramesCaptured % 5 == 0)
+                    {
+                        if (bdRecordingStatusLabel != null)
+                        {
+                            bdRecordingStatusLabel.Text = $"🔴 GRABANDO: {System.IO.Path.GetFileName(bdVideoFilePath)} | {bdFramesCaptured} frames | {bdVideoSizeBytes / 1024} KB";
+                            bdRecordingStatusLabel.ForeColor = Color.Red;
+                        }
+                    }
                 }
             }
+        }
+
+        private bool FramesAreIdentical(byte[] frame1, byte[] frame2)
+        {
+            if (frame1.Length != frame2.Length) return false;
+            for (int i = 0; i < frame1.Length; i++)
+            {
+                if (frame1[i] != frame2[i]) return false;
+            }
+            return true;
         }
 
         private async Task DetenerGrabacionVideoBD(string instruccionId)
@@ -1612,7 +1622,7 @@ namespace Formulario
 
                 MostrarIndicadorGrabacion(false, "");
 
-                long totalSizeBytes = bdVideoSizeBytes;
+                long totalSizeBytes = bdVideoFrames.Sum(f => f.Length);
                 Console.WriteLine($"[VIDEO] Grabación detenida. {bdVideoFrames.Count} frames capturados | {totalSizeBytes / 1024} KB");
 
                 if (bdVideoFrames.Count > 0)
@@ -1688,8 +1698,7 @@ namespace Formulario
                 using (var bw = new System.IO.BinaryWriter(fs))
                 {
                     int moviListSize = 4 + frames.Sum(f => 8 + f.Length + (f.Length % 2));
-                    int idx1Size = 8 + (frames.Count * 16);
-                    int fileSize = 4 + (8 + 192) + (8 + moviListSize) + idx1Size;
+                    int fileSize = 4 + (8 + 192) + (8 + moviListSize);
 
                     bw.Write(Encoding.ASCII.GetBytes("RIFF"));
                     bw.Write(fileSize);
@@ -1757,38 +1766,12 @@ namespace Formulario
                     bw.Write(moviListSize);
                     bw.Write(Encoding.ASCII.GetBytes("movi"));
 
-                    int moviOffset = 4;
-                    List<int> idxOffsets = new List<int>(frames.Count);
-                    List<int> idxLengths = new List<int>(frames.Count);
-
                     foreach (var f in frames)
                     {
-                        idxOffsets.Add(moviOffset);
-                        idxLengths.Add(f.Length);
-
                         bw.Write(Encoding.ASCII.GetBytes("00dc"));
                         bw.Write(f.Length);
                         bw.Write(f);
-                        if (f.Length % 2 != 0)
-                        {
-                            bw.Write((byte)0);
-                            moviOffset += 8 + f.Length + 1;
-                        }
-                        else
-                        {
-                            moviOffset += 8 + f.Length;
-                        }
-                    }
-
-                    // Escribir chunk idx1 para indexar fotogramas (duración y navegación)
-                    bw.Write(Encoding.ASCII.GetBytes("idx1"));
-                    bw.Write(frames.Count * 16);
-                    for (int i = 0; i < frames.Count; i++)
-                    {
-                        bw.Write(Encoding.ASCII.GetBytes("00dc"));
-                        bw.Write(16); // 16 = 0x10 = AVIIF_KEYFRAME
-                        bw.Write(idxOffsets[i]);
-                        bw.Write(idxLengths[i]);
+                        if (f.Length % 2 != 0) bw.Write((byte)0);
                     }
                 }
 

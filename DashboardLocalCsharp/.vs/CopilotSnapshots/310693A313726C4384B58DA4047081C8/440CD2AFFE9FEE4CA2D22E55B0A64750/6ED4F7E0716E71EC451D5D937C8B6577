@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -612,10 +612,6 @@ namespace Formulario
                             rutaArchivo.EndsWith(".mjpg", StringComparison.OrdinalIgnoreCase))
                         {
                             mimeType = "video/x-motion-jpeg";
-                        }
-                        else if (rutaArchivo.EndsWith(".avi", StringComparison.OrdinalIgnoreCase))
-                        {
-                            mimeType = "video/avi";
                         }
                         else
                         {

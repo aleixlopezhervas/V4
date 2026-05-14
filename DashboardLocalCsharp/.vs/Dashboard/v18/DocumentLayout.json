@@ -84,9 +84,10 @@
               "RelativeDocumentMoniker": "Formulario\\DroneAPIService.cs",
               "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\DroneAPIService.cs",
               "RelativeToolTip": "Formulario\\DroneAPIService.cs",
-              "ViewState": "AgIAAKYCAAAAAAAAAIBJwAcCAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAGkCAAAAAAAAAIBJwAcCAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:38:34.655Z"
+              "WhenOpened": "2026-05-13T11:38:34.655Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -120,7 +121,7 @@
               "RelativeDocumentMoniker": "Formulario\\Form1.cs",
               "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeToolTip": "Formulario\\Form1.cs",
-              "ViewState": "AgIAAD8KAAAAAAAAAAAuwE8KAAABAAAAAAAAAA==",
+              "ViewState": "AgIAALgKAAAAAAAAAAAuwMgKAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T08:09:28.674Z",
               "EditorCaption": ""

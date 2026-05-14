@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -604,30 +604,9 @@ namespace Formulario
                 {
                     var fileBytes = System.IO.File.ReadAllBytes(rutaArchivo);
                     var fileContent = new ByteArrayContent(fileBytes);
-
-                    string mimeType = "application/octet-stream";
-                    if (tipoMedia == "video")
-                    {
-                        if (rutaArchivo.EndsWith(".mjpeg", StringComparison.OrdinalIgnoreCase) || 
-                            rutaArchivo.EndsWith(".mjpg", StringComparison.OrdinalIgnoreCase))
-                        {
-                            mimeType = "video/x-motion-jpeg";
-                        }
-                        else if (rutaArchivo.EndsWith(".avi", StringComparison.OrdinalIgnoreCase))
-                        {
-                            mimeType = "video/avi";
-                        }
-                        else
-                        {
-                            mimeType = "video/mp4";
-                        }
-                    }
-                    else if (tipoMedia == "image")
-                    {
-                        mimeType = "image/jpeg";
-                    }
-
-                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(mimeType);
+                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(
+                        tipoMedia == "video" ? "video/mp4" : "image/jpeg"
+                    );
 
                     form.Add(fileContent, "file", System.IO.Path.GetFileName(rutaArchivo));
                     form.Add(new StringContent(instruccionId), "instruccionId");
