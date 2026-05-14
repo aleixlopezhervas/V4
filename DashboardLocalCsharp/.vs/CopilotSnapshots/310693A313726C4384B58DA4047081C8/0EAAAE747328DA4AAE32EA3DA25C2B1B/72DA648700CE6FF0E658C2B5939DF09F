@@ -1409,19 +1409,9 @@ namespace Formulario
 
                     MessageBox.Show($"Cargados {bdWaypoints.Count} waypoints.", "Éxito");
 
-                    try
+                    if (!string.IsNullOrEmpty(vuelo.Video))
                     {
-                        var urls = await droneAPIService.ObtenerMediaInstruccionAsync(currentBdFirstInstruccionId);
-                        var videoUrl = urls.FirstOrDefault(u => u.EndsWith(".avi", StringComparison.OrdinalIgnoreCase) || u.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase) || u.Contains("video/upload"));
-
-                        if (!string.IsNullOrEmpty(videoUrl))
-                        {
-                            ShowVideoPreviewForm(videoUrl);
-                        }
-                    }
-                    catch (Exception me)
-                    {
-                        Console.WriteLine($"[AVISO] No se encontraron vídeos: {me.Message}");
+                        ShowVideoPreviewForm(vuelo.Video);
                     }
                 }
                 else
@@ -1447,19 +1437,7 @@ namespace Formulario
             WebBrowser wb = new WebBrowser();
             wb.Dock = DockStyle.Fill;
             wb.ScriptErrorsSuppressed = true;
-
-            string html = $@"
-            <!DOCTYPE html>
-            <html style='height: 100%;'>
-            <head>
-                <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-            </head>
-            <body style='margin:0; padding:0; background:black; height:100%; display:flex; justify-content:center; align-items:center;'>
-                <video src='{urlMedia}' controls autoplay style='max-width:100%; max-height:100%; width:100%; height:100%;'></video>
-            </body>
-            </html>";
-
-            wb.DocumentText = html;
+            wb.Navigate(urlMedia);
 
             preview.Controls.Add(wb);
             preview.ShowDialog();

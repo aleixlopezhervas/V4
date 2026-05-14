@@ -121,7 +121,6 @@ namespace Formulario
         private int bdFramesCaptured = 0;
         private long bdVideoSizeBytes = 0;
         private byte[] lastProcessedVidFrame = null;
-        private string currentBdFirstInstruccionId = null;
 
         // Variables de paginación para vuelos
         private int flightPageIndex = 0;
@@ -1328,8 +1327,6 @@ namespace Formulario
                     return;
                 }
 
-                currentBdFirstInstruccionId = vuelo.Instrucciones[0].Id;
-
                 bdWaypoints.Clear();
                 bdWaypointsListBox.Items.Clear();
                 bdWaypointsOverlay.Markers.Clear();
@@ -1408,21 +1405,6 @@ namespace Formulario
                     else bdGmap.Zoom = 19;
 
                     MessageBox.Show($"Cargados {bdWaypoints.Count} waypoints.", "Éxito");
-
-                    try
-                    {
-                        var urls = await droneAPIService.ObtenerMediaInstruccionAsync(currentBdFirstInstruccionId);
-                        var videoUrl = urls.FirstOrDefault(u => u.EndsWith(".avi", StringComparison.OrdinalIgnoreCase) || u.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase) || u.Contains("video/upload"));
-
-                        if (!string.IsNullOrEmpty(videoUrl))
-                        {
-                            ShowVideoPreviewForm(videoUrl);
-                        }
-                    }
-                    catch (Exception me)
-                    {
-                        Console.WriteLine($"[AVISO] No se encontraron vídeos: {me.Message}");
-                    }
                 }
                 else
                 {
@@ -1434,35 +1416,6 @@ namespace Formulario
                 MessageBox.Show($"Error al cargar instrucciones: {ex.Message}");
                 Console.WriteLine($"Error completo: {ex}");
             }
-        }
-
-        private void ShowVideoPreviewForm(string urlMedia)
-        {
-            Form preview = new Form();
-            preview.Text = "Previsualización del Recorrido";
-            preview.Width = 800;
-            preview.Height = 600;
-            preview.StartPosition = FormStartPosition.CenterParent;
-
-            WebBrowser wb = new WebBrowser();
-            wb.Dock = DockStyle.Fill;
-            wb.ScriptErrorsSuppressed = true;
-
-            string html = $@"
-            <!DOCTYPE html>
-            <html style='height: 100%;'>
-            <head>
-                <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-            </head>
-            <body style='margin:0; padding:0; background:black; height:100%; display:flex; justify-content:center; align-items:center;'>
-                <video src='{urlMedia}' controls autoplay style='max-width:100%; max-height:100%; width:100%; height:100%;'></video>
-            </body>
-            </html>";
-
-            wb.DocumentText = html;
-
-            preview.Controls.Add(wb);
-            preview.ShowDialog();
         }
 
         private void startBDFlightBtn_Click(object sender, EventArgs e)
@@ -1975,7 +1928,8 @@ namespace Formulario
                 MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.");
 
                 // Detener grabación de video y subirlo
-                DetenerGrabacionVideoBD(currentBdFirstInstruccionId);
+                string instruccionIdParaVideo = bdWaypoints.Count > 0 ? bdWaypoints[0].Position.ToString() : "";
+                DetenerGrabacionVideoBD(bdWaypoints[0].Position.ToString());
 
                 MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.\nVídeo guardado y en proceso de subida.");
 
