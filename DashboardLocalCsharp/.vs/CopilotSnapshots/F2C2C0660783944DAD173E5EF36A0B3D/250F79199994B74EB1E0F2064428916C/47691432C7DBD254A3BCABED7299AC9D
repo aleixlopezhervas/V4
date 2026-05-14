@@ -1,0 +1,711 @@
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using csDronLink;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace Formulario
+{
+    public partial class Form1 : Form
+    {
+        // Instancia del dron
+        private Dron dron = new Dron();
+
+        //video streaming:
+        private string mjpegUrl = "http://localhost:8888/";
+
+        //galeria
+        private List<string> capturedPhotoPaths = new List<string>();
+        private string photosFolder = System.IO.Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "DronePhotos");
+
+        private byte[] latestJpegBytes = null;
+        private readonly object jpegLock = new object();
+
+        //detection
+        private List<int> selectedObjectIds = new List<int>();
+
+        //map
+        private double currentLatDeg = double.NaN;
+        private double currentLonDeg = double.NaN;
+        private double currentHeading = 0;
+        private double currentAlt = double.NaN;
+
+        private GMapControl gmap;
+        private GMapOverlay droneOverlay;
+        private GMapMarker droneMarker;
+        private System.Windows.Forms.Timer mapTimer;
+        private bool posicionActualizada = false;
+
+        private GMapOverlay destinationOverlay;
+        private GMapMarker destinationMarker;
+        private double destAlt = double.NaN; // Almacenar altitud destino
+        public Form1()
+        {
+            InitializeComponent();
+            if (DesignMode) return; 
+
+            CheckForIllegalCrossThreadCalls = false;
+
+            Font letraGrande = new Font("Arial", 14);
+            Font letraPequeña = new Font("Arial", 12);
+
+            // Botones de navegación
+            button9.Text = "NW"; button9.Tag = "NorthWest"; button9.Click += navButton_Click; button9.Font = letraGrande;
+            button10.Text = "N"; button10.Tag = "North"; button10.Click += navButton_Click; button10.Font = letraGrande;
+            button11.Text = "NE"; button11.Tag = "NorthEast"; button11.Click += navButton_Click; button11.Font = letraGrande;
+            button12.Text = "W"; button12.Tag = "West"; button12.Click += navButton_Click; button12.Font = letraGrande;
+            button13.Text = "Stop"; button13.Tag = "Stop"; button13.Click += navButton_Click; button13.Font = letraPequeña;
+            button14.Text = "E"; button14.Tag = "East"; button14.Click += navButton_Click; button14.Font = letraGrande;
+            button15.Text = "SW"; button15.Tag = "SouthWest"; button15.Click += navButton_Click; button15.Font = letraGrande;
+            button16.Text = "S"; button16.Tag = "South"; button16.Click += navButton_Click; button16.Font = letraGrande;
+            button17.Text = "SE"; button17.Tag = "SouthEast"; button17.Click += navButton_Click; button17.Font = letraGrande;
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            if (DesignMode) return;
+
+            InicializarMapa();
+            InicializarBotonesDeteccion();
+        }
+
+
+
+        // =========================================================
+        // COMANDOS DEL DRON (USANDO CLASE DRON)
+        // =========================================================
+
+        private void but_connect_Click(object sender, EventArgs e)
+        {
+            dron.Conectar("simulacion");
+            but_connect.BackColor = Color.Green;
+            but_connect.ForeColor = Color.White;
+        }
+
+        private void EnAire(byte id, object param)
+        {
+            despegarBtn.BackColor = Color.Green;
+            despegarBtn.ForeColor = Color.White;
+            despegarBtn.Text = (string)param;
+        }
+
+        private void but_takeoff_Click(object sender, EventArgs e)
+        {
+            int alturaSeleccionada = AlturatrackBar.Value;
+            if (alturaSeleccionada != 0)
+            {
+                dron.Despegar(alturaSeleccionada, bloquear: false, EnAire, "Volando");
+                despegarBtn.BackColor = Color.Yellow;
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una altura de despegue mayor que 0");
+            }
+        }
+
+        private void navButton_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            string tag = b.Tag.ToString();
+
+            // Detener navegación automática si está activa
+            if (tag == "Stop")
+            {
+                isNavigatingToDestination = false;
+                if (navigationTimer != null) navigationTimer.Stop();
+            }
+
+            dron.Navegar(tag);
+        }
+
+        private void EnTierra(byte id, object mensaje)
+        {
+            if ((string)mensaje == "Aterrizaje")
+                button7.BackColor = Color.Green;
+            else
+                button6.BackColor = Color.Green;
+        }
+
+        private void aterrizarBtn_Click(object sender, EventArgs e)
+        {
+            isNavigatingToDestination = false;
+            if (navigationTimer != null) navigationTimer.Stop();
+            dron.Aterrizar(bloquear: false, EnTierra, "Aterrizaje");
+            button7.BackColor = Color.Yellow;
+        }
+
+        private void RTLBtn_Click(object sender, EventArgs e)
+        {
+            isNavigatingToDestination = false;
+            if (navigationTimer != null) navigationTimer.Stop();
+            dron.RTL(bloquear: false, EnTierra, "RTL");
+            button6.BackColor = Color.Yellow;
+        }
+
+        private void enviarTelemetriaBtn_Click(object sender, EventArgs e)
+        {
+            dron.EnviarDatosTelemetria(ProcesarTelemetria);
+        }
+
+        private void detenerTelemetriaBtn_Click(object sender, EventArgs e)
+        {
+            dron.DetenerDatosTelemetria();
+        }
+
+        private void ProcesarTelemetria(byte id, List<(string nombre, float valor)> telemetria)
+        {
+            // Procesar telemetría del dron
+            double lat = ((double)telemetria[1].valor) / 0.1E+8;
+            double lon = ((double)telemetria[2].valor) / 0.1E+8;
+            double heading = ((double)telemetria[3].valor) / 100;
+
+            // Actualizar etiquetas
+            altitudLbl.Text = telemetria[0].valor.ToString("F1") + " m";
+            latitudLbl.Text = lat.ToString();
+            longitudLbl.Text = lon.ToString();
+            headLbl.Text = heading.ToString("F1") + " °";
+            BatteryLbl.Text = "N/A";
+
+            // Actualizar mapa con telemetría
+            ActualizarTelemetria(lat, lon, telemetria[0].valor, heading);
+        }
+
+        private void headingTrackBar_Scroll(object sender, EventArgs e)
+        {
+            int n = headingTrackBar.Value;
+            headingLbl.Text = n.ToString();
+        }
+
+        private void headingTrackBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            float valorSeleccionado = headingTrackBar.Value;
+            dron.CambiarHeading(valorSeleccionado, bloquear: false);
+        }
+
+        private void velocidadTrackBar_Scroll(object sender, EventArgs e)
+        {
+            int n = velocidadTrackBar.Value;
+            velocidadLbl.Text = n.ToString();
+        }
+
+        private void velocidadTrackBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            int valorSeleccionado = velocidadTrackBar.Value;
+            dron.CambiaVelocidad(valorSeleccionado);
+
+            if (!double.IsNaN(destLat) && !double.IsNaN(destLon))
+            {
+                double altDestino = double.IsNaN(currentAlt) ? 5 : currentAlt;
+                // Enviar comando al dron para ir al destino
+                EnviarDronHacia(destLat, destLon, altDestino);
+                Console.WriteLine($"Navegando a: Lat={destLat}, Lon={destLon}, Alt={altDestino}");
+            }
+        }
+
+        private void AlturatrackBar_Scroll(object sender, EventArgs e)
+        {
+            AlturaLbl.Text = AlturatrackBar.Value.ToString();
+        }
+
+        private void Alt_changeTrackBar_Scroll(object sender, EventArgs e)
+        {
+            AltChangeLbl.Text = Alt_changeTrackBar.Value.ToString();
+        }
+
+        private void Alt_changeTrackBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            int altitud = Alt_changeTrackBar.Value;
+            // Cambiar altitud si el método existe
+            Console.WriteLine($"Cambiando altitud a: {altitud}");
+        }
+
+        private void AlturaLbl_Click(object sender, EventArgs e) { }
+        private void AltChangeLbl_Click(object sender, EventArgs e) { }
+
+        // =========================================================
+        // PROCESAMIENTO DE DATOS LOCALES DEL MAPA
+        // =========================================================
+
+        private void EnviarDronHacia(double lat, double lon, double alt)
+        {
+            // Guardar las coordenadas del destino
+            destLat = lat;
+            destLon = lon;
+
+            // Usar la altitud actual del dron si no se especifica otra
+            if (double.IsNaN(currentAlt))
+            {
+                alt = 5; // Altitud por defecto
+            }
+            else
+            {
+                alt = currentAlt; // Usar altitud actual del dron
+            }
+
+            // Intentar llamar al método goto usando reflexión
+            try
+            {
+                var method = dron.GetType().GetMethod("goto");
+                if (method != null)
+                {
+                    // Llamar con: goto(lat, lon, alt, blocking=false)
+                    method.Invoke(dron, new object[] { lat, lon, alt, false });
+                    Console.WriteLine($"Navegando hacia: Lat={lat}, Lon={lon}, Alt={alt}");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al invocar goto: {ex.Message}");
+            }
+
+            // Si goto no existe, usar navegación automática con timer
+            if (navigationTimer == null)
+            {
+                navigationTimer = new System.Windows.Forms.Timer();
+                navigationTimer.Interval = 500; // Cada 500ms evaluar y ajustar dirección
+                navigationTimer.Tick += NavigationTimer_Tick;
+            }
+
+            isNavigatingToDestination = true;
+            navigationTimer.Start();
+            Console.WriteLine($"Iniciando navegación automática hacia: Lat={lat}, Lon={lon}, Alt={alt}");
+        }
+
+        private void NavigationTimer_Tick(object sender, EventArgs e)
+        {
+            if (!isNavigatingToDestination || double.IsNaN(currentLatDeg) || double.IsNaN(currentLonDeg) || 
+                double.IsNaN(destLat) || double.IsNaN(destLon))
+            {
+                return;
+            }
+
+            // Calcular diferencia en coordenadas
+            double dLat = destLat - currentLatDeg;
+            double dLon = destLon - currentLonDeg;
+
+            // Si está muy cerca del destino, detener
+            if (Math.Abs(dLat) < ARRIVAL_THRESHOLD && Math.Abs(dLon) < ARRIVAL_THRESHOLD)
+            {
+                isNavigatingToDestination = false;
+                navigationTimer.Stop();
+                dron.Navegar("Stop");
+                Console.WriteLine("Destino alcanzado");
+                return;
+            }
+
+            // Determinar la dirección de navegación basándose en dLat y dLon
+            string direccion = CalcularDireccion(dLat, dLon);
+            dron.Navegar(direccion);
+        }
+
+        private string CalcularDireccion(double dLat, double dLon)
+        {
+            // Calcular el ángulo hacia el destino
+            double angulo = Math.Atan2(dLon, dLat) * 180 / Math.PI;
+
+            // Normalizar el ángulo a 0-360
+            if (angulo < 0) angulo += 360;
+
+            // Determinar la dirección de los 8 puntos cardinales
+            // North: -22.5 a 22.5
+            // NorthEast: 22.5 a 67.5
+            // East: 67.5 a 112.5
+            // SouthEast: 112.5 a 157.5
+            // South: 157.5 a 202.5
+            // SouthWest: 202.5 a 247.5
+            // West: 247.5 a 292.5
+            // NorthWest: 292.5 a 337.5
+
+            if (angulo >= 337.5 || angulo < 22.5) return "North";
+            if (angulo >= 22.5 && angulo < 67.5) return "NorthEast";
+            if (angulo >= 67.5 && angulo < 112.5) return "East";
+            if (angulo >= 112.5 && angulo < 157.5) return "SouthEast";
+            if (angulo >= 157.5 && angulo < 202.5) return "South";
+            if (angulo >= 202.5 && angulo < 247.5) return "SouthWest";
+            if (angulo >= 247.5 && angulo < 292.5) return "West";
+            if (angulo >= 292.5 && angulo < 337.5) return "NorthWest";
+
+            return "Stop";
+        }
+
+        private void ActualizarTelemetria(double lat, double lon, double alt, double heading)
+        {
+            // Actualizar variables internas
+            currentLatDeg = lat;
+            currentLonDeg = lon;
+            currentAlt = alt;
+            currentHeading = heading;
+            posicionActualizada = true;
+        }
+
+
+        //COSAS VIDEO
+
+        
+
+        private Thread videoThread;
+        private bool videoRunning = false;
+
+        private System.Net.HttpWebRequest activeRequest = null;
+
+        private System.Windows.Forms.Timer displayTimer;
+
+        private void startVideoBtn_Click(object sender, EventArgs e)
+        {
+            videoRunning = false;
+            activeRequest?.Abort();
+            videoThread?.Join(1000);
+
+            videoRunning = true;
+            videoThread = new Thread(LeerMJPEG);
+            videoThread.IsBackground = true;
+            videoThread.Start();
+
+            // ✅ Timer de display independiente del hilo de red
+            displayTimer = new System.Windows.Forms.Timer();
+            displayTimer.Interval = 66; // ~15fps
+            displayTimer.Tick += DisplayTimer_Tick;
+            displayTimer.Start();
+        }
+
+        private void stopVideoBtn_Click(object sender, EventArgs e)
+        {
+            videoRunning = false;
+            activeRequest?.Abort();
+            displayTimer?.Stop();
+            videoPictureBox.Image = null;
+            lock (jpegLock) latestJpegBytes = null;
+        }
+
+        private void DisplayTimer_Tick(object sender, EventArgs e)
+        {
+            byte[] jpeg;
+            lock (jpegLock)
+            {
+                if (latestJpegBytes == null) return;
+                jpeg = latestJpegBytes;
+                latestJpegBytes = null;
+            }
+
+            // ✅ Crea el Bitmap en un hilo separado, solo asigna al PictureBox en UI
+            ThreadPool.QueueUserWorkItem(_ =>
+            {
+                try
+                {
+                    Image img;
+                    using (var ms = new System.IO.MemoryStream(jpeg))
+                        img = new Bitmap(Image.FromStream(ms));
+
+                    this.BeginInvoke((MethodInvoker)delegate
+                    {
+                        var old = videoPictureBox.Image;
+                        videoPictureBox.Image = img;
+                        old?.Dispose();
+                    });
+                }
+                catch { }
+            });
+        }
+
+        private void LeerMJPEG()
+        {
+            try
+            {
+                var request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(mjpegUrl);
+                request.Timeout = 5000;
+                request.ReadWriteTimeout = 5000;
+                activeRequest = request; // ✅ guarda referencia para poder abortarlo
+
+                var response = request.GetResponse();
+                var stream = response.GetResponseStream();
+                var buffer = new byte[4096];
+                var ms = new System.IO.MemoryStream();
+                int bytesRead;
+
+                while (videoRunning && (bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, bytesRead);
+                    var data = ms.ToArray();
+
+                    int start = FindBytes(data, new byte[] { 0xFF, 0xD8 });
+                    int end = FindBytes(data, new byte[] { 0xFF, 0xD9 });
+
+                    if (start >= 0 && end >= 0 && end > start)
+                    {
+                        var jpeg = new byte[end - start + 2];
+                        Array.Copy(data, start, jpeg, 0, jpeg.Length);
+
+                        if (start >= 0 && end >= 0 && end > start)
+                        {
+                            var jpegFrame = new byte[end - start + 2];  // ✅ jpeg → jpegFrame
+                            Array.Copy(data, start, jpegFrame, 0, jpegFrame.Length);
+
+                            lock (jpegLock)
+                                latestJpegBytes = jpegFrame;
+
+                            var leftover = new byte[data.Length - (end + 2)];  // ✅ remaining → leftover
+                            Array.Copy(data, end + 2, leftover, 0, leftover.Length);
+                            ms = new System.IO.MemoryStream();
+                            ms.Write(leftover, 0, leftover.Length);
+                        }
+
+                        var remaining = new byte[data.Length - (end + 2)];
+                        Array.Copy(data, end + 2, remaining, 0, remaining.Length);
+                        ms = new System.IO.MemoryStream();
+                        ms.Write(remaining, 0, remaining.Length);
+                    }
+
+                    if (ms.Length > 2 * 1024 * 1024) // ✅ reducido a 2MB
+                        ms = new System.IO.MemoryStream();
+                }
+            }
+            catch (System.Net.WebException ex) when (ex.Status == System.Net.WebExceptionStatus.RequestCanceled)
+            {
+                // ✅ Abort() lanza WebException — la ignoramos, es intencional
+                Console.WriteLine("Stream de video detenido.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error video: " + ex.Message);
+            }
+            finally
+            {
+                activeRequest = null; // ✅ limpia la referencia
+            }
+        }
+
+        private int FindBytes(byte[] buffer, byte[] pattern)
+        {
+            for (int i = 0; i <= buffer.Length - pattern.Length; i++)
+            {
+                bool found = true;
+                for (int j = 0; j < pattern.Length; j++)
+                    if (buffer[i + j] != pattern[j]) { found = false; break; }
+                if (found) return i;
+            }
+            return -1;
+        }
+
+        // deteccion
+
+        private readonly Dictionary<string, int> cocoObjects = new Dictionary<string, int>
+        {
+            { "Banana",   46 },
+            { "Reloj",    74 },
+            { "Pizza",    53 },
+            { "Avión",     4 },
+            { "Coche",     2 },
+            { "Moto",      3 },
+            { "Persona",   0 },
+            { "Perro",    16 },
+            { "Gato",     15 },
+            { "Silla",    56 }
+        };
+
+        // Envía la lista de objetos seleccionados
+        private void EnviarDeteccion()
+        {
+            Console.WriteLine($"Detección con {selectedObjectIds.Count} objetos seleccionados");
+        }
+
+        private void stopDetectionBtn_Click(object sender, EventArgs e)
+        {
+            selectedObjectIds.Clear();
+            // Resetea colores de botones
+            foreach (Control c in detectionPanel.Controls)
+               if (c is Button b) b.BackColor = SystemColors.Control;
+        }
+
+        private void InicializarBotonesDeteccion()
+        {
+            foreach (var obj in cocoObjects)
+            {
+                string nombre = obj.Key;
+                int id = obj.Value;
+
+                var btn = new Button
+                {
+                    Text = nombre,
+                    Size = new Size(75, 28),
+                    Margin = new Padding(3)
+                };
+
+                btn.Click += (s, e) =>
+                {
+                    if (selectedObjectIds.Contains(id))
+                    {
+                        selectedObjectIds.Remove(id);
+                        btn.BackColor = SystemColors.Control; // ✅ deseleccionado
+                    }
+                    else
+                    {
+                        selectedObjectIds.Add(id);
+                        btn.BackColor = Color.LightGreen;     // ✅ seleccionado
+                    }
+                    EnviarDeteccion(); // envía lista actualizada
+                };
+
+                detectionPanel.Controls.Add(btn);
+            }
+        }
+
+        //COSAS MAPA
+        private void InicializarMapa()
+        {
+            gmap = new GMapControl();
+            gmap.Dock = DockStyle.Fill;
+            mapPanel.Controls.Add(gmap);
+
+            gmap.MouseClick += Gmap_MouseClick;
+
+            GMaps.Instance.Mode = AccessMode.ServerAndCache;
+            gmap.MapProvider = GMapProviders.GoogleSatelliteMap;
+            gmap.Position = new PointLatLng(41.27, 1.98);
+            gmap.MinZoom = 2;
+            gmap.MaxZoom = 25;
+            gmap.Zoom = 19;
+            gmap.ShowTileGridLines = false;
+            gmap.RetryLoadTile = 3;
+            gmap.ShowCenter = false;
+            gmap.IgnoreMarkerOnMouseWheel = true;
+
+            destinationOverlay = new GMapOverlay("destination");
+            gmap.Overlays.Add(destinationOverlay); //primero = por debajo
+            droneOverlay = new GMapOverlay("drone");
+            gmap.Overlays.Add(droneOverlay);       //segundo = por encima
+
+            // Timer de refresco del mapa
+            mapTimer = new System.Windows.Forms.Timer();
+            mapTimer.Interval = 500;
+            mapTimer.Tick += MapTimer_Tick;
+            mapTimer.Start();
+        }
+
+        private void MapTimer_Tick(object sender, EventArgs e)
+        {
+            if (!posicionActualizada) return;
+            if (double.IsNaN(currentLatDeg) || double.IsNaN(currentLonDeg)) return;
+
+            posicionActualizada = false;
+
+            var pos = new PointLatLng(currentLatDeg, currentLonDeg);
+
+            if (droneMarker == null)
+            {
+                droneMarker = new RedDotMarker(pos, 8, currentHeading);
+                droneOverlay.Markers.Add(droneMarker);
+            }
+            else
+            {
+                droneMarker.Position = pos;
+                ((RedDotMarker)droneMarker).Heading = currentHeading;
+            }
+
+            //Comprueba si el dron ha llegado al destino
+            if (!double.IsNaN(destLat) && !double.IsNaN(destLon))
+            {
+                double dLat = Math.Abs(currentLatDeg - destLat);
+                double dLon = Math.Abs(currentLonDeg - destLon);
+                if (dLat < ARRIVAL_THRESHOLD && dLon < ARRIVAL_THRESHOLD)
+                {
+                    destinationOverlay.Markers.Clear();
+                    destLat = double.NaN;
+                    destLon = double.NaN;
+                }
+            }
+
+            gmap.Position = pos;
+            gmap.Refresh();
+        }
+
+
+        private void ActualizarPosicionDron(double lat, double lon)
+        {
+            currentLatDeg = lat;
+            currentLonDeg = lon;
+            posicionActualizada = true; // el Timer se encarga del resto
+        }
+
+        private void Gmap_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PointLatLng clickPos = gmap.FromLocalToLatLng(e.X, e.Y);
+                double altDestino = double.IsNaN(currentAlt) ? 5 : currentAlt;
+
+                destLat = clickPos.Lat;
+                destLon = clickPos.Lng;
+
+                destinationOverlay.Markers.Clear();
+                destinationMarker = new BlueXMarker(clickPos, 6);
+                destinationOverlay.Markers.Add(destinationMarker);
+
+                // Enviar comando al dron para ir a las coordenadas seleccionadas
+                EnviarDronHacia(clickPos.Lat, clickPos.Lng, altDestino);
+                Console.WriteLine($"Destinación: Lat={clickPos.Lat}, Lon={clickPos.Lng}, Alt={altDestino}");
+            }
+        }
+
+        private void captureBtn_Click(object sender, EventArgs e)
+        {
+            byte[] jpeg;
+            lock (jpegLock) jpeg = latestJpegBytes;
+
+            if (jpeg == null && videoPictureBox.Image == null)
+            {
+                MessageBox.Show("No hay stream de video activo.");
+                return;
+            }
+
+            System.IO.Directory.CreateDirectory(photosFolder);
+            string filename = $"drone_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
+            string path = System.IO.Path.Combine(photosFolder, filename);
+
+            if (jpeg != null)
+            {
+                // ✅ Guarda los bytes JPEG directamente, sin crear Bitmap
+                File.WriteAllBytes(path, jpeg);
+            }
+            else
+            {
+                using (Bitmap bmp = new Bitmap(videoPictureBox.Image.Width, videoPictureBox.Image.Height))
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.DrawImage(videoPictureBox.Image, 0, 0);
+                    bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+            }
+
+            capturedPhotoPaths.Add(path);
+            MessageBox.Show($"Foto guardada: {filename}");
+        }
+
+        private void galleryBtn_Click(object sender, EventArgs e)
+        {
+            if (capturedPhotoPaths.Count == 0)
+            {
+                MessageBox.Show("No hay fotos capturadas aún.");
+                return;
+            }
+            using (var gallery = new GalleryForm(capturedPhotoPaths, photosFolder))
+                gallery.ShowDialog();
+        }
+    }
+
+    
+
+    
+}

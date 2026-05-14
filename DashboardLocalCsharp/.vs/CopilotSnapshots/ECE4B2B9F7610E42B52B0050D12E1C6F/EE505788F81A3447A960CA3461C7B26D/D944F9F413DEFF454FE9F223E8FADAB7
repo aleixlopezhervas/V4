@@ -1,0 +1,243 @@
+﻿using MongoDB.Bson;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace Formulario
+{
+    public class Punto
+    {
+        [JsonPropertyName("_id")]
+        public string Id { get; set; }
+
+        [JsonPropertyName("Latitud")]
+        public float Lat { get; set; }
+
+        [JsonPropertyName("Longitud")]
+        public float Long { get; set; }
+
+        [JsonPropertyName("Heading")]
+        public float Heading { get; set; }
+
+        [JsonPropertyName("Altitud")]
+        public float Altitud { get; set; }
+
+        public Punto()
+        {
+            Id = ObjectId.GenerateNewId().ToString();
+            Lat = 0;
+            Long = 0;
+            Heading = 0;
+            Altitud = 5;
+        }
+    }
+
+    public class Instruccion
+    {
+        [JsonPropertyName("_id")]
+        public string Id { get; set; }
+
+        [JsonPropertyName("ID_Vuelo")]
+        public string ID_Vuelo { get; set; }
+
+        [JsonPropertyName("Punto")]
+        public Punto Punto { get; set; }
+
+        [JsonPropertyName("directriz")]
+        public string Directriz { get; set; }
+
+        [JsonPropertyName("trail")]
+        public int Trail { get; set; }
+
+        [JsonPropertyName("version")]
+        public int Version { get; set; }
+
+        [JsonPropertyName("datetime")]
+        public DateTime DateTime { get; set; }
+
+        public Instruccion()
+        {
+            Id = ObjectId.GenerateNewId().ToString();
+            Directriz = "None";
+            Version = 1;
+            DateTime = DateTime.Now;
+        }
+
+        public override string ToString()
+        {
+            return $"Trail {Trail} - Lat: {Punto.Lat}, Lon: {Punto.Long}";
+        }
+    }
+
+    public class Vuelo
+    {
+        [JsonPropertyName("_id")]
+        public string ID { get; set; }
+
+        [JsonPropertyName("nametag")]
+        public string NameTag { get; set; }
+
+        [JsonPropertyName("numVersiones")]
+        public int NumVersiones { get; set; }
+
+        [JsonPropertyName("datetime")]
+        public DateTime Fecha { get; set; }
+
+        public List<Instruccion> Instrucciones { get; set; }
+
+        public Vuelo()
+        {
+            ID = ObjectId.GenerateNewId().ToString();
+            NameTag = $"Ruta_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}";
+            NumVersiones = 1;
+            Fecha = DateTime.Now;
+            Instrucciones = new List<Instruccion>();
+        }
+
+        public override string ToString()
+        {
+            return $"{NameTag} - {Instrucciones.Count} instrucciones - {Fecha:yyyy-MM-dd HH:mm:ss}";
+        }
+    }
+
+    public class DroneAPIService
+    {
+        private HttpClient _httpClient;
+        private string _apiBaseUrl = "http://dronseetac.upc.edu:8104/api";
+
+        public DroneAPIService(string apiBaseUrl = "http://dronseetac.upc.edu:8104/api")
+        {
+            _apiBaseUrl = apiBaseUrl;
+            _httpClient = new HttpClient();
+        }
+
+        public async Task<List<Vuelo>> ObtenerTodosVuelosAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"{_apiBaseUrl}/vuelo?page=1&limit=100");
+                response.EnsureSuccessStatusCode();
+
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var vuelos = new List<Vuelo>();
+
+                using (JsonDocument doc = JsonDocument.Parse(responseContent))
+                {
+                    JsonElement elementoParaProcesar = doc.RootElement;
+
+                    if (doc.RootElement.ValueKind == JsonValueKind.Object &&
+                        doc.RootElement.TryGetProperty("data", out var dataProp))
+                    {
+                        elementoParaProcesar = dataProp;
+                    }
+
+                    foreach (var item in elementoParaProcesar.EnumerateArray())
+                    {
+                        var vuelo = JsonSerializer.Deserialize<Vuelo>(item.GetRawText(), options);
+
+                        if (string.IsNullOrEmpty(vuelo.ID))
+                        {
+                            if (item.TryGetProperty("_id", out var idProp))
+                                vuelo.ID = idProp.GetString();
+                            else if (item.TryGetProperty("id", out var idProp2))
+                                vuelo.ID = idProp2.GetString();
+                        }
+
+                        vuelos.Add(vuelo);
+                    }
+                }
+
+                return vuelos;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error obteniendo vuelos: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<List<Instruccion>> ObtenerInstruccionesVueloAsync(string idVuelo)
+        {
+            try
+            {
+                var todasInstrucciones = new List<Instruccion>();
+                int page = 1;
+                int limit = 100;
+                bool hayMas = true;
+
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+                while (hayMas)
+                {
+                    var response = await _httpClient.GetAsync(
+                        $"{_apiBaseUrl}/instruccion?page={page}&limit={limit}");
+                    response.EnsureSuccessStatusCode();
+
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var instruccionesPagina = new List<Instruccion>();
+
+                    using (JsonDocument doc = JsonDocument.Parse(responseContent))
+                    {
+                        JsonElement arrayElement = doc.RootElement;
+
+                        if (doc.RootElement.ValueKind == JsonValueKind.Object &&
+                            doc.RootElement.TryGetProperty("data", out var dataProp))
+                        {
+                            arrayElement = dataProp;
+                        }
+
+                        if (arrayElement.ValueKind != JsonValueKind.Array)
+                            break;
+
+                        foreach (var item in arrayElement.EnumerateArray())
+                        {
+                            var instr = JsonSerializer.Deserialize<Instruccion>(item.GetRawText(), options);
+                            if (instr != null)
+                                instruccionesPagina.Add(instr);
+                        }
+                    }
+
+                    // Filtrar las que pertenecen a este vuelo
+                    var delVuelo = instruccionesPagina
+                        .Where(i => i.ID_Vuelo == idVuelo)
+                        .ToList();
+
+                    todasInstrucciones.AddRange(delVuelo);
+
+                    hayMas = instruccionesPagina.Count == limit;
+                    page++;
+                }
+
+                // Ordenar por trail para recuperar el orden original
+                return todasInstrucciones
+                    .OrderBy(i => i.Trail)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error obteniendo instrucciones: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<Vuelo> CargarRutaAsync(string vueloId)
+        {
+            try
+            {
+                var vuelo = new Vuelo { ID = vueloId };
+                vuelo.Instrucciones = await ObtenerInstruccionesVueloAsync(vueloId);
+                return vuelo;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error cargando ruta: {ex.Message}");
+                throw;
+            }
+        }
+    }
+}

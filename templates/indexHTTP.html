@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+    .boton {
+        font-size: 18px;
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    .boton-verde { background-color: #4CAF50; }
+    .boton-amarillo { background-color: #FFD700; }
+
+    .direction {
+        display: grid;
+        grid-template-rows: 100px 100px 100px;
+        grid-template-columns: 100px 100px 100px;
+        text-align: center;
+        width:80%;
+        margin: 20px auto;
+    }
+
+    .box {
+        background: #444;
+        border: 1px solid #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: yellowgreen;
+        font-size: 18px;
+        margin: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container mt-3">
+
+        <!-- Botón Conectar -->
+        <button id="botonConectar" class="boton" onclick="conectarDron()">Conectar con Dron</button>
+
+        <!-- Altura + despegar -->
+        <input type="number" id="altura" class="form-control mb-2" placeholder="Altura en metros">
+        <button id="botonDespegar" class="boton" onclick="despegarDron()">Despegar</button>
+
+        <!-- Botón Aterrizar -->
+        <button id="botonAterrizar" class="boton" onclick="aterrizarDron()">Aterrizar Dron</button>
+        <!-- Botón RTL -->
+        <button id="botonRtl" class="boton" onclick="rtlDron()">Return to Launch (RTL)</button>
+
+        <!-- Botones de dirección -->
+        <div class="direction">
+            <div onclick="moverDron('NorthWest')" class="box">NW</div>
+            <div onclick="moverDron('North')" class="box">N</div>
+            <div onclick="moverDron('NorthEast')" class="box">NE</div>
+            <div onclick="moverDron('West')" class="box">W</div>
+            <div onclick="moverDron('Stop')" class="box">Stop</div>
+            <div onclick="moverDron('East')" class="box">E</div>
+            <div onclick="moverDron('SouthWest')" class="box">SW</div>
+            <div onclick="moverDron('South')" class="box">S</div>
+            <div onclick="moverDron('SouthEast')" class="box">SE</div>
+        </div>
+
+        <!-- Altitud -->
+        <div id="telemetriaDiv" style="font-size: 24px; text-align: center; width:100%; margin-top: 20px;">
+            <p><strong>Altitud:</strong> <span id="altitudValor">0</span> m</p>
+        </div>
+
+    </div>
+
+<script>
+
+// ------------------------------------
+// FUNCIONES HTTP CLIENT → SERVIDOR
+// ------------------------------------
+
+function post(url, body = {}) {
+    return fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+    });
+}
+
+function conectarDron() {
+    post("/connect")
+        .then(() => post("/startTelemetry"))
+        .then(() => document.getElementById('botonConectar').classList.add('boton-verde'));
+}
+
+function despegarDron() {
+    const altura = document.getElementById('altura').value;
+    if (!altura) {
+        alert("Ingresa una altura válida");
+        return;
+    }
+
+    post("/takeoff", { altura })
+        .then(() => {
+            document.getElementById('botonDespegar').classList.add('boton-amarillo');
+        });
+}
+
+function aterrizarDron() {
+    post("/land")
+        .then(() => {
+            document.getElementById('botonAterrizar').classList.add('boton-amarillo');
+        });
+}
+
+function rtlDron() {
+    post("/rtl")
+        .then(() => {
+            // Añadimos la clase amarilla al hacer clic
+            document.getElementById('botonRtl').classList.add('boton-amarillo');
+        });
+}
+function moverDron(dir) {
+    post("/move", { direction: dir });
+}
+
+// ------------------------------------
+// TELEMETRÍA (Polling cada 500ms)
+// ------------------------------------
+
+setInterval(() => {
+    fetch("/telemetry")
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById("altitudValor").innerText = data.alt.toFixed(2);
+            const estado = data.state;
+
+            if (estado === "flying") {
+                const botonDespegar = document.getElementById('botonDespegar');
+                botonDespegar.classList.remove('boton-amarillo');
+                botonDespegar.classList.add('boton-verde');
+            }
+
+            const botonAterrizar = document.getElementById('botonAterrizar');
+            if (botonAterrizar.classList.contains('boton-amarillo') && estado === "connected") {
+                botonAterrizar.classList.remove('boton-amarillo');
+                botonAterrizar.classList.add('boton-verde');
+            }
+
+            const botonRtl = document.getElementById('botonRtl');
+            if (botonRtl.classList.contains('boton-amarillo') && estado === "connected") {
+                botonRtl.classList.remove('boton-amarillo');
+                botonRtl.classList.add('boton-verde');
+            }
+
+        })
+        .catch(() => {});
+}, 500);
+
+</script>
+
+</body>
+</html>
+
