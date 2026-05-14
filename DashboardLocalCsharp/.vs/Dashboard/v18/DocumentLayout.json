@@ -1,33 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\",
+  "WorkspaceRootPath": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|c:\\users\\elies\\desktop\\v4_aleix\\v4_aleix\\dashboardlocalcsharp\\formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|c:\\users\\elies\\desktop\\v4_aleix\\v4_aleix\\dashboardlocalcsharp\\formulario\\nombvueloform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\nombvueloform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|c:\\users\\aleix\\desktop\\v4_fusion\\v4_aleix\\dashboardlocalcsharp\\formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\formulario\\mapmarkers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\nombvueloform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\nombvueloform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\mapmarkers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\mapmarkers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|c:\\users\\elies\\desktop\\v4_aleix\\v4_aleix\\dashboardlocalcsharp\\formulario\\droneapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\droneapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\droneapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|c:\\users\\elies\\desktop\\v4_aleix\\v4_aleix\\dashboardlocalcsharp\\formulario\\previewform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\previewform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\previewform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\formulario\\galleryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\galleryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\galleryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,98 +38,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NombVueloForm.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
+              "RelativeDocumentMoniker": "Formulario\\NombVueloForm.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
+              "RelativeToolTip": "Formulario\\NombVueloForm.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T11:42:09.771Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NombVueloForm.cs",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
-              "RelativeDocumentMoniker": "Formulario\\NombVueloForm.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
-              "RelativeToolTip": "Formulario\\NombVueloForm.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:42:09.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeDocumentMoniker": "Formulario\\Form1.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs [Design]",
-              "RelativeToolTip": "Formulario\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Formulario\\Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T10:31:47.036Z",
-              "EditorCaption": " [Design]"
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "PreviewForm.cs",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\PreviewForm.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\PreviewForm.cs",
               "RelativeDocumentMoniker": "Formulario\\PreviewForm.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\PreviewForm.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\PreviewForm.cs",
               "RelativeToolTip": "Formulario\\PreviewForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:40:15.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T11:40:15.276Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "DroneAPIService.cs",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\DroneAPIService.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\DroneAPIService.cs",
               "RelativeDocumentMoniker": "Formulario\\DroneAPIService.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\DroneAPIService.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\DroneAPIService.cs",
               "RelativeToolTip": "Formulario\\DroneAPIService.cs",
-              "ViewState": "AgIAAAACAAAAAAAAAAAYwAcCAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAKYCAAAAAAAAAIBJwAcCAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:38:34.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T11:38:34.655Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "MapMarkers.cs",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\MapMarkers.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\MapMarkers.cs",
               "RelativeDocumentMoniker": "Formulario\\MapMarkers.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\MapMarkers.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\MapMarkers.cs",
               "RelativeToolTip": "Formulario\\MapMarkers.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAUwD0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-24T16:54:23.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-24T16:54:23.692Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "GalleryForm.cs",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\GalleryForm.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\GalleryForm.cs",
               "RelativeDocumentMoniker": "Formulario\\GalleryForm.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\GalleryForm.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\GalleryForm.cs",
               "RelativeToolTip": "Formulario\\GalleryForm.cs",
               "ViewState": "AgIAAIQAAAAAAAAAAAAqwJgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T11:30:58.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T11:30:58.044Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeDocumentMoniker": "Formulario\\Form1.cs",
-              "ToolTip": "C:\\Users\\elies\\Desktop\\V4_aleix\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeToolTip": "Formulario\\Form1.cs",
-              "ViewState": "AgIAAHwHAAAAAAAAAAAAwIsHAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAD8KAAAAAAAAAAAuwE8KAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T08:09:28.674Z",
               "EditorCaption": ""

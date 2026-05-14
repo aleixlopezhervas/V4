@@ -106,6 +106,20 @@ namespace Formulario
         private bool bdIsPaused = false;
         private System.Windows.Forms.Timer bdWaypointTimer;
 
+        // Variables para grabación de video durante BD flight
+        private bool bdVideoRecording = false;
+        private string bdVideoFilePath;
+        private System.Windows.Forms.Timer bdVideoFrameTimer;
+        private System.IO.BinaryWriter bdVideoWriter;
+        private List<byte[]> bdVideoFrames = new List<byte[]>();
+
+        // Variables para preview en vivo de grabación
+        private PictureBox bdVideoPreview;
+        private System.Windows.Forms.Timer bdVideoPreviewTimer;
+        private Label bdRecordingStatusLabel;
+        private Button bdOpenFolderBtn;
+        private int bdFramesCaptured = 0;
+
         // Variables de paginación para vuelos
         private int flightPageIndex = 0;
         private const int VUELOS_POR_PAGINA = 10;
@@ -1077,6 +1091,118 @@ namespace Formulario
             bdGmap.Overlays.Add(bdWaypointsOverlay);
             bdDroneOverlay = new GMapOverlay("bd_drone");
             bdGmap.Overlays.Add(bdDroneOverlay);
+
+            // Crear controles para preview de video
+            CrearControlesPreviewVideo();
+        }
+
+        private void CrearControlesPreviewVideo()
+        {
+            // Panel para albergar los controles de video (debajo del mapa)
+            Panel bdVideoPanel = new Panel
+            {
+                Location = new Point(260, 360),
+                Size = new Size(760, 210),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.Black
+            };
+
+            // PictureBox para preview en vivo
+            bdVideoPreview = new PictureBox
+            {
+                Location = new Point(0, 0),
+                Size = new Size(760, 160),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.Black,
+                BorderStyle = BorderStyle.None,
+                Dock = DockStyle.Top
+            };
+            bdVideoPanel.Controls.Add(bdVideoPreview);
+
+            // Label para estado de grabación
+            bdRecordingStatusLabel = new Label
+            {
+                Location = new Point(5, 165),
+                Size = new Size(750, 20),
+                AutoSize = false,
+                Text = "Esperando grabación...",
+                ForeColor = Color.Gray,
+                BackColor = Color.Black,
+                Font = new Font("Arial", 9, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+            bdVideoPanel.Controls.Add(bdRecordingStatusLabel);
+
+            // Botón para abrir carpeta
+            bdOpenFolderBtn = new Button
+            {
+                Location = new Point(700, 165),
+                Size = new Size(55, 20),
+                Text = "📁 Abrir",
+                Font = new Font("Arial", 7, FontStyle.Bold),
+                BackColor = Color.DodgerBlue,
+                ForeColor = Color.White,
+                Cursor = Cursors.Hand
+            };
+            bdOpenFolderBtn.Click += BdOpenFolderBtn_Click;
+            bdOpenFolderBtn.Enabled = false;
+            bdVideoPanel.Controls.Add(bdOpenFolderBtn);
+
+            // Añadir el panel a la pestaña
+            TabPage bdTab = this.Controls.Find("tabPageLoadBD", true).FirstOrDefault() as TabPage;
+            if (bdTab != null)
+            {
+                bdTab.Controls.Add(bdVideoPanel);
+            }
+
+            // Inicializar timer para preview
+            bdVideoPreviewTimer = new System.Windows.Forms.Timer();
+            bdVideoPreviewTimer.Interval = 66; // 15 FPS
+            bdVideoPreviewTimer.Tick += BdVideoPreviewTimer_Tick;
+        }
+
+        private void BdVideoPreviewTimer_Tick(object sender, EventArgs e)
+        {
+            if (!bdVideoRecording) return;
+
+            byte[] jpeg;
+            lock (jpegLock)
+            {
+                if (latestJpegBytes == null) return;
+                jpeg = new byte[latestJpegBytes.Length];
+                Array.Copy(latestJpegBytes, jpeg, latestJpegBytes.Length);
+            }
+
+            if (jpeg != null && jpeg.Length > 0)
+            {
+                try
+                {
+                    using (var ms = new System.IO.MemoryStream(jpeg))
+                    {
+                        var img = new Bitmap(Image.FromStream(ms));
+                        var old = bdVideoPreview.Image;
+                        bdVideoPreview.Image = img;
+                        old?.Dispose();
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private void BdOpenFolderBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(bdVideoFilePath))
+                {
+                    string folderPath = System.IO.Path.GetDirectoryName(bdVideoFilePath);
+                    System.Diagnostics.Process.Start(folderPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al abrir carpeta: {ex.Message}", "Error");
+            }
         }
 
         private async Task CargarListaVuelos()
@@ -1310,6 +1436,9 @@ namespace Formulario
             pauseResumeBDBtn.Enabled = true;
             pauseResumeBDBtn.Text = "Pausar Vuelo";
 
+            // Iniciar grabación de video
+            IniciarGrabacionVideoBD();
+
             if (bdWaypointTimer == null)
             {
                 bdWaypointTimer = new System.Windows.Forms.Timer();
@@ -1320,6 +1449,7 @@ namespace Formulario
 
             Console.WriteLine($"[BD FLIGHT START] Iniciando vuelo con {bdWaypoints.Count} waypoints");
             Console.WriteLine($"[TELEMETRIA ACTUAL] Lat={currentLatDeg:F8}, Lon={currentLonDeg:F8}, Alt={currentAlt:F2}m");
+            Console.WriteLine($"[VIDEO GRABANDO] Archivo: {bdVideoFilePath}");
 
             var wp = bdWaypoints[bdCurrentWaypointIndex];
             ThreadPool.QueueUserWorkItem(_ =>
@@ -1338,11 +1468,228 @@ namespace Formulario
             });
         }
 
+        private void IniciarGrabacionVideoBD()
+        {
+            try
+            {
+                // Crear archivo en Desktop (visible y accesible)
+                string videoFolder = System.IO.Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "DroneVideos");
+                System.IO.Directory.CreateDirectory(videoFolder);
+
+                bdVideoFilePath = System.IO.Path.Combine(
+                    videoFolder,
+                    $"bd_flight_{DateTime.Now:yyyyMMdd_HHmmss}.mp4"
+                );
+
+                bdVideoRecording = true;
+                bdVideoFrames.Clear();
+                bdFramesCaptured = 0;
+
+                // Iniciar timer para capturar frames
+                if (bdVideoFrameTimer == null)
+                {
+                    bdVideoFrameTimer = new System.Windows.Forms.Timer();
+                    bdVideoFrameTimer.Interval = 100; // Capturar 10 fps
+                    bdVideoFrameTimer.Tick += BdVideoFrameTimer_Tick;
+                }
+                bdVideoFrameTimer.Start();
+
+                // Iniciar timer para mostrar preview en vivo
+                if (bdVideoPreviewTimer != null)
+                    bdVideoPreviewTimer.Start();
+
+                // Actualizar UI
+                if (bdRecordingStatusLabel != null)
+                {
+                    bdRecordingStatusLabel.Text = $"🔴 GRABANDO: {System.IO.Path.GetFileName(bdVideoFilePath)}";
+                    bdRecordingStatusLabel.ForeColor = Color.Red;
+                }
+
+                if (bdOpenFolderBtn != null)
+                {
+                    bdOpenFolderBtn.Enabled = true;
+                }
+
+                // Mostrar indicador visual de grabación
+                MostrarIndicadorGrabacion(true, bdVideoFilePath);
+                Console.WriteLine($"[VIDEO] Iniciada grabación en: {bdVideoFilePath}");
+                Console.WriteLine($"[VIDEO] Preview iniciado - {bdRecordingStatusLabel?.Text}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR VIDEO] No se pudo iniciar grabación: {ex.Message}");
+                bdVideoRecording = false;
+                MostrarIndicadorGrabacion(false, "");
+            }
+        }
+
+        private void MostrarIndicadorGrabacion(bool grabando, string rutaArchivo)
+        {
+            try
+            {
+                // Buscar o crear label para mostrar estado
+                Label lblGrabando = this.Controls.Find("lblGrabando", true).FirstOrDefault() as Label;
+
+                if (lblGrabando == null)
+                {
+                    // Si no existe, crearlo dinámicamente cerca del botón de iniciar
+                    lblGrabando = new Label
+                    {
+                        Name = "lblGrabando",
+                        AutoSize = true,
+                        Font = new Font("Arial", 11, FontStyle.Bold),
+                        ForeColor = Color.Red
+                    };
+                    this.Controls.Add(lblGrabando);
+                    lblGrabando.BringToFront();
+                }
+
+                if (grabando)
+                {
+                    lblGrabando.Text = $"🔴 GRABANDO: {System.IO.Path.GetFileName(rutaArchivo)}";
+                    lblGrabando.ForeColor = Color.Red;
+                    lblGrabando.Visible = true;
+                }
+                else
+                {
+                    lblGrabando.Text = "";
+                    lblGrabando.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] No se pudo mostrar indicador: {ex.Message}");
+            }
+        }
+
+        private void BdVideoFrameTimer_Tick(object sender, EventArgs e)
+        {
+            if (!bdVideoRecording) return;
+
+            byte[] jpeg;
+            lock (jpegLock)
+            {
+                if (latestJpegBytes == null) return;
+                jpeg = new byte[latestJpegBytes.Length];
+                Array.Copy(latestJpegBytes, jpeg, latestJpegBytes.Length);
+            }
+
+            if (jpeg != null && jpeg.Length > 0)
+            {
+                bdVideoFrames.Add(jpeg);
+                bdFramesCaptured++;
+
+                // Actualizar estado cada 10 frames
+                if (bdFramesCaptured % 10 == 0)
+                {
+                    if (bdRecordingStatusLabel != null)
+                    {
+                        long sizeBytes = bdVideoFrames.Sum(f => f.Length);
+                        bdRecordingStatusLabel.Text = $"🔴 GRABANDO: {System.IO.Path.GetFileName(bdVideoFilePath)} | {bdFramesCaptured} frames | {sizeBytes / 1024} KB";
+                        bdRecordingStatusLabel.ForeColor = Color.Red;
+                    }
+                }
+            }
+        }
+
+        private async Task DetenerGrabacionVideoBD(string instruccionId)
+        {
+            try
+            {
+                bdVideoRecording = false;
+                if (bdVideoFrameTimer != null)
+                    bdVideoFrameTimer.Stop();
+                if (bdVideoPreviewTimer != null)
+                    bdVideoPreviewTimer.Stop();
+
+                long totalSizeBytes = bdVideoFrames.Sum(f => f.Length);
+                Console.WriteLine($"[VIDEO] Grabación detenida. {bdVideoFrames.Count} frames capturados | {totalSizeBytes / 1024} KB");
+
+                if (bdVideoFrames.Count > 0)
+                {
+                    // Guardar video como archivo MP4 simple (concatenación de JPEGs)
+                    GuardarVideoDesdeFrames(bdVideoFilePath, bdVideoFrames);
+
+                    // Actualizar estado con resultado
+                    if (bdRecordingStatusLabel != null)
+                    {
+                        bdRecordingStatusLabel.Text = $"✓ Guardado: {bdVideoFrames.Count} frames | {totalSizeBytes / 1024} KB | Subiendo...";
+                        bdRecordingStatusLabel.ForeColor = Color.LimeGreen;
+                    }
+
+                    // Subir a Cloudinary
+                    if (droneAPIService != null && !string.IsNullOrEmpty(instruccionId))
+                    {
+                        try
+                        {
+                            Console.WriteLine($"[VIDEO] Subiendo vídeo a Cloudinary...");
+                            string urlMedia = await droneAPIService.SubirMediaAsync(bdVideoFilePath, instruccionId, "video");
+                            Console.WriteLine($"[VIDEO] Vídeo subido exitosamente: {urlMedia}");
+
+                            if (bdRecordingStatusLabel != null)
+                            {
+                                bdRecordingStatusLabel.Text = $"✓ SUBIDO: {bdVideoFrames.Count} frames | {totalSizeBytes / 1024} KB";
+                                bdRecordingStatusLabel.ForeColor = Color.LimeGreen;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"[ERROR] No se pudo subir vídeo: {ex.Message}");
+                            if (bdRecordingStatusLabel != null)
+                            {
+                                bdRecordingStatusLabel.Text = $"✓ Guardado: {bdVideoFrames.Count} frames | {totalSizeBytes / 1024} KB | (Error subida)";
+                                bdRecordingStatusLabel.ForeColor = Color.Orange;
+                            }
+                        }
+                    }
+                }
+
+                bdVideoFrames.Clear();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR VIDEO] No se pudo detener grabación: {ex.Message}");
+            }
+        }
+
+        private void GuardarVideoDesdeFrames(string filePath, List<byte[]> frames)
+        {
+            try
+            {
+                // Crear un archivo que contenga concatenados los JPEGs con marcadores
+                using (System.IO.FileStream fs = new System.IO.FileStream(filePath, System.IO.FileMode.Create))
+                {
+                    foreach (var frame in frames)
+                    {
+                        if (frame != null && frame.Length > 0)
+                        {
+                            // Escribir tamaño del frame (4 bytes)
+                            byte[] sizeBytes = System.BitConverter.GetBytes(frame.Length);
+                            fs.Write(sizeBytes, 0, 4);
+                            // Escribir frame
+                            fs.Write(frame, 0, frame.Length);
+                        }
+                    }
+                }
+
+                Console.WriteLine($"[VIDEO] Archivo guardado: {filePath} ({new System.IO.FileInfo(filePath).Length / 1024}KB)");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] No se pudo guardar vídeo: {ex.Message}");
+            }
+        }
+
         private void stopBDFlightBtn_Click(object sender, EventArgs e)
         {
             bdIsFlying = false;
             bdIsPaused = false;
             bdWaypointTimer?.Stop();
+            bdVideoFrameTimer?.Stop();
+            if (bdVideoPreviewTimer != null)
+                bdVideoPreviewTimer.Stop();
+
             dron.Navegar("Stop");
 
             startBDFlightBtn.Enabled = true;
@@ -1356,6 +1703,13 @@ namespace Formulario
             bdDroneOverlay.Markers.Clear();
             bdTraceOverlay.Markers.Clear();
             bdGmap.Refresh();
+
+            bdVideoRecording = false;
+            if (bdRecordingStatusLabel != null)
+            {
+                bdRecordingStatusLabel.Text = "Vuelo detenido";
+                bdRecordingStatusLabel.ForeColor = Color.Orange;
+            }
         }
 
         private void pauseResumeBDBtn_Click(object sender, EventArgs e)
@@ -1451,6 +1805,12 @@ namespace Formulario
 
                 Console.WriteLine("[BD FLIGHT COMPLETE] Vuelo completado - Todos los waypoints alcanzados");
                 MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.");
+
+                // Detener grabación de video y subirlo
+                string instruccionIdParaVideo = bdWaypoints.Count > 0 ? bdWaypoints[0].Position.ToString() : "";
+                DetenerGrabacionVideoBD(bdWaypoints[0].Position.ToString());
+
+                MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.\nVídeo guardado y en proceso de subida.");
 
                 bdTrace.Clear();
                 bdDroneOverlay.Markers.Clear();

@@ -590,5 +590,93 @@ namespace Formulario
                 throw new Exception($"Error obteniendo instrucciones versión {version}: {ex.Message}");
             }
         }
+
+        // ============ MEDIA (VIDEOS E IMÁGENES) ============
+
+        public async Task<string> SubirMediaAsync(string rutaArchivo, string instruccionId, string tipoMedia)
+        {
+            try
+            {
+                if (!System.IO.File.Exists(rutaArchivo))
+                    throw new Exception($"Archivo no encontrado: {rutaArchivo}");
+
+                using (var form = new MultipartFormDataContent())
+                {
+                    var fileBytes = System.IO.File.ReadAllBytes(rutaArchivo);
+                    var fileContent = new ByteArrayContent(fileBytes);
+                    fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(
+                        tipoMedia == "video" ? "video/mp4" : "image/jpeg"
+                    );
+
+                    form.Add(fileContent, "file", System.IO.Path.GetFileName(rutaArchivo));
+                    form.Add(new StringContent(instruccionId), "instruccionId");
+
+                    var response = await _httpClient.PostAsync($"{_apiBaseUrl}/media", form);
+                    var respContent = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Error subiendo media: {respContent}");
+
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    using (JsonDocument doc = JsonDocument.Parse(respContent))
+                    {
+                        if (doc.RootElement.TryGetProperty("url", out var urlProp))
+                            return urlProp.GetString();
+                        else if (doc.RootElement.TryGetProperty("_id", out var idProp))
+                            return idProp.GetString();
+                    }
+
+                    return respContent;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error subiendo archivo de media: {ex.Message}");
+            }
+        }
+
+        public async Task<List<string>> ObtenerMediaInstruccionAsync(string instruccionId)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"{_apiBaseUrl}/media/{instruccionId}");
+                var respContent = await response.Content.ReadAsStringAsync();
+
+                var mediaUrls = new List<string>();
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+                using (JsonDocument doc = JsonDocument.Parse(respContent))
+                {
+                    if (doc.RootElement.ValueKind == JsonValueKind.Array)
+                    {
+                        foreach (var item in doc.RootElement.EnumerateArray())
+                        {
+                            if (item.TryGetProperty("url", out var urlProp))
+                                mediaUrls.Add(urlProp.GetString());
+                        }
+                    }
+                }
+
+                return mediaUrls;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error obteniendo media: {ex.Message}");
+            }
+        }
+
+        public async Task<bool> EliminarMediaAsync(string publicId)
+        {
+            try
+            {
+                var encodedPublicId = System.Uri.EscapeDataString(publicId);
+                var response = await _httpClient.DeleteAsync($"{_apiBaseUrl}/media/{encodedPublicId}");
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error eliminando media: {ex.Message}");
+            }
+        }
     }
 }
