@@ -38,20 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NombVueloForm.cs",
-              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
-              "RelativeDocumentMoniker": "Formulario\\NombVueloForm.cs",
-              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
-              "RelativeToolTip": "Formulario\\NombVueloForm.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:42:09.771Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -74,8 +62,7 @@
               "RelativeToolTip": "Formulario\\PreviewForm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T11:40:15.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T11:40:15.276Z"
             },
             {
               "$type": "Document",
@@ -88,6 +75,31 @@
               "ViewState": "AgIAAGkCAAAAAAAAAIBJwAcCAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T11:38:34.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
+              "RelativeDocumentMoniker": "Formulario\\Form1.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
+              "RelativeToolTip": "Formulario\\Form1.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAqwCgLAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T08:09:28.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NombVueloForm.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
+              "RelativeDocumentMoniker": "Formulario\\NombVueloForm.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\NombVueloForm.cs",
+              "RelativeToolTip": "Formulario\\NombVueloForm.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T11:42:09.771Z"
             },
             {
               "$type": "Document",
@@ -112,19 +124,6 @@
               "ViewState": "AgIAAIQAAAAAAAAAAAAqwJgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-20T11:30:58.044Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
-              "RelativeDocumentMoniker": "Formulario\\Form1.cs",
-              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
-              "RelativeToolTip": "Formulario\\Form1.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAqwPYKAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T08:09:28.674Z",
-              "EditorCaption": ""
             }
           ]
         }

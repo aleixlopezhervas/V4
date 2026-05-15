@@ -1102,31 +1102,18 @@ namespace Formulario
 
         private void CrearControlesPreviewVideo()
         {
-            // Ajustar mapa para dar espacio abajo
-            var bdMapPanel = this.Controls.Find("bdMapPanel", true).FirstOrDefault() as Panel;
-            if (bdMapPanel != null) bdMapPanel.Size = new Size(760, 270);
-
-            // Ajustar label
+            // Ajustar tamaño de label y listbox de waypoints
             var lblWaypoints = this.Controls.Find("bdWaypointsLabel", true).FirstOrDefault() as Label;
-            if (lblWaypoints != null) 
-            {
-                lblWaypoints.Location = new Point(260, 280);
-                lblWaypoints.Size = new Size(760, 20);
-            }
+            if (lblWaypoints != null) lblWaypoints.Size = new Size(240, 20);
 
-            // Ajustar listbox
             var lstWaypoints = this.Controls.Find("bdWaypointsListBox", true).FirstOrDefault() as ListBox;
-            if (lstWaypoints != null) 
-            {
-                lstWaypoints.Location = new Point(260, 300);
-                lstWaypoints.Size = new Size(760, 60);
-            }
+            if (lstWaypoints != null) lstWaypoints.Size = new Size(240, 140);
 
-            // Panel contenedor principal de vídeos (debajo de listbox)
+            // Panel contenedor principal de vídeos (a la derecha de listbox)
             Panel bdVideoPanel = new Panel
             {
-                Location = new Point(260, 365),
-                Size = new Size(760, 170),
+                Location = new Point(510, 360),
+                Size = new Size(510, 170),
                 BorderStyle = BorderStyle.None,
                 BackColor = Color.Transparent
             };
@@ -1135,7 +1122,7 @@ namespace Formulario
             Panel boxIzquierda = new Panel
             {
                 Location = new Point(0, 0),
-                Size = new Size(375, 170),
+                Size = new Size(250, 170),
                 BorderStyle = BorderStyle.FixedSingle,
                 BackColor = Color.Black
             };
@@ -1143,7 +1130,7 @@ namespace Formulario
             bdVideoPreview = new PictureBox
             {
                 Location = new Point(0, 0),
-                Size = new Size(375, 145),
+                Size = new Size(250, 145),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.Black,
                 BorderStyle = BorderStyle.None,
@@ -1153,7 +1140,7 @@ namespace Formulario
             bdRecordingStatusLabel = new Label
             {
                 Location = new Point(2, 150),
-                Size = new Size(310, 15),
+                Size = new Size(190, 15),
                 AutoSize = false,
                 Text = "Esperando grabación...",
                 ForeColor = Color.Gray,
@@ -1165,7 +1152,7 @@ namespace Formulario
 
             bdOpenFolderBtn = new Button
             {
-                Location = new Point(320, 148),
+                Location = new Point(195, 148),
                 Size = new Size(50, 20),
                 Text = "📁",
                 Font = new Font("Arial", 7, FontStyle.Bold),
@@ -1182,8 +1169,8 @@ namespace Formulario
             // ---- CAJA DERECHA: REPRODUCCIÓN ----
             Panel boxDerecha = new Panel
             {
-                Location = new Point(385, 0),
-                Size = new Size(375, 170),
+                Location = new Point(260, 0),
+                Size = new Size(250, 170),
                 BorderStyle = BorderStyle.FixedSingle,
                 BackColor = Color.Black
             };
@@ -1191,7 +1178,7 @@ namespace Formulario
             bdVideoPlaybackBrowser = new WebBrowser
             {
                 Location = new Point(0, 0),
-                Size = new Size(375, 170),
+                Size = new Size(250, 170),
                 ScrollBarsEnabled = false,
                 ScriptErrorsSuppressed = true,
                 BackColor = Color.Black

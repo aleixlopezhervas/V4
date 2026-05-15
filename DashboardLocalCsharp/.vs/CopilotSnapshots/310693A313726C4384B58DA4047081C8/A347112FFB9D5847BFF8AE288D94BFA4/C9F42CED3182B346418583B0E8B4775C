@@ -122,7 +122,6 @@ namespace Formulario
         private long bdVideoSizeBytes = 0;
         private byte[] lastProcessedVidFrame = null;
         private string currentBdFirstInstruccionId = null;
-        private WebBrowser bdVideoPlaybackBrowser;
 
         // Variables de paginación para vuelos
         private int flightPageIndex = 0;
@@ -1102,72 +1101,47 @@ namespace Formulario
 
         private void CrearControlesPreviewVideo()
         {
-            // Ajustar mapa para dar espacio abajo
-            var bdMapPanel = this.Controls.Find("bdMapPanel", true).FirstOrDefault() as Panel;
-            if (bdMapPanel != null) bdMapPanel.Size = new Size(760, 270);
-
-            // Ajustar label
-            var lblWaypoints = this.Controls.Find("bdWaypointsLabel", true).FirstOrDefault() as Label;
-            if (lblWaypoints != null) 
-            {
-                lblWaypoints.Location = new Point(260, 280);
-                lblWaypoints.Size = new Size(760, 20);
-            }
-
-            // Ajustar listbox
-            var lstWaypoints = this.Controls.Find("bdWaypointsListBox", true).FirstOrDefault() as ListBox;
-            if (lstWaypoints != null) 
-            {
-                lstWaypoints.Location = new Point(260, 300);
-                lstWaypoints.Size = new Size(760, 60);
-            }
-
-            // Panel contenedor principal de vídeos (debajo de listbox)
+            // Panel para albergar los controles de video (debajo del mapa)
             Panel bdVideoPanel = new Panel
             {
-                Location = new Point(260, 365),
-                Size = new Size(760, 170),
-                BorderStyle = BorderStyle.None,
-                BackColor = Color.Transparent
-            };
-
-            // ---- CAJA IZQUIERDA: GRABANDO ----
-            Panel boxIzquierda = new Panel
-            {
-                Location = new Point(0, 0),
-                Size = new Size(375, 170),
+                Location = new Point(260, 360),
+                Size = new Size(760, 210),
                 BorderStyle = BorderStyle.FixedSingle,
                 BackColor = Color.Black
             };
 
+            // PictureBox para preview en vivo
             bdVideoPreview = new PictureBox
             {
                 Location = new Point(0, 0),
-                Size = new Size(375, 145),
+                Size = new Size(760, 160),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 BackColor = Color.Black,
                 BorderStyle = BorderStyle.None,
+                Dock = DockStyle.Top
             };
-            boxIzquierda.Controls.Add(bdVideoPreview);
+            bdVideoPanel.Controls.Add(bdVideoPreview);
 
+            // Label para estado de grabación
             bdRecordingStatusLabel = new Label
             {
-                Location = new Point(2, 150),
-                Size = new Size(310, 15),
+                Location = new Point(5, 165),
+                Size = new Size(750, 20),
                 AutoSize = false,
                 Text = "Esperando grabación...",
                 ForeColor = Color.Gray,
                 BackColor = Color.Black,
-                Font = new Font("Arial", 8, FontStyle.Bold),
+                Font = new Font("Arial", 9, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleLeft
             };
-            boxIzquierda.Controls.Add(bdRecordingStatusLabel);
+            bdVideoPanel.Controls.Add(bdRecordingStatusLabel);
 
+            // Botón para abrir carpeta
             bdOpenFolderBtn = new Button
             {
-                Location = new Point(320, 148),
-                Size = new Size(50, 20),
-                Text = "📁",
+                Location = new Point(700, 165),
+                Size = new Size(55, 20),
+                Text = "📁 Abrir",
                 Font = new Font("Arial", 7, FontStyle.Bold),
                 BackColor = Color.DodgerBlue,
                 ForeColor = Color.White,
@@ -1175,39 +1149,16 @@ namespace Formulario
             };
             bdOpenFolderBtn.Click += BdOpenFolderBtn_Click;
             bdOpenFolderBtn.Enabled = false;
-            boxIzquierda.Controls.Add(bdOpenFolderBtn);
+            bdVideoPanel.Controls.Add(bdOpenFolderBtn);
 
-            bdVideoPanel.Controls.Add(boxIzquierda);
-
-            // ---- CAJA DERECHA: REPRODUCCIÓN ----
-            Panel boxDerecha = new Panel
-            {
-                Location = new Point(385, 0),
-                Size = new Size(375, 170),
-                BorderStyle = BorderStyle.FixedSingle,
-                BackColor = Color.Black
-            };
-
-            bdVideoPlaybackBrowser = new WebBrowser
-            {
-                Location = new Point(0, 0),
-                Size = new Size(375, 170),
-                ScrollBarsEnabled = false,
-                ScriptErrorsSuppressed = true,
-                BackColor = Color.Black
-            };
-            boxDerecha.Controls.Add(bdVideoPlaybackBrowser);
-
-            bdVideoPanel.Controls.Add(boxDerecha);
-
-            // Añadir panel a la pestaña
+            // Añadir el panel a la pestaña
             TabPage bdTab = this.Controls.Find("tabPageLoadBD", true).FirstOrDefault() as TabPage;
             if (bdTab != null)
             {
                 bdTab.Controls.Add(bdVideoPanel);
             }
 
-            // Inicializar timer para preview en vivo (caja izquierda)
+            // Inicializar timer para preview
             bdVideoPreviewTimer = new System.Windows.Forms.Timer();
             bdVideoPreviewTimer.Interval = 66; // 15 FPS
             bdVideoPreviewTimer.Tick += BdVideoPreviewTimer_Tick;
@@ -1465,7 +1416,7 @@ namespace Formulario
 
                         if (!string.IsNullOrEmpty(videoUrl))
                         {
-                            PlayVideoInPreview(videoUrl);
+                            ShowVideoPreviewForm(videoUrl);
                         }
                     }
                     catch (Exception me)
@@ -1485,34 +1436,33 @@ namespace Formulario
             }
         }
 
-        private void PlayVideoInPreview(string urlMedia)
+        private void ShowVideoPreviewForm(string urlMedia)
         {
-            if (bdVideoPlaybackBrowser == null) return;
+            Form preview = new Form();
+            preview.Text = "Previsualización del Recorrido";
+            preview.Width = 800;
+            preview.Height = 600;
+            preview.StartPosition = FormStartPosition.CenterParent;
 
-            // Transcodificar al vuelo desde Cloudinary cambiando la extensión a mp4 soportado por IE
-            if (urlMedia.Contains("cloudinary") && (urlMedia.EndsWith(".avi") || urlMedia.EndsWith(".mjpeg")))
-            {
-                urlMedia = urlMedia.Replace(".avi", ".mp4").Replace(".mjpeg", ".mp4");
-            }
+            WebBrowser wb = new WebBrowser();
+            wb.Dock = DockStyle.Fill;
+            wb.ScriptErrorsSuppressed = true;
 
             string html = $@"
             <!DOCTYPE html>
-            <html>
+            <html style='height: 100%;'>
             <head>
                 <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-                <style>
-                    html, body {{ margin:0; padding:0; background:black; height:100%; overflow:hidden; }}
-                    .center {{ display: flex; justify-content: center; align-items: center; height: 100%; }}
-                </style>
             </head>
-            <body>
-                <div class='center'>
-                    <video src='{urlMedia}' controls autoplay style='max-width:100%; max-height:100%;'></video>
-                </div>
+            <body style='margin:0; padding:0; background:black; height:100%; display:flex; justify-content:center; align-items:center;'>
+                <video src='{urlMedia}' controls autoplay style='max-width:100%; max-height:100%; width:100%; height:100%;'></video>
             </body>
             </html>";
 
-            bdVideoPlaybackBrowser.DocumentText = html;
+            wb.DocumentText = html;
+
+            preview.Controls.Add(wb);
+            preview.ShowDialog();
         }
 
         private void startBDFlightBtn_Click(object sender, EventArgs e)
