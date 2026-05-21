@@ -1005,7 +1005,8 @@ namespace Formulario
                         {
                             dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
                             Thread.Sleep(300);
-                            dron.CambiarHeading(wp.Heading, bloquear: true);
+                            dron.CambiarHeading(wp.Heading, bloquear: false);
+                            Thread.Sleep(1000);
                         }
                         else
                         {
@@ -1095,7 +1096,8 @@ namespace Formulario
                             {
                                 dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
                                 Thread.Sleep(300);
-                                dron.CambiarHeading(currentWaypoint.Heading, bloquear: true);
+                                dron.CambiarHeading(currentWaypoint.Heading, bloquear: false);
+                                Thread.Sleep(1000);
                             }
                             else
                             {
@@ -1621,7 +1623,8 @@ namespace Formulario
                         dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
                         Thread.Sleep(300);
 
-                        dron.CambiarHeading(wp.Heading, bloquear: true);
+                        dron.CambiarHeading(wp.Heading, bloquear: false);
+                        Thread.Sleep(1000);
                     }
                     else
                     {
@@ -2169,7 +2172,8 @@ namespace Formulario
                                 dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
                                 Thread.Sleep(300);
 
-                                dron.CambiarHeading(currentWp.Heading, bloquear: true);
+                                dron.CambiarHeading(currentWp.Heading, bloquear: false);
+                                Thread.Sleep(1000); // Pequeño margen para iniciar giro
                             }
                             else
                             {

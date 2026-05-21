@@ -1001,16 +1001,10 @@ namespace Formulario
                 {
                     try
                     {
-                        if (wp.Heading != 0 && wp.Directriz != "ChangeHeading")
+                        if (wp.Heading != 0)
                         {
-                            dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
-                            Thread.Sleep(300);
-                            dron.CambiarHeading(wp.Heading, bloquear: true);
-                        }
-                        else
-                        {
-                            dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 1f) });
-                            Thread.Sleep(300);
+                            dron.CambiarHeading(wp.Heading, bloquear: false);
+                            Thread.Sleep(1000);
                         }
                         dron.IrAlPunto((float)wp.Position.Lat, (float)wp.Position.Lng, wp.Altitud);
                     }
@@ -1091,16 +1085,10 @@ namespace Formulario
                     {
                         try
                         {
-                            if (currentWaypoint.Heading != 0 && currentWaypoint.Directriz != "ChangeHeading")
+                            if (currentWaypoint.Heading != 0)
                             {
-                                dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
-                                Thread.Sleep(300);
-                                dron.CambiarHeading(currentWaypoint.Heading, bloquear: true);
-                            }
-                            else
-                            {
-                                dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 1f) });
-                                Thread.Sleep(300);
+                                dron.CambiarHeading(currentWaypoint.Heading, bloquear: false);
+                                Thread.Sleep(1000);
                             }
                             dron.IrAlPunto((float)nextWp.Position.Lat, (float)nextWp.Position.Lng, nextWp.Altitud);
                         }
@@ -1615,18 +1603,11 @@ namespace Formulario
             {
                 try
                 {
-                    if (wp.Heading != 0 && wp.Directriz != "ChangeHeading")
+                    if (wp.Heading != 0)
                     {
-                        Console.WriteLine($"[COMANDO ENVIADO] Fijando heading a {wp.Heading}° para trayecto al primer WP");
-                        dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
-                        Thread.Sleep(300);
-
-                        dron.CambiarHeading(wp.Heading, bloquear: true);
-                    }
-                    else
-                    {
-                        dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 1f) });
-                        Thread.Sleep(300);
+                        Console.WriteLine($"[COMANDO ENVIADO] CambiarHeading({wp.Heading}°) antes de avanzar al primer WP");
+                        dron.CambiarHeading(wp.Heading, bloquear: false);
+                        Thread.Sleep(1000);
                     }
                     Console.WriteLine($"[COMANDO ENVIADO] IrAlPunto(Lat={wp.Position.Lat:F8}, Lon={wp.Position.Lng:F8}, Alt={wp.Altitud}m)");
                     dron.IrAlPunto((float)wp.Position.Lat, (float)wp.Position.Lng, wp.Altitud);
@@ -2163,18 +2144,11 @@ namespace Formulario
                     {
                         try
                         {
-                            if (currentWp.Heading != 0 && currentWp.Directriz != "ChangeHeading")
+                            if (currentWp.Heading != 0)
                             {
-                                Console.WriteLine($"[COMANDO ENVIADO] Fijando heading a {currentWp.Heading}° para el trayecto hacia WP {currentIndex + 1}");
-                                dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 0f) });
-                                Thread.Sleep(300);
-
-                                dron.CambiarHeading(currentWp.Heading, bloquear: true);
-                            }
-                            else
-                            {
-                                dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 1f) });
-                                Thread.Sleep(300);
+                                Console.WriteLine($"[COMANDO ENVIADO] CambiarHeading({currentWp.Heading}°) al avanzar al WP {currentIndex + 1}");
+                                dron.CambiarHeading(currentWp.Heading, bloquear: false);
+                                Thread.Sleep(1000); // Pequeño margen para iniciar giro
                             }
 
                             Console.WriteLine($"[COMANDO ENVIADO] IrAlPunto(Lat={nextWp.Position.Lat:F8}, Lon={nextWp.Position.Lng:F8}, Alt={nextWp.Altitud}m) - Waypoint {currentIndex + 1}");
