@@ -204,27 +204,7 @@ namespace Formulario
 
         private void but_connect_Click(object sender, EventArgs e)
         {
-            // Opciones de conexión soportadas por csDronLink:
-            // dron.Conectar("produccion", "COM8"); // Para conectar por radio telemetría o USB directamente.
-            // dron.Conectar("simulacion");         // Para conectar por TCP interno a (127.0.0.1:5763).
-            // NOTA: Para usar MAVProxy y Mission Planner a la vez en COM8 ejecuta:
-            // "mavproxy --master=COM8 --baudrate 57600 --out 127.0.0.1:14550 --out 127.0.0.1:5763"
-            // y luego conéctate aquí con "simulacion" y en Mission Planner elige UDP/TCP 14550.
-
-            DialogResult res = MessageBox.Show("¿Quieres conectar por COM8? (Si haces clic en NO, conectará en modo simulación/TCP)", "Modo de conexión", MessageBoxButtons.YesNoCancel);
-            if (res == DialogResult.Yes)
-            {
-                dron.Conectar("produccion", "COM8");
-            }
-            else if (res == DialogResult.No)
-            {
-                dron.Conectar("simulacion");
-            }
-            else
-            {
-                return; // Cancelado
-            }
-
+            dron.Conectar("simulacion");
             but_connect.BackColor = Color.Green;
             but_connect.ForeColor = Color.White;
         }
@@ -241,10 +221,6 @@ namespace Formulario
             int alturaSeleccionada = AlturatrackBar.Value;
             if (alturaSeleccionada != 0)
             {
-                // Poner en modo guiado para asegurar que despega de nuevo si previamente aterrizó
-                dron.PonModoGuiado();
-                System.Threading.Thread.Sleep(300); // Esperar que procese el modo
-
                 dron.Despegar(alturaSeleccionada, bloquear: false, EnAire, "Volando");
                 despegarBtn.BackColor = Color.Yellow;
             }
@@ -362,11 +338,6 @@ namespace Formulario
         {
             int altitud = Alt_changeTrackBar.Value;
             Console.WriteLine($"Cambiando altitud a: {altitud}");
-            if (!double.IsNaN(currentLatDeg) && !double.IsNaN(currentLonDeg))
-            {
-                // Para cambiar de altitud se comanda un IrAlPunto sobre la misma coordenada
-                dron.IrAlPunto((float)currentLatDeg, (float)currentLonDeg, altitud);
-            }
         }
 
         private void AlturaLbl_Click(object sender, EventArgs e) { }

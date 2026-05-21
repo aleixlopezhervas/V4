@@ -29,6 +29,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\formulario\\galleryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F0FFC789-12F4-4D89-A2CA-AD759032DBBB}|Formulario\\Formulario.csproj|solutionrelative:formulario\\galleryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\reflect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:reflect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "reflect.cs",
+              "DocumentMoniker": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\reflect.cs",
+              "RelativeDocumentMoniker": "reflect.cs",
+              "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\reflect.cs",
+              "RelativeToolTip": "reflect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T21:33:36.711Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -84,7 +101,7 @@
               "RelativeDocumentMoniker": "Formulario\\Form1.cs",
               "ToolTip": "C:\\Users\\aleix\\Desktop\\V4_fusion\\V4_aleix\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeToolTip": "Formulario\\Form1.cs",
-              "ViewState": "AgIAAGAGAAAAAAAAAAASwMcLAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAowOQLAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T08:09:28.674Z",
               "EditorCaption": ""
