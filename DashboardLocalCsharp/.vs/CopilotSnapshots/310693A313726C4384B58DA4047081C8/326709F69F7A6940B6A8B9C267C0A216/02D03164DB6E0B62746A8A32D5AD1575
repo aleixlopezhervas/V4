@@ -87,7 +87,7 @@ namespace Formulario
         private bool isFlying = false;
         private bool isFlightPaused = false;
         private System.Windows.Forms.Timer waypointTimer;
-        private const double WAYPOINT_ARRIVAL_THRESHOLD = 0.00004; // Aprox 4.5 metros
+        private const double WAYPOINT_ARRIVAL_THRESHOLD = 0.000005;
         private const float FLIGHT_ALTITUDE = 5f;
 
         // Variables para vuelo desde base de datos
