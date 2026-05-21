@@ -2160,9 +2160,7 @@ namespace Formulario
                 switch (wp.Directriz)
                 {
                     case "TakePhoto":
-                        TomarFoto(false); // Toma la foto guardándola silenciosamente
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(2); // Detiene el dron 2 segundos para estabilizarse y no saltar al siguiente WP
+                        captureBtn_Click(null, null);
                         break;
                     case "StartVideoRecording":
                         if (!bdVideoRecording) IniciarGrabacionVideoBD();

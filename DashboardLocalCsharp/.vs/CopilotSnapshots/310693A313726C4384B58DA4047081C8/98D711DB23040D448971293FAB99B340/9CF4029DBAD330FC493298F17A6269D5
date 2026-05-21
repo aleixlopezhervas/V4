@@ -66,7 +66,6 @@ namespace Formulario
             public float Altitud { get; set; }
             public float Heading { get; set; }
             public string Directriz { get; set; }
-            public string InstruccionId { get; set; }
 
             public WaypointData(double lat, double lon, float altitud, float heading = 0, string directriz = "None")
             {
@@ -74,7 +73,6 @@ namespace Formulario
                 Altitud = altitud;
                 Heading = heading;
                 Directriz = directriz ?? "None";
-                InstruccionId = null;
             }
         }
 
@@ -109,11 +107,6 @@ namespace Formulario
         private bool bdIsFlying = false;
         private bool bdIsPaused = false;
         private System.Windows.Forms.Timer bdWaypointTimer;
-
-        // Estado de ejecución de directrices en BD flight
-        private bool bdDirectrizEjecutada = false;
-        private bool isBdWaiting = false;
-        private DateTime bdWaitEndTime = DateTime.MinValue;
 
         // Variables para grabación de video durante BD flight
         private bool bdVideoRecording = false;
@@ -772,22 +765,12 @@ namespace Formulario
 
         private void captureBtn_Click(object sender, EventArgs e)
         {
-            TomarFoto(true);
-        }
-
-        private void TomarFoto(bool mostrarMensaje)
-        {
             byte[] jpeg;
             lock (jpegLock) jpeg = latestJpegBytes;
 
-            Image imagenActiva = videoPictureBox?.Image;
-            if (imagenActiva == null && bdVideoPreview != null)
-                imagenActiva = bdVideoPreview.Image;
-
-            if (jpeg == null && imagenActiva == null)
+            if (jpeg == null && videoPictureBox.Image == null)
             {
-                if (mostrarMensaje) MessageBox.Show("No hay stream de video activo.");
-                else Console.WriteLine("[AVISO] Foto fallida: no hay stream de video activo.");
+                MessageBox.Show("No hay stream de video activo.");
                 return;
             }
 
@@ -795,33 +778,22 @@ namespace Formulario
             string filename = $"drone_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
             string path = System.IO.Path.Combine(photosFolder, filename);
 
-            try
+            if (jpeg != null)
             {
-                if (jpeg != null)
+                File.WriteAllBytes(path, jpeg);
+            }
+            else
+            {
+                using (Bitmap bmp = new Bitmap(videoPictureBox.Image.Width, videoPictureBox.Image.Height))
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    File.WriteAllBytes(path, jpeg);
+                    g.DrawImage(videoPictureBox.Image, 0, 0);
+                    bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
                 }
-                else
-                {
-                    lock (imagenActiva)
-                    {
-                        using (Bitmap bmp = new Bitmap(imagenActiva.Width, imagenActiva.Height))
-                        using (Graphics g = Graphics.FromImage(bmp))
-                        {
-                            g.DrawImage(imagenActiva, 0, 0);
-                            bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        }
-                    }
-                }
+            }
 
-                capturedPhotoPaths.Add(path);
-                if (mostrarMensaje) MessageBox.Show($"Foto guardada en:\n{path}");
-                else Console.WriteLine($"[ÉXITO] Foto automática guardada en: {path}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[ERROR] Guardando foto: {ex.Message}");
-            }
+            capturedPhotoPaths.Add(path);
+            MessageBox.Show($"Foto guardada: {filename}");
         }
 
         private void galleryBtn_Click(object sender, EventArgs e)
@@ -1562,8 +1534,6 @@ namespace Formulario
             bdIsFlying = true;
             bdIsPaused = false;
             bdCurrentWaypointIndex = 0;
-            bdDirectrizEjecutada = false;
-            isBdWaiting = false;
             bdTrace.Clear();
             bdDroneOverlay.Markers.Clear();
             bdTraceOverlay.Markers.Clear();
@@ -2103,22 +2073,8 @@ namespace Formulario
 
             if (dLat < WAYPOINT_ARRIVAL_THRESHOLD && dLon < WAYPOINT_ARRIVAL_THRESHOLD)
             {
-                if (!bdDirectrizEjecutada && currentWp.Directriz != "None")
-                {
-                    EjecutarDirectrizWaypointBD(currentWp);
-                    bdDirectrizEjecutada = true;
-                }
-
-                if (isBdWaiting)
-                {
-                    if (DateTime.Now < bdWaitEndTime) return;
-                    isBdWaiting = false; // Fin de la espera
-                }
-
                 Console.WriteLine($"[WAYPOINT {bdCurrentWaypointIndex + 1} REACHED] ✓ Llegamos al waypoint");
                 bdCurrentWaypointIndex++;
-                bdDirectrizEjecutada = false; // Preparar para el siguiente waypoint
-
                 if (bdCurrentWaypointIndex < bdWaypoints.Count)
                 {
                     var nextWp = bdWaypoints[bdCurrentWaypointIndex];
@@ -2147,64 +2103,6 @@ namespace Formulario
             }
 
             bdGmap.Refresh();
-        }
-
-        private void EjecutarDirectrizWaypointBD(WaypointData wp)
-        {
-            if (string.IsNullOrEmpty(wp.Directriz) || wp.Directriz == "None") return;
-
-            Console.WriteLine($"[DIRECTRIZ] Ejecutando {wp.Directriz} en Waypoint");
-
-            try
-            {
-                switch (wp.Directriz)
-                {
-                    case "TakePhoto":
-                        TomarFoto(false); // Toma la foto guardándola silenciosamente
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(2); // Detiene el dron 2 segundos para estabilizarse y no saltar al siguiente WP
-                        break;
-                    case "StartVideoRecording":
-                        if (!bdVideoRecording) IniciarGrabacionVideoBD();
-                        break;
-                    case "StopVideoRecording":
-                        if (bdVideoRecording)
-                        {
-                             Task.Run(() => DetenerGrabacionVideoBD(wp.InstruccionId ?? currentBdFirstInstruccionId));
-                        }
-                        break;
-                    case "ChangeAltitude":
-                        dron.IrAlPunto((float)currentLatDeg, (float)currentLonDeg, wp.Altitud);
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(3); // Dar tiempo al dron para ajustar altitud
-                        break;
-                    case "ChangeHeading":
-                        dron.CambiarHeading(wp.Heading, bloquear: false);
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(3); // Dar tiempo al dron para rotar
-                        break;
-                    case "Hover":
-                        dron.Navegar("Stop");
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(5); // Mantener 5 segundos
-                        break;
-                    case "Wait":
-                        dron.Navegar("Stop");
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(5); // Esperar 5 segundos
-                        break;
-                    case "ReturnToHome":
-                        RTLBtn_Click(null, null);
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddHours(1); // Detiene efectivamente la secuencia de waypoints
-                        stopBDFlightBtn_Click(null, null);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[ERROR DIRECTRIZ] {ex.Message}");
-            }
         }
 
         // =========================================================

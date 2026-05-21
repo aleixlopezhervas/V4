@@ -772,22 +772,12 @@ namespace Formulario
 
         private void captureBtn_Click(object sender, EventArgs e)
         {
-            TomarFoto(true);
-        }
-
-        private void TomarFoto(bool mostrarMensaje)
-        {
             byte[] jpeg;
             lock (jpegLock) jpeg = latestJpegBytes;
 
-            Image imagenActiva = videoPictureBox?.Image;
-            if (imagenActiva == null && bdVideoPreview != null)
-                imagenActiva = bdVideoPreview.Image;
-
-            if (jpeg == null && imagenActiva == null)
+            if (jpeg == null && videoPictureBox.Image == null)
             {
-                if (mostrarMensaje) MessageBox.Show("No hay stream de video activo.");
-                else Console.WriteLine("[AVISO] Foto fallida: no hay stream de video activo.");
+                MessageBox.Show("No hay stream de video activo.");
                 return;
             }
 
@@ -795,33 +785,22 @@ namespace Formulario
             string filename = $"drone_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
             string path = System.IO.Path.Combine(photosFolder, filename);
 
-            try
+            if (jpeg != null)
             {
-                if (jpeg != null)
+                File.WriteAllBytes(path, jpeg);
+            }
+            else
+            {
+                using (Bitmap bmp = new Bitmap(videoPictureBox.Image.Width, videoPictureBox.Image.Height))
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    File.WriteAllBytes(path, jpeg);
+                    g.DrawImage(videoPictureBox.Image, 0, 0);
+                    bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
                 }
-                else
-                {
-                    lock (imagenActiva)
-                    {
-                        using (Bitmap bmp = new Bitmap(imagenActiva.Width, imagenActiva.Height))
-                        using (Graphics g = Graphics.FromImage(bmp))
-                        {
-                            g.DrawImage(imagenActiva, 0, 0);
-                            bmp.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        }
-                    }
-                }
+            }
 
-                capturedPhotoPaths.Add(path);
-                if (mostrarMensaje) MessageBox.Show($"Foto guardada en:\n{path}");
-                else Console.WriteLine($"[ÉXITO] Foto automática guardada en: {path}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[ERROR] Guardando foto: {ex.Message}");
-            }
+            capturedPhotoPaths.Add(path);
+            MessageBox.Show($"Foto guardada: {filename}");
         }
 
         private void galleryBtn_Click(object sender, EventArgs e)
@@ -2160,9 +2139,7 @@ namespace Formulario
                 switch (wp.Directriz)
                 {
                     case "TakePhoto":
-                        TomarFoto(false); // Toma la foto guardándola silenciosamente
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(2); // Detiene el dron 2 segundos para estabilizarse y no saltar al siguiente WP
+                        captureBtn_Click(null, null);
                         break;
                     case "StartVideoRecording":
                         if (!bdVideoRecording) IniciarGrabacionVideoBD();
