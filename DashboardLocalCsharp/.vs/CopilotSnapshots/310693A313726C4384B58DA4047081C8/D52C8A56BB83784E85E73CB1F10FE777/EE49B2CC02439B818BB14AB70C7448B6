@@ -1624,13 +1624,8 @@ namespace Formulario
             pauseResumeBDBtn.Enabled = true;
             pauseResumeBDBtn.Text = "Pausar Vuelo";
 
-            // Iniciar grabación de video automáticamente si no hay directrices explícitas de video
-            bool hasVideoDirectives = bdWaypoints.Any(w => w.Directriz == "StartVideoRecording" || w.Directriz == "StopVideoRecording");
-            if (!hasVideoDirectives)
-            {
-                Console.WriteLine("[INFO] No se encontraron directrices de video. Grabando vuelo completo por defecto.");
-                IniciarGrabacionVideoBD();
-            }
+            // Iniciar grabación de video
+            IniciarGrabacionVideoBD();
 
             if (bdWaypointTimer == null)
             {
@@ -2047,12 +2042,6 @@ namespace Formulario
                 bdRecordingStatusLabel.Text = "Vuelo detenido";
                 bdRecordingStatusLabel.ForeColor = Color.Orange;
             }
-
-            // Si se detiene y estábamos grabando, detener y subir
-            if (bdVideoFrames.Count > 0)
-            {
-                Task.Run(() => DetenerGrabacionVideoBD(currentBdFirstInstruccionId));
-            }
         }
 
         private void pauseResumeBDBtn_Click(object sender, EventArgs e)
@@ -2149,12 +2138,10 @@ namespace Formulario
                 Console.WriteLine("[BD FLIGHT COMPLETE] Vuelo completado - Todos los waypoints alcanzados");
                 MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.");
 
-                // Detener grabación de video siempre al final, asegurándonos de que si empezó por defecto (o explícita), termine.
-                if (bdVideoRecording)
-                {
-                    Task.Run(() => DetenerGrabacionVideoBD(currentBdFirstInstruccionId));
-                    MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.\nVídeo guardado y en proceso de subida.");
-                }
+                // Detener grabación de video y subirlo
+                DetenerGrabacionVideoBD(currentBdFirstInstruccionId);
+
+                MessageBox.Show("Vuelo completado - Todos los waypoints alcanzados.\nVídeo guardado y en proceso de subida.");
 
                 bdTrace.Clear();
                 bdDroneOverlay.Markers.Clear();
