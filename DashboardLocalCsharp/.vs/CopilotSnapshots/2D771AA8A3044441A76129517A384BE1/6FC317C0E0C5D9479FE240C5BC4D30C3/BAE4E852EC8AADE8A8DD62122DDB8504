@@ -17,8 +17,6 @@ using System.IO;
 
 namespace Formulario
 {
-
-    
     public partial class Form1 : Form
     {
         // Instancia del dron
@@ -156,7 +154,6 @@ namespace Formulario
         public Form1()
         {
             InitializeComponent();
-
             if (DesignMode) return;
 
             CheckForIllegalCrossThreadCalls = false;
@@ -178,8 +175,6 @@ namespace Formulario
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-
-
             if (DesignMode) return;
 
             // Inicializar servicio API (compartido por BD y edición de rutas)
@@ -2363,13 +2358,6 @@ namespace Formulario
                 AgregarMarcadorEdicion(instr);
                 ActualizarListaInstrucciones();
                 ActualizarRutaEdicion();
-
-                // Novedad: Seleccionar automáticamente el punto recién creado en el ListBox
-                ListBox listBox = this.Controls.Find("waypointListBox", true).FirstOrDefault() as ListBox;
-                if (listBox != null && instrucciones.Count > 0)
-                {
-                    listBox.SelectedIndex = instrucciones.Count - 1;
-                }
             }
         }
 
@@ -2377,14 +2365,12 @@ namespace Formulario
         {
             var posGMap = new PointLatLng(instr.Punto.Lat, instr.Punto.Long);
 
-            // Utilizamos el mismo WaypointMarker pero sin el tooltip persistente 
-            // para que se vea idéntico a la pestaña de Base de Datos
-            var marker = new WaypointMarker(posGMap, instr.VisualId);
-            marker.Tag = instr.Id;
-
-            // Si aún quieres ver el ID al pasar el ratón, descomenta la siguiente línea:
-            // marker.ToolTipText = $"I{instr.VisualId}"; 
-            // marker.ToolTipMode = MarkerTooltipMode.OnMouseOver; // En lugar de Always
+            var marker = new GMarkerGoogle(posGMap, GMarkerGoogleType.green)
+            {
+                ToolTipText = $"I{instr.VisualId}",
+                Tag = instr.Id
+            };
+            marker.ToolTipMode = MarkerTooltipMode.Always;
 
             editWaypointsOverlay.Markers.Add(marker);
             editGmap.Refresh();
@@ -2557,15 +2543,16 @@ namespace Formulario
         {
             editRouteOverlay.Routes.Clear();
 
-            // Dibujamos la ruta exactamente igual que en CargarWaypointsBD 
-            // (Segmento por segmento con Pen grosor 1)
-            for (int i = 0; i < instrucciones.Count - 1; i++)
+            if (instrucciones.Count >= 2)
             {
-                var pos1 = new PointLatLng(instrucciones[i].Punto.Lat, instrucciones[i].Punto.Long);
-                var pos2 = new PointLatLng(instrucciones[i + 1].Punto.Lat, instrucciones[i + 1].Punto.Long);
+                var puntos = instrucciones.Select(i =>
+                    new PointLatLng(i.Punto.Lat, i.Punto.Long)
+                ).ToList();
 
-                var route = new GMapRoute(new List<PointLatLng> { pos1, pos2 }, "route");
-                route.Stroke = new Pen(Color.Blue, 1);
+                GMapRoute route = new GMapRoute(puntos, "ruta");
+                route.Stroke = new System.Drawing.Pen(System.Drawing.Color.Blue, 2);
+                route.Stroke.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+
                 editRouteOverlay.Routes.Add(route);
             }
 
@@ -2703,8 +2690,8 @@ namespace Formulario
                 RefrescarMarcadoresEdicion();
                 LimpiarControlesEdicion();
 
-                //panel_versiones.Visible = false;
-                //panel_versiones.Controls.Clear();
+                panel_versiones.Visible = false;
+                panel_versiones.Controls.Clear();
 
                 MessageBox.Show("Ruta limpiada completamente", "Éxito");
             }
@@ -2862,27 +2849,20 @@ namespace Formulario
                 var vueloSeleccionado = SeleccionarVuelo(vuelos);
                 if (vueloSeleccionado == null) return;
 
-                // MostrarSelectorVersiones(vueloSeleccionado); // <-- COMENTADO
+                MostrarSelectorVersiones(vueloSeleccionado);
 
                 Instruccion.ReiniciarContador();
-
-                // Cargamos la ruta directamente usando CargarRutaAsync
-                var vueloCompleto = await droneAPIService.CargarRutaAsync(vueloSeleccionado.ID);
-
-                // vueloCompleto.Instrucciones = await droneAPIService.ObtenerInstruccionesVueloVersionAsync(
-                //     vueloSeleccionado.ID,
-                //     vueloSeleccionado.NumVersiones
-                // ); // <-- COMENTADO
+                var vueloCompleto = await droneAPIService.ObtenerVueloAsync(vueloSeleccionado.ID);
+                vueloCompleto.Instrucciones = await droneAPIService.ObtenerInstruccionesVueloVersionAsync(
+                    vueloSeleccionado.ID,
+                    vueloSeleccionado.NumVersiones
+                );
 
                 instrucciones.Clear();
                 instruccionSeleccionada = null;
                 instruccionCounter = 0;
 
-                if (vueloCompleto.Instrucciones != null)
-                {
-                    instrucciones = new List<Instruccion>(vueloCompleto.Instrucciones);
-                }
-
+                instrucciones = new List<Instruccion>(vueloCompleto.Instrucciones);
                 vueloActualCargado = vueloSeleccionado.ID;
 
                 ActualizarListaInstrucciones();
@@ -2890,7 +2870,7 @@ namespace Formulario
                 RefrescarMarcadoresEdicion();
 
                 MessageBox.Show(
-                    $"Ruta cargada: {vueloCompleto.NameTag}\n{instrucciones.Count} instrucciones",
+                    $"Ruta cargada: {vueloCompleto.NameTag}\nÚltima versión ({vueloSeleccionado.NumVersiones})\n{vueloCompleto.Instrucciones.Count} instrucciones",
                     "Éxito"
                 );
             }
@@ -3001,7 +2981,6 @@ namespace Formulario
             }
         }
 
-        /*
         private void MostrarSelectorVersiones(Vuelo vuelo)
         {
             panel_versiones.Controls.Clear();
@@ -3043,7 +3022,6 @@ namespace Formulario
 
             panel_versiones.Visible = true;
         }
-        
 
         private async Task CargarVersion(string vueloId, int version)
         {
@@ -3074,7 +3052,6 @@ namespace Formulario
                 MessageBox.Show($"Error: {ex.Message}", "Error al cargar versión");
             }
         }
-        */
 
         // =========================================================
         // CLASES AUXILIARES
@@ -3089,9 +3066,5 @@ namespace Formulario
             public override string ToString() =>
                 $"{Nametag}  ({(Datetime?.Length > 10 ? Datetime.Substring(0, 10) : Datetime)})";
         }
-
-        // APLICAR TEMA 
-
-        
     }
 }

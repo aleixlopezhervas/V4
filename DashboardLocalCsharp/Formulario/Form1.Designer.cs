@@ -848,7 +848,7 @@
             this.tabPageLoadBD.Location = new System.Drawing.Point(4, 25);
             this.tabPageLoadBD.Name = "tabPageLoadBD";
             this.tabPageLoadBD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLoadBD.Size = new System.Drawing.Size(1029, 538);
+            this.tabPageLoadBD.Size = new System.Drawing.Size(1029, 532);
             this.tabPageLoadBD.TabIndex = 2;
             this.tabPageLoadBD.Text = "Cargar Vuelo BD";
             this.tabPageLoadBD.UseVisualStyleBackColor = true;
@@ -994,9 +994,9 @@
             // btnLimpiarRuta
             // 
             this.btnLimpiarRuta.BackColor = System.Drawing.Color.Red;
-            this.btnLimpiarRuta.Location = new System.Drawing.Point(270, 500);
+            this.btnLimpiarRuta.Location = new System.Drawing.Point(490, 470);
             this.btnLimpiarRuta.Name = "btnLimpiarRuta";
-            this.btnLimpiarRuta.Size = new System.Drawing.Size(220, 30);
+            this.btnLimpiarRuta.Size = new System.Drawing.Size(210, 30);
             this.btnLimpiarRuta.TabIndex = 6;
             this.btnLimpiarRuta.Text = "Limpiar Ruta";
             this.btnLimpiarRuta.UseVisualStyleBackColor = false;
@@ -1004,9 +1004,9 @@
             // btnCargarRuta
             // 
             this.btnCargarRuta.BackColor = System.Drawing.Color.Cyan;
-            this.btnCargarRuta.Location = new System.Drawing.Point(270, 470);
+            this.btnCargarRuta.Location = new System.Drawing.Point(260, 470);
             this.btnCargarRuta.Name = "btnCargarRuta";
-            this.btnCargarRuta.Size = new System.Drawing.Size(220, 30);
+            this.btnCargarRuta.Size = new System.Drawing.Size(210, 30);
             this.btnCargarRuta.TabIndex = 5;
             this.btnCargarRuta.Text = "Cargar Ruta";
             this.btnCargarRuta.UseVisualStyleBackColor = false;
@@ -1020,13 +1020,14 @@
             this.btnActualizarRuta.TabIndex = 4;
             this.btnActualizarRuta.Text = "Actualizar Ruta";
             this.btnActualizarRuta.UseVisualStyleBackColor = false;
+            this.btnActualizarRuta.Visible = false;
             // 
             // btnGuardarRuta
             // 
             this.btnGuardarRuta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnGuardarRuta.Location = new System.Drawing.Point(30, 470);
             this.btnGuardarRuta.Name = "btnGuardarRuta";
-            this.btnGuardarRuta.Size = new System.Drawing.Size(220, 30);
+            this.btnGuardarRuta.Size = new System.Drawing.Size(210, 30);
             this.btnGuardarRuta.TabIndex = 3;
             this.btnGuardarRuta.Text = "Guardar Ruta";
             this.btnGuardarRuta.UseVisualStyleBackColor = false;
