@@ -440,4 +440,4 @@ C:\UPC\4B\PD\V4_final\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.cs
 C:\UPC\4B\PD\V4_final\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.csproj.Up2Date
 C:\UPC\4B\PD\V4_final\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.exe
 C:\UPC\4B\PD\V4_final\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.pdb
-C:\UPC\4B\PD\V4_final\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.AppColors.resources
+C:\UPC\4B\PD\V4_final\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.Form1.resources
