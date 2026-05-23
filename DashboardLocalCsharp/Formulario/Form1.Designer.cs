@@ -1,6 +1,6 @@
 ﻿namespace Formulario
 {
-    partial class Form1
+    partial class App
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -45,15 +45,11 @@
             this.AlturatrackBar = new System.Windows.Forms.TrackBar();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.BatteryLbl = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.headLbl = new System.Windows.Forms.Label();
             this.longitudLbl = new System.Windows.Forms.Label();
             this.latitudLbl = new System.Windows.Forms.Label();
             this.altitudLbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -88,7 +84,6 @@
             this.flightMapPanel = new System.Windows.Forms.Panel();
             this.tabPageLoadBD = new System.Windows.Forms.TabPage();
             this.bdMapPanel = new System.Windows.Forms.Panel();
-            this.vuelosLabel = new System.Windows.Forms.Label();
             this.vuelosListBox = new System.Windows.Forms.ListBox();
             this.vuelosPageLabel = new System.Windows.Forms.Label();
             this.vuelosPreviousBtn = new System.Windows.Forms.Button();
@@ -121,6 +116,35 @@
             this.panel_versiones = new System.Windows.Forms.Panel();
             this.panelMap = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.mainTabControl.SuspendLayout();
             this.tabPageControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
@@ -138,6 +162,11 @@
             this.groupBoxFunciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltitud)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -147,130 +176,135 @@
             this.mainTabControl.Controls.Add(this.tabPageLoadBD);
             this.mainTabControl.Controls.Add(this.tabPage1);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTabControl.Location = new System.Drawing.Point(0, 30);
+            this.mainTabControl.Location = new System.Drawing.Point(0, 24);
+            this.mainTabControl.Margin = new System.Windows.Forms.Padding(2);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1037, 561);
+            this.mainTabControl.Size = new System.Drawing.Size(1060, 585);
             this.mainTabControl.TabIndex = 54;
             // 
             // tabPageControl
             // 
             this.tabPageControl.AutoScroll = true;
-            this.tabPageControl.Controls.Add(this.detectionPanel);
-            this.tabPageControl.Controls.Add(this.galleryBtn);
-            this.tabPageControl.Controls.Add(this.captureBtn);
-            this.tabPageControl.Controls.Add(this.stopVideoBtn);
-            this.tabPageControl.Controls.Add(this.startVideoBtn);
+            this.tabPageControl.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPageControl.Controls.Add(this.groupBox3);
             this.tabPageControl.Controls.Add(this.videoPictureBox);
             this.tabPageControl.Controls.Add(this.mapPanel);
-            this.tabPageControl.Controls.Add(this.label8);
-            this.tabPageControl.Controls.Add(this.AltChangeLbl);
-            this.tabPageControl.Controls.Add(this.Alt_changeTrackBar);
-            this.tabPageControl.Controls.Add(this.label1);
-            this.tabPageControl.Controls.Add(this.AlturaLbl);
-            this.tabPageControl.Controls.Add(this.AlturatrackBar);
             this.tabPageControl.Controls.Add(this.groupBox4);
-            this.tabPageControl.Controls.Add(this.label4);
-            this.tabPageControl.Controls.Add(this.headingTrackBar);
-            this.tabPageControl.Controls.Add(this.headingLbl);
-            this.tabPageControl.Controls.Add(this.label9);
-            this.tabPageControl.Controls.Add(this.velocidadLbl);
-            this.tabPageControl.Controls.Add(this.velocidadTrackBar);
             this.tabPageControl.Controls.Add(this.groupBox2);
             this.tabPageControl.Controls.Add(this.groupBox1);
-            this.tabPageControl.Location = new System.Drawing.Point(4, 25);
+            this.tabPageControl.Location = new System.Drawing.Point(4, 22);
+            this.tabPageControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageControl.Name = "tabPageControl";
-            this.tabPageControl.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageControl.Size = new System.Drawing.Size(1029, 538);
+            this.tabPageControl.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageControl.Size = new System.Drawing.Size(1052, 559);
             this.tabPageControl.TabIndex = 0;
             this.tabPageControl.Text = "Control";
-            this.tabPageControl.UseVisualStyleBackColor = true;
             // 
             // detectionPanel
             // 
             this.detectionPanel.AutoScroll = true;
-            this.detectionPanel.Location = new System.Drawing.Point(429, 892);
+            this.detectionPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.detectionPanel.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detectionPanel.Location = new System.Drawing.Point(5, 109);
+            this.detectionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.detectionPanel.Name = "detectionPanel";
-            this.detectionPanel.Size = new System.Drawing.Size(575, 119);
+            this.detectionPanel.Size = new System.Drawing.Size(360, 86);
             this.detectionPanel.TabIndex = 53;
             // 
             // galleryBtn
             // 
-            this.galleryBtn.Location = new System.Drawing.Point(874, 813);
+            this.galleryBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.galleryBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.galleryBtn.Location = new System.Drawing.Point(185, 71);
+            this.galleryBtn.Margin = new System.Windows.Forms.Padding(2);
             this.galleryBtn.Name = "galleryBtn";
-            this.galleryBtn.Size = new System.Drawing.Size(130, 40);
+            this.galleryBtn.Size = new System.Drawing.Size(169, 32);
             this.galleryBtn.TabIndex = 52;
-            this.galleryBtn.Text = "Abrir Galeria";
-            this.galleryBtn.UseVisualStyleBackColor = true;
+            this.galleryBtn.Text = "Open Galery";
+            this.galleryBtn.UseVisualStyleBackColor = false;
             this.galleryBtn.Click += new System.EventHandler(this.galleryBtn_Click);
             // 
             // captureBtn
             // 
-            this.captureBtn.Location = new System.Drawing.Point(724, 813);
+            this.captureBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.captureBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.captureBtn.Location = new System.Drawing.Point(5, 72);
+            this.captureBtn.Margin = new System.Windows.Forms.Padding(2);
             this.captureBtn.Name = "captureBtn";
-            this.captureBtn.Size = new System.Drawing.Size(130, 40);
+            this.captureBtn.Size = new System.Drawing.Size(165, 32);
             this.captureBtn.TabIndex = 51;
-            this.captureBtn.Text = "Capturar Imagen";
-            this.captureBtn.UseVisualStyleBackColor = true;
+            this.captureBtn.Text = "Capture Image";
+            this.captureBtn.UseVisualStyleBackColor = false;
             this.captureBtn.Click += new System.EventHandler(this.captureBtn_Click);
             // 
             // stopVideoBtn
             // 
-            this.stopVideoBtn.Location = new System.Drawing.Point(575, 813);
+            this.stopVideoBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.stopVideoBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopVideoBtn.Location = new System.Drawing.Point(185, 35);
+            this.stopVideoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stopVideoBtn.Name = "stopVideoBtn";
-            this.stopVideoBtn.Size = new System.Drawing.Size(130, 40);
+            this.stopVideoBtn.Size = new System.Drawing.Size(169, 32);
             this.stopVideoBtn.TabIndex = 50;
             this.stopVideoBtn.Text = "Stop Video";
-            this.stopVideoBtn.UseVisualStyleBackColor = true;
+            this.stopVideoBtn.UseVisualStyleBackColor = false;
             this.stopVideoBtn.Click += new System.EventHandler(this.stopVideoBtn_Click);
             // 
             // startVideoBtn
             // 
-            this.startVideoBtn.Location = new System.Drawing.Point(429, 813);
+            this.startVideoBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.startVideoBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startVideoBtn.Location = new System.Drawing.Point(5, 36);
+            this.startVideoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startVideoBtn.Name = "startVideoBtn";
-            this.startVideoBtn.Size = new System.Drawing.Size(130, 40);
+            this.startVideoBtn.Size = new System.Drawing.Size(165, 32);
             this.startVideoBtn.TabIndex = 49;
             this.startVideoBtn.Text = "Start Video";
-            this.startVideoBtn.UseVisualStyleBackColor = true;
+            this.startVideoBtn.UseVisualStyleBackColor = false;
             this.startVideoBtn.Click += new System.EventHandler(this.startVideoBtn_Click);
             // 
             // videoPictureBox
             // 
             this.videoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.videoPictureBox.Location = new System.Drawing.Point(429, 481);
+            this.videoPictureBox.Location = new System.Drawing.Point(672, 11);
+            this.videoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(575, 320);
+            this.videoPictureBox.Size = new System.Drawing.Size(370, 250);
             this.videoPictureBox.TabIndex = 47;
             this.videoPictureBox.TabStop = false;
             // 
             // mapPanel
             // 
             this.mapPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mapPanel.Location = new System.Drawing.Point(429, 50);
+            this.mapPanel.Location = new System.Drawing.Point(293, 11);
+            this.mapPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mapPanel.Name = "mapPanel";
-            this.mapPanel.Size = new System.Drawing.Size(575, 413);
+            this.mapPanel.Size = new System.Drawing.Size(370, 250);
             this.mapPanel.TabIndex = 46;
+            this.mapPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mapPanel_Paint);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(291, 223);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(204, 209);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 20);
+            this.label8.Size = new System.Drawing.Size(57, 19);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Altura";
+            this.label8.Text = "Altitude";
             // 
             // AltChangeLbl
             // 
+            this.AltChangeLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.AltChangeLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AltChangeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AltChangeLbl.ForeColor = System.Drawing.Color.Red;
-            this.AltChangeLbl.Location = new System.Drawing.Point(295, 249);
-            this.AltChangeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AltChangeLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AltChangeLbl.ForeColor = System.Drawing.Color.Black;
+            this.AltChangeLbl.Location = new System.Drawing.Point(204, 231);
             this.AltChangeLbl.Name = "AltChangeLbl";
-            this.AltChangeLbl.Size = new System.Drawing.Size(64, 24);
+            this.AltChangeLbl.Size = new System.Drawing.Size(55, 19);
             this.AltChangeLbl.TabIndex = 44;
             this.AltChangeLbl.Text = "0";
             this.AltChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,12 +312,13 @@
             // 
             // Alt_changeTrackBar
             // 
-            this.Alt_changeTrackBar.Location = new System.Drawing.Point(305, 275);
-            this.Alt_changeTrackBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Alt_changeTrackBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Alt_changeTrackBar.Location = new System.Drawing.Point(208, 252);
+            this.Alt_changeTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.Alt_changeTrackBar.Maximum = 100;
             this.Alt_changeTrackBar.Name = "Alt_changeTrackBar";
             this.Alt_changeTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.Alt_changeTrackBar.Size = new System.Drawing.Size(56, 232);
+            this.Alt_changeTrackBar.Size = new System.Drawing.Size(45, 184);
             this.Alt_changeTrackBar.TabIndex = 43;
             this.Alt_changeTrackBar.TickFrequency = 5;
             this.Alt_changeTrackBar.Scroll += new System.EventHandler(this.Alt_changeTrackBar_Scroll);
@@ -292,23 +327,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(100, 242);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 208);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 20);
+            this.label1.Size = new System.Drawing.Size(106, 19);
             this.label1.TabIndex = 42;
-            this.label1.Text = "Altura Despegue";
+            this.label1.Text = "Takeoff Altitude";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AlturaLbl
             // 
+            this.AlturaLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.AlturaLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AlturaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlturaLbl.ForeColor = System.Drawing.Color.Red;
-            this.AlturaLbl.Location = new System.Drawing.Point(23, 236);
-            this.AlturaLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AlturaLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlturaLbl.ForeColor = System.Drawing.Color.Black;
+            this.AlturaLbl.Location = new System.Drawing.Point(132, 208);
             this.AlturaLbl.Name = "AlturaLbl";
-            this.AlturaLbl.Size = new System.Drawing.Size(64, 29);
+            this.AlturaLbl.Size = new System.Drawing.Size(55, 20);
             this.AlturaLbl.TabIndex = 41;
             this.AlturaLbl.Text = "0";
             this.AlturaLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,187 +353,150 @@
             // 
             // AlturatrackBar
             // 
-            this.AlturatrackBar.Location = new System.Drawing.Point(38, 275);
-            this.AlturatrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.AlturatrackBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.AlturatrackBar.Location = new System.Drawing.Point(6, 230);
             this.AlturatrackBar.Maximum = 100;
             this.AlturatrackBar.Name = "AlturatrackBar";
-            this.AlturatrackBar.Size = new System.Drawing.Size(242, 56);
+            this.AlturatrackBar.Size = new System.Drawing.Size(181, 45);
             this.AlturatrackBar.TabIndex = 40;
             this.AlturatrackBar.TickFrequency = 5;
             this.AlturatrackBar.Scroll += new System.EventHandler(this.AlturatrackBar_Scroll);
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.BatteryLbl);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.headLbl);
             this.groupBox4.Controls.Add(this.longitudLbl);
             this.groupBox4.Controls.Add(this.latitudLbl);
             this.groupBox4.Controls.Add(this.altitudLbl);
-            this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.button22);
             this.groupBox4.Controls.Add(this.button23);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(8, 513);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(8, 477);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(370, 212);
+            this.groupBox4.Size = new System.Drawing.Size(1034, 63);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Telemetría";
+            this.groupBox4.Text = "Telemetry";
             // 
             // BatteryLbl
             // 
+            this.BatteryLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BatteryLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BatteryLbl.Location = new System.Drawing.Point(279, 163);
-            this.BatteryLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.BatteryLbl.Location = new System.Drawing.Point(946, 29);
             this.BatteryLbl.Name = "BatteryLbl";
-            this.BatteryLbl.Size = new System.Drawing.Size(84, 36);
+            this.BatteryLbl.Size = new System.Drawing.Size(64, 19);
             this.BatteryLbl.TabIndex = 13;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(164, 164);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 25);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Bateria";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(180, 119);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 25);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Heading";
             // 
             // headLbl
             // 
+            this.headLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.headLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.headLbl.Location = new System.Drawing.Point(280, 118);
-            this.headLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.headLbl.Location = new System.Drawing.Point(652, 29);
             this.headLbl.Name = "headLbl";
-            this.headLbl.Size = new System.Drawing.Size(84, 36);
+            this.headLbl.Size = new System.Drawing.Size(64, 19);
             this.headLbl.TabIndex = 10;
+            this.headLbl.Click += new System.EventHandler(this.headLbl_Click);
             // 
             // longitudLbl
             // 
+            this.longitudLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.longitudLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.longitudLbl.Location = new System.Drawing.Point(104, 117);
-            this.longitudLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.longitudLbl.Location = new System.Drawing.Point(364, 29);
             this.longitudLbl.Name = "longitudLbl";
-            this.longitudLbl.Size = new System.Drawing.Size(74, 38);
+            this.longitudLbl.Size = new System.Drawing.Size(56, 19);
             this.longitudLbl.TabIndex = 8;
             // 
             // latitudLbl
             // 
+            this.latitudLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.latitudLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.latitudLbl.Location = new System.Drawing.Point(103, 73);
-            this.latitudLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.latitudLbl.Location = new System.Drawing.Point(508, 29);
             this.latitudLbl.Name = "latitudLbl";
-            this.latitudLbl.Size = new System.Drawing.Size(74, 38);
+            this.latitudLbl.Size = new System.Drawing.Size(56, 19);
             this.latitudLbl.TabIndex = 7;
             // 
             // altitudLbl
             // 
+            this.altitudLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.altitudLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.altitudLbl.Location = new System.Drawing.Point(280, 74);
-            this.altitudLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.altitudLbl.Location = new System.Drawing.Point(800, 29);
             this.altitudLbl.Name = "altitudLbl";
-            this.altitudLbl.Size = new System.Drawing.Size(84, 36);
+            this.altitudLbl.Size = new System.Drawing.Size(64, 19);
             this.altitudLbl.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(194, 75);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Altitud";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 74);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(441, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 25);
+            this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Latitud";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 117);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 25);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Longitud";
+            this.label3.Text = "Latitude";
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(198, 30);
-            this.button22.Margin = new System.Windows.Forms.Padding(4);
+            this.button22.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button22.Location = new System.Drawing.Point(132, 24);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(146, 32);
+            this.button22.Size = new System.Drawing.Size(117, 26);
             this.button22.TabIndex = 1;
-            this.button22.Text = "Parar";
-            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Text = "Stop";
+            this.button22.UseVisualStyleBackColor = false;
             this.button22.Click += new System.EventHandler(this.detenerTelemetriaBtn_Click);
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(21, 30);
-            this.button23.Margin = new System.Windows.Forms.Padding(4);
+            this.button23.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button23.Location = new System.Drawing.Point(9, 24);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(156, 32);
+            this.button23.Size = new System.Drawing.Size(117, 26);
             this.button23.TabIndex = 0;
-            this.button23.Text = "Iniciar";
-            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Text = "Start";
+            this.button23.UseVisualStyleBackColor = false;
             this.button23.Click += new System.EventHandler(this.enviarTelemetriaBtn_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(100, 421);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 369);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 20);
+            this.label4.Size = new System.Drawing.Size(63, 19);
             this.label4.TabIndex = 39;
             this.label4.Text = "Heading";
             // 
             // headingTrackBar
             // 
-            this.headingTrackBar.Location = new System.Drawing.Point(38, 466);
-            this.headingTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.headingTrackBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.headingTrackBar.Location = new System.Drawing.Point(6, 391);
             this.headingTrackBar.Maximum = 360;
             this.headingTrackBar.Name = "headingTrackBar";
-            this.headingTrackBar.Size = new System.Drawing.Size(242, 56);
+            this.headingTrackBar.Size = new System.Drawing.Size(181, 45);
             this.headingTrackBar.TabIndex = 34;
             this.headingTrackBar.Scroll += new System.EventHandler(this.headingTrackBar_Scroll);
             this.headingTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.headingTrackBar_MouseUp);
             // 
             // headingLbl
             // 
+            this.headingLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.headingLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.headingLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headingLbl.ForeColor = System.Drawing.Color.Red;
-            this.headingLbl.Location = new System.Drawing.Point(25, 422);
-            this.headingLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.headingLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headingLbl.ForeColor = System.Drawing.Color.Black;
+            this.headingLbl.Location = new System.Drawing.Point(132, 369);
             this.headingLbl.Name = "headingLbl";
-            this.headingLbl.Size = new System.Drawing.Size(64, 24);
+            this.headingLbl.Size = new System.Drawing.Size(55, 19);
             this.headingLbl.TabIndex = 35;
             this.headingLbl.Text = "0";
             this.headingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -504,39 +504,41 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(101, 344);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 288);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 20);
+            this.label9.Size = new System.Drawing.Size(59, 19);
             this.label9.TabIndex = 38;
-            this.label9.Text = "Velocidad";
+            this.label9.Text = "Velocity";
             // 
             // velocidadLbl
             // 
+            this.velocidadLbl.BackColor = System.Drawing.Color.WhiteSmoke;
             this.velocidadLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.velocidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.velocidadLbl.ForeColor = System.Drawing.Color.Red;
-            this.velocidadLbl.Location = new System.Drawing.Point(23, 338);
-            this.velocidadLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.velocidadLbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.velocidadLbl.ForeColor = System.Drawing.Color.Black;
+            this.velocidadLbl.Location = new System.Drawing.Point(132, 288);
             this.velocidadLbl.Name = "velocidadLbl";
-            this.velocidadLbl.Size = new System.Drawing.Size(64, 29);
+            this.velocidadLbl.Size = new System.Drawing.Size(55, 19);
             this.velocidadLbl.TabIndex = 37;
             this.velocidadLbl.Text = "0";
             this.velocidadLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // velocidadTrackBar
             // 
-            this.velocidadTrackBar.Location = new System.Drawing.Point(39, 377);
-            this.velocidadTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.velocidadTrackBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.velocidadTrackBar.Location = new System.Drawing.Point(6, 310);
             this.velocidadTrackBar.Name = "velocidadTrackBar";
-            this.velocidadTrackBar.Size = new System.Drawing.Size(242, 56);
+            this.velocidadTrackBar.Size = new System.Drawing.Size(181, 45);
             this.velocidadTrackBar.TabIndex = 36;
             this.velocidadTrackBar.Scroll += new System.EventHandler(this.velocidadTrackBar_Scroll);
             this.velocidadTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.velocidadTrackBar_MouseUp);
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.LightGray;
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.button17);
             this.groupBox2.Controls.Add(this.button16);
@@ -547,32 +549,28 @@
             this.groupBox2.Controls.Add(this.button11);
             this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button9);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 746);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(293, 271);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(295, 277);
+            this.groupBox2.Size = new System.Drawing.Size(370, 200);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Movimiento";
+            this.groupBox2.Text = "Movement";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(153, 60);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(115, 49);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 31);
+            this.label6.Size = new System.Drawing.Size(0, 24);
             this.label6.TabIndex = 18;
             // 
             // button17
             // 
-            this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button17.Location = new System.Drawing.Point(183, 188);
-            this.button17.Margin = new System.Windows.Forms.Padding(4);
+            this.button17.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button17.Location = new System.Drawing.Point(252, 142);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(73, 59);
+            this.button17.Size = new System.Drawing.Size(99, 48);
             this.button17.TabIndex = 8;
             this.button17.Tag = "SouthEast";
             this.button17.Text = "SE";
@@ -580,23 +578,21 @@
             // 
             // button16
             // 
-            this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button16.Location = new System.Drawing.Point(104, 188);
-            this.button16.Margin = new System.Windows.Forms.Padding(4);
+            this.button16.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button16.Location = new System.Drawing.Point(134, 142);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(71, 59);
+            this.button16.Size = new System.Drawing.Size(99, 48);
             this.button16.TabIndex = 7;
             this.button16.Tag = "South";
-            this.button16.Text = "S";
+            this.button16.Text = "South";
             this.button16.UseVisualStyleBackColor = false;
             // 
             // button15
             // 
-            this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button15.Location = new System.Drawing.Point(23, 188);
-            this.button15.Margin = new System.Windows.Forms.Padding(4);
+            this.button15.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button15.Location = new System.Drawing.Point(16, 142);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(73, 59);
+            this.button15.Size = new System.Drawing.Size(99, 48);
             this.button15.TabIndex = 6;
             this.button15.Tag = "SouthWest";
             this.button15.Text = "SW";
@@ -604,24 +600,22 @@
             // 
             // button14
             // 
-            this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button14.Location = new System.Drawing.Point(185, 126);
-            this.button14.Margin = new System.Windows.Forms.Padding(4);
+            this.button14.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button14.Location = new System.Drawing.Point(252, 92);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(71, 55);
+            this.button14.Size = new System.Drawing.Size(99, 45);
             this.button14.TabIndex = 5;
             this.button14.Tag = "East";
-            this.button14.Text = "E";
+            this.button14.Text = "East";
             this.button14.UseVisualStyleBackColor = false;
             // 
             // button13
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(104, 124);
-            this.button13.Margin = new System.Windows.Forms.Padding(4);
+            this.button13.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button13.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(134, 91);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(73, 57);
+            this.button13.Size = new System.Drawing.Size(99, 46);
             this.button13.TabIndex = 4;
             this.button13.Tag = "Stop";
             this.button13.Text = "Stop";
@@ -629,23 +623,21 @@
             // 
             // button12
             // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button12.Location = new System.Drawing.Point(23, 124);
-            this.button12.Margin = new System.Windows.Forms.Padding(4);
+            this.button12.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button12.Location = new System.Drawing.Point(16, 91);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(73, 57);
+            this.button12.Size = new System.Drawing.Size(99, 46);
             this.button12.TabIndex = 3;
             this.button12.Tag = "West";
-            this.button12.Text = "W";
+            this.button12.Text = "West";
             this.button12.UseVisualStyleBackColor = false;
             // 
             // button11
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button11.Location = new System.Drawing.Point(185, 57);
-            this.button11.Margin = new System.Windows.Forms.Padding(4);
+            this.button11.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button11.Location = new System.Drawing.Point(252, 35);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(71, 60);
+            this.button11.Size = new System.Drawing.Size(99, 49);
             this.button11.TabIndex = 2;
             this.button11.Tag = "NorthEast";
             this.button11.Text = "NE";
@@ -653,24 +645,22 @@
             // 
             // button10
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button10.Location = new System.Drawing.Point(104, 57);
-            this.button10.Margin = new System.Windows.Forms.Padding(4);
+            this.button10.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button10.Location = new System.Drawing.Point(134, 35);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(73, 60);
+            this.button10.Size = new System.Drawing.Size(99, 49);
             this.button10.TabIndex = 1;
             this.button10.Tag = "North";
-            this.button10.Text = "N";
+            this.button10.Text = "North";
             this.button10.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(23, 57);
-            this.button9.Margin = new System.Windows.Forms.Padding(4);
+            this.button9.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button9.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(16, 36);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(73, 59);
+            this.button9.Size = new System.Drawing.Size(99, 48);
             this.button9.TabIndex = 0;
             this.button9.Tag = "NorthWest";
             this.button9.Text = "NW";
@@ -678,68 +668,76 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.velocidadTrackBar);
             this.groupBox1.Controls.Add(this.but_connect);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.despegarBtn);
             this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.Alt_changeTrackBar);
+            this.groupBox1.Controls.Add(this.AltChangeLbl);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.AlturatrackBar);
+            this.groupBox1.Controls.Add(this.AlturaLbl);
+            this.groupBox1.Controls.Add(this.velocidadLbl);
+            this.groupBox1.Controls.Add(this.headingLbl);
+            this.groupBox1.Controls.Add(this.headingTrackBar);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(8, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(341, 204);
+            this.groupBox1.Size = new System.Drawing.Size(276, 460);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Control";
             // 
             // but_connect
             // 
-            this.but_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.but_connect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_connect.Location = new System.Drawing.Point(8, 37);
-            this.but_connect.Margin = new System.Windows.Forms.Padding(4);
+            this.but_connect.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.but_connect.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.but_connect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.but_connect.Location = new System.Drawing.Point(6, 32);
             this.but_connect.Name = "but_connect";
-            this.but_connect.Size = new System.Drawing.Size(325, 36);
+            this.but_connect.Size = new System.Drawing.Size(255, 41);
             this.but_connect.TabIndex = 2;
-            this.but_connect.Text = "Connectar";
+            this.but_connect.Text = "Connect";
             this.but_connect.UseVisualStyleBackColor = false;
             this.but_connect.Click += new System.EventHandler(this.but_connect_Click);
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(8, 146);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(6, 136);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(160, 38);
+            this.button7.Size = new System.Drawing.Size(120, 42);
             this.button7.TabIndex = 13;
-            this.button7.Text = "Aterrizar";
+            this.button7.Text = "Land";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.aterrizarBtn_Click);
             // 
             // despegarBtn
             // 
-            this.despegarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.despegarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.despegarBtn.Location = new System.Drawing.Point(8, 86);
-            this.despegarBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.despegarBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.despegarBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.despegarBtn.Location = new System.Drawing.Point(6, 84);
             this.despegarBtn.Name = "despegarBtn";
-            this.despegarBtn.Size = new System.Drawing.Size(325, 38);
+            this.despegarBtn.Size = new System.Drawing.Size(255, 41);
             this.despegarBtn.TabIndex = 5;
-            this.despegarBtn.Text = "Despegar";
+            this.despegarBtn.Text = "Takeoff";
             this.despegarBtn.UseVisualStyleBackColor = false;
             this.despegarBtn.Click += new System.EventHandler(this.but_takeoff_Click);
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(176, 146);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(143, 136);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(157, 38);
+            this.button6.Size = new System.Drawing.Size(118, 42);
             this.button6.TabIndex = 10;
             this.button6.Text = "RTL";
             this.button6.UseVisualStyleBackColor = false;
@@ -754,10 +752,11 @@
             this.tabPageFlight.Controls.Add(this.startFlightBtn);
             this.tabPageFlight.Controls.Add(this.loadWaypointsBtn);
             this.tabPageFlight.Controls.Add(this.flightMapPanel);
-            this.tabPageFlight.Location = new System.Drawing.Point(4, 25);
+            this.tabPageFlight.Location = new System.Drawing.Point(4, 22);
+            this.tabPageFlight.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageFlight.Name = "tabPageFlight";
-            this.tabPageFlight.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFlight.Size = new System.Drawing.Size(1029, 532);
+            this.tabPageFlight.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageFlight.Size = new System.Drawing.Size(1052, 559);
             this.tabPageFlight.TabIndex = 1;
             this.tabPageFlight.Text = "Vuelo";
             this.tabPageFlight.UseVisualStyleBackColor = true;
@@ -766,27 +765,29 @@
             // 
             this.waypointsLabel.AutoSize = true;
             this.waypointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waypointsLabel.Location = new System.Drawing.Point(770, 65);
+            this.waypointsLabel.Location = new System.Drawing.Point(578, 53);
+            this.waypointsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.waypointsLabel.Name = "waypointsLabel";
-            this.waypointsLabel.Size = new System.Drawing.Size(126, 20);
+            this.waypointsLabel.Size = new System.Drawing.Size(109, 17);
             this.waypointsLabel.TabIndex = 4;
             this.waypointsLabel.Text = "Waypoints (0)";
             // 
             // waypointsListBox
             // 
             this.waypointsListBox.FormattingEnabled = true;
-            this.waypointsListBox.ItemHeight = 16;
-            this.waypointsListBox.Location = new System.Drawing.Point(770, 85);
+            this.waypointsListBox.Location = new System.Drawing.Point(578, 69);
+            this.waypointsListBox.Margin = new System.Windows.Forms.Padding(2);
             this.waypointsListBox.Name = "waypointsListBox";
-            this.waypointsListBox.Size = new System.Drawing.Size(240, 612);
+            this.waypointsListBox.Size = new System.Drawing.Size(181, 498);
             this.waypointsListBox.TabIndex = 5;
             // 
             // pauseResumeBtn
             // 
             this.pauseResumeBtn.Enabled = false;
-            this.pauseResumeBtn.Location = new System.Drawing.Point(835, 730);
+            this.pauseResumeBtn.Location = new System.Drawing.Point(626, 593);
+            this.pauseResumeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.pauseResumeBtn.Name = "pauseResumeBtn";
-            this.pauseResumeBtn.Size = new System.Drawing.Size(110, 40);
+            this.pauseResumeBtn.Size = new System.Drawing.Size(82, 32);
             this.pauseResumeBtn.TabIndex = 4;
             this.pauseResumeBtn.Text = "Pausar Vuelo";
             this.pauseResumeBtn.UseVisualStyleBackColor = true;
@@ -794,9 +795,10 @@
             // 
             // stopFlightBtn
             // 
-            this.stopFlightBtn.Location = new System.Drawing.Point(900, 730);
+            this.stopFlightBtn.Location = new System.Drawing.Point(675, 593);
+            this.stopFlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stopFlightBtn.Name = "stopFlightBtn";
-            this.stopFlightBtn.Size = new System.Drawing.Size(110, 40);
+            this.stopFlightBtn.Size = new System.Drawing.Size(82, 32);
             this.stopFlightBtn.TabIndex = 3;
             this.stopFlightBtn.Text = "Detener Vuelo";
             this.stopFlightBtn.UseVisualStyleBackColor = true;
@@ -804,9 +806,10 @@
             // 
             // startFlightBtn
             // 
-            this.startFlightBtn.Location = new System.Drawing.Point(770, 730);
+            this.startFlightBtn.Location = new System.Drawing.Point(578, 593);
+            this.startFlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startFlightBtn.Name = "startFlightBtn";
-            this.startFlightBtn.Size = new System.Drawing.Size(110, 40);
+            this.startFlightBtn.Size = new System.Drawing.Size(82, 32);
             this.startFlightBtn.TabIndex = 2;
             this.startFlightBtn.Text = "Iniciar Vuelo";
             this.startFlightBtn.UseVisualStyleBackColor = true;
@@ -814,9 +817,10 @@
             // 
             // loadWaypointsBtn
             // 
-            this.loadWaypointsBtn.Location = new System.Drawing.Point(770, 15);
+            this.loadWaypointsBtn.Location = new System.Drawing.Point(578, 12);
+            this.loadWaypointsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loadWaypointsBtn.Name = "loadWaypointsBtn";
-            this.loadWaypointsBtn.Size = new System.Drawing.Size(240, 40);
+            this.loadWaypointsBtn.Size = new System.Drawing.Size(180, 32);
             this.loadWaypointsBtn.TabIndex = 1;
             this.loadWaypointsBtn.Text = "Cargar Waypoints desde archivo";
             this.loadWaypointsBtn.UseVisualStyleBackColor = true;
@@ -825,153 +829,160 @@
             // flightMapPanel
             // 
             this.flightMapPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flightMapPanel.Location = new System.Drawing.Point(6, 6);
+            this.flightMapPanel.Location = new System.Drawing.Point(4, 5);
+            this.flightMapPanel.Margin = new System.Windows.Forms.Padding(2);
             this.flightMapPanel.Name = "flightMapPanel";
-            this.flightMapPanel.Size = new System.Drawing.Size(750, 700);
+            this.flightMapPanel.Size = new System.Drawing.Size(563, 569);
             this.flightMapPanel.TabIndex = 0;
             // 
             // tabPageLoadBD
             // 
             this.tabPageLoadBD.AutoScroll = true;
+            this.tabPageLoadBD.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPageLoadBD.Controls.Add(this.groupBox8);
+            this.tabPageLoadBD.Controls.Add(this.groupBox7);
+            this.tabPageLoadBD.Controls.Add(this.groupBox6);
+            this.tabPageLoadBD.Controls.Add(this.groupBox5);
             this.tabPageLoadBD.Controls.Add(this.bdMapPanel);
-            this.tabPageLoadBD.Controls.Add(this.vuelosLabel);
-            this.tabPageLoadBD.Controls.Add(this.vuelosListBox);
-            this.tabPageLoadBD.Controls.Add(this.vuelosPageLabel);
-            this.tabPageLoadBD.Controls.Add(this.vuelosPreviousBtn);
-            this.tabPageLoadBD.Controls.Add(this.vuelosNextBtn);
-            this.tabPageLoadBD.Controls.Add(this.loadFromDBBtn);
-            this.tabPageLoadBD.Controls.Add(this.bdWaypointsLabel);
-            this.tabPageLoadBD.Controls.Add(this.bdWaypointsListBox);
-            this.tabPageLoadBD.Controls.Add(this.pauseResumeBDBtn);
-            this.tabPageLoadBD.Controls.Add(this.startBDFlightBtn);
-            this.tabPageLoadBD.Controls.Add(this.stopBDFlightBtn);
-            this.tabPageLoadBD.Location = new System.Drawing.Point(4, 25);
+            this.tabPageLoadBD.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLoadBD.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageLoadBD.Name = "tabPageLoadBD";
-            this.tabPageLoadBD.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLoadBD.Size = new System.Drawing.Size(1029, 532);
+            this.tabPageLoadBD.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageLoadBD.Size = new System.Drawing.Size(1052, 559);
             this.tabPageLoadBD.TabIndex = 2;
             this.tabPageLoadBD.Text = "Cargar Vuelo BD";
-            this.tabPageLoadBD.UseVisualStyleBackColor = true;
             // 
             // bdMapPanel
             // 
             this.bdMapPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bdMapPanel.Location = new System.Drawing.Point(260, 6);
+            this.bdMapPanel.Location = new System.Drawing.Point(315, 8);
+            this.bdMapPanel.Margin = new System.Windows.Forms.Padding(2);
             this.bdMapPanel.Name = "bdMapPanel";
-            this.bdMapPanel.Size = new System.Drawing.Size(760, 350);
+            this.bdMapPanel.Size = new System.Drawing.Size(531, 285);
             this.bdMapPanel.TabIndex = 0;
-            // 
-            // vuelosLabel
-            // 
-            this.vuelosLabel.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.vuelosLabel.Location = new System.Drawing.Point(6, 6);
-            this.vuelosLabel.Name = "vuelosLabel";
-            this.vuelosLabel.Size = new System.Drawing.Size(250, 20);
-            this.vuelosLabel.TabIndex = 1;
-            this.vuelosLabel.Text = "Vuelos disponibles:";
             // 
             // vuelosListBox
             // 
-            this.vuelosListBox.Font = new System.Drawing.Font("Arial", 9F);
+            this.vuelosListBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.vuelosListBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vuelosListBox.FormattingEnabled = true;
-            this.vuelosListBox.ItemHeight = 17;
-            this.vuelosListBox.Location = new System.Drawing.Point(6, 28);
+            this.vuelosListBox.ItemHeight = 18;
+            this.vuelosListBox.Location = new System.Drawing.Point(5, 30);
+            this.vuelosListBox.Margin = new System.Windows.Forms.Padding(2);
             this.vuelosListBox.Name = "vuelosListBox";
-            this.vuelosListBox.Size = new System.Drawing.Size(250, 242);
+            this.vuelosListBox.Size = new System.Drawing.Size(288, 184);
             this.vuelosListBox.TabIndex = 2;
             this.vuelosListBox.DoubleClick += new System.EventHandler(this.VuelosListBox_DoubleClick);
             // 
             // vuelosPageLabel
             // 
             this.vuelosPageLabel.AutoSize = true;
-            this.vuelosPageLabel.Font = new System.Drawing.Font("Arial", 8F);
-            this.vuelosPageLabel.Location = new System.Drawing.Point(9, 268);
+            this.vuelosPageLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vuelosPageLabel.Location = new System.Drawing.Point(5, 216);
+            this.vuelosPageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.vuelosPageLabel.Name = "vuelosPageLabel";
-            this.vuelosPageLabel.Size = new System.Drawing.Size(95, 16);
+            this.vuelosPageLabel.Size = new System.Drawing.Size(87, 16);
             this.vuelosPageLabel.TabIndex = 20;
             this.vuelosPageLabel.Text = "Página 1 de 1";
             // 
             // vuelosPreviousBtn
             // 
-            this.vuelosPreviousBtn.Font = new System.Drawing.Font("Arial", 8F);
-            this.vuelosPreviousBtn.Location = new System.Drawing.Point(6, 285);
+            this.vuelosPreviousBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.vuelosPreviousBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vuelosPreviousBtn.Location = new System.Drawing.Point(5, 234);
+            this.vuelosPreviousBtn.Margin = new System.Windows.Forms.Padding(2);
             this.vuelosPreviousBtn.Name = "vuelosPreviousBtn";
-            this.vuelosPreviousBtn.Size = new System.Drawing.Size(120, 25);
+            this.vuelosPreviousBtn.Size = new System.Drawing.Size(143, 29);
             this.vuelosPreviousBtn.TabIndex = 21;
-            this.vuelosPreviousBtn.Text = "← Anterior";
-            this.vuelosPreviousBtn.UseVisualStyleBackColor = true;
+            this.vuelosPreviousBtn.Text = "← Previous Page";
+            this.vuelosPreviousBtn.UseVisualStyleBackColor = false;
             this.vuelosPreviousBtn.Click += new System.EventHandler(this.VuelosPreviousBtn_Click);
             // 
             // vuelosNextBtn
             // 
-            this.vuelosNextBtn.Font = new System.Drawing.Font("Arial", 8F);
-            this.vuelosNextBtn.Location = new System.Drawing.Point(136, 285);
+            this.vuelosNextBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.vuelosNextBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vuelosNextBtn.Location = new System.Drawing.Point(150, 234);
+            this.vuelosNextBtn.Margin = new System.Windows.Forms.Padding(2);
             this.vuelosNextBtn.Name = "vuelosNextBtn";
-            this.vuelosNextBtn.Size = new System.Drawing.Size(120, 25);
+            this.vuelosNextBtn.Size = new System.Drawing.Size(143, 29);
             this.vuelosNextBtn.TabIndex = 22;
-            this.vuelosNextBtn.Text = "Siguiente →";
-            this.vuelosNextBtn.UseVisualStyleBackColor = true;
+            this.vuelosNextBtn.Text = "Next Page →";
+            this.vuelosNextBtn.UseVisualStyleBackColor = false;
             this.vuelosNextBtn.Click += new System.EventHandler(this.VuelosNextBtn_Click);
             // 
             // loadFromDBBtn
             // 
-            this.loadFromDBBtn.Font = new System.Drawing.Font("Arial", 9F);
-            this.loadFromDBBtn.Location = new System.Drawing.Point(6, 316);
+            this.loadFromDBBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.loadFromDBBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadFromDBBtn.Location = new System.Drawing.Point(8, 30);
+            this.loadFromDBBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loadFromDBBtn.Name = "loadFromDBBtn";
-            this.loadFromDBBtn.Size = new System.Drawing.Size(250, 40);
+            this.loadFromDBBtn.Size = new System.Drawing.Size(285, 59);
             this.loadFromDBBtn.TabIndex = 3;
-            this.loadFromDBBtn.Text = "Cargar Waypoints";
-            this.loadFromDBBtn.UseVisualStyleBackColor = true;
+            this.loadFromDBBtn.Text = "Load Selected Flight Plan";
+            this.loadFromDBBtn.UseVisualStyleBackColor = false;
             this.loadFromDBBtn.Click += new System.EventHandler(this.loadFromDBBtn_Click);
             // 
             // bdWaypointsLabel
             // 
-            this.bdWaypointsLabel.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.bdWaypointsLabel.Location = new System.Drawing.Point(260, 360);
+            this.bdWaypointsLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bdWaypointsLabel.Location = new System.Drawing.Point(5, 56);
+            this.bdWaypointsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bdWaypointsLabel.Name = "bdWaypointsLabel";
-            this.bdWaypointsLabel.Size = new System.Drawing.Size(760, 20);
+            this.bdWaypointsLabel.Size = new System.Drawing.Size(163, 16);
             this.bdWaypointsLabel.TabIndex = 4;
             this.bdWaypointsLabel.Text = "Waypoints (0)";
             // 
             // bdWaypointsListBox
             // 
-            this.bdWaypointsListBox.Font = new System.Drawing.Font("Arial", 9F);
+            this.bdWaypointsListBox.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bdWaypointsListBox.FormattingEnabled = true;
-            this.bdWaypointsListBox.ItemHeight = 17;
-            this.bdWaypointsListBox.Location = new System.Drawing.Point(260, 380);
+            this.bdWaypointsListBox.ItemHeight = 14;
+            this.bdWaypointsListBox.Location = new System.Drawing.Point(5, 81);
+            this.bdWaypointsListBox.Margin = new System.Windows.Forms.Padding(2);
             this.bdWaypointsListBox.Name = "bdWaypointsListBox";
-            this.bdWaypointsListBox.Size = new System.Drawing.Size(760, 140);
+            this.bdWaypointsListBox.Size = new System.Drawing.Size(164, 186);
             this.bdWaypointsListBox.TabIndex = 5;
             // 
             // pauseResumeBDBtn
             // 
+            this.pauseResumeBDBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.pauseResumeBDBtn.Enabled = false;
-            this.pauseResumeBDBtn.Location = new System.Drawing.Point(131, 362);
+            this.pauseResumeBDBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseResumeBDBtn.Location = new System.Drawing.Point(152, 100);
+            this.pauseResumeBDBtn.Margin = new System.Windows.Forms.Padding(2);
             this.pauseResumeBDBtn.Name = "pauseResumeBDBtn";
-            this.pauseResumeBDBtn.Size = new System.Drawing.Size(110, 40);
+            this.pauseResumeBDBtn.Size = new System.Drawing.Size(141, 59);
             this.pauseResumeBDBtn.TabIndex = 7;
-            this.pauseResumeBDBtn.Text = "Pausar Vuelo";
-            this.pauseResumeBDBtn.UseVisualStyleBackColor = true;
+            this.pauseResumeBDBtn.Text = "Pause";
+            this.pauseResumeBDBtn.UseVisualStyleBackColor = false;
             this.pauseResumeBDBtn.Click += new System.EventHandler(this.pauseResumeBDBtn_Click);
             // 
             // startBDFlightBtn
             // 
-            this.startBDFlightBtn.Location = new System.Drawing.Point(16, 362);
+            this.startBDFlightBtn.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.startBDFlightBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startBDFlightBtn.Location = new System.Drawing.Point(10, 100);
+            this.startBDFlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startBDFlightBtn.Name = "startBDFlightBtn";
-            this.startBDFlightBtn.Size = new System.Drawing.Size(110, 40);
+            this.startBDFlightBtn.Size = new System.Drawing.Size(138, 59);
             this.startBDFlightBtn.TabIndex = 6;
-            this.startBDFlightBtn.Text = "Iniciar Vuelo";
-            this.startBDFlightBtn.UseVisualStyleBackColor = true;
+            this.startBDFlightBtn.Text = "Run Plan";
+            this.startBDFlightBtn.UseVisualStyleBackColor = false;
             this.startBDFlightBtn.Click += new System.EventHandler(this.startBDFlightBtn_Click);
             // 
             // stopBDFlightBtn
             // 
-            this.stopBDFlightBtn.Location = new System.Drawing.Point(75, 408);
+            this.stopBDFlightBtn.BackColor = System.Drawing.Color.Crimson;
+            this.stopBDFlightBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopBDFlightBtn.Location = new System.Drawing.Point(10, 169);
+            this.stopBDFlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stopBDFlightBtn.Name = "stopBDFlightBtn";
-            this.stopBDFlightBtn.Size = new System.Drawing.Size(110, 40);
+            this.stopBDFlightBtn.Size = new System.Drawing.Size(283, 44);
             this.stopBDFlightBtn.TabIndex = 8;
-            this.stopBDFlightBtn.Text = "Detener Vuelo";
-            this.stopBDFlightBtn.UseVisualStyleBackColor = true;
+            this.stopBDFlightBtn.Text = "Cancel Mission";
+            this.stopBDFlightBtn.UseVisualStyleBackColor = false;
             this.stopBDFlightBtn.Click += new System.EventHandler(this.stopBDFlightBtn_Click);
             // 
             // tabPage1
@@ -983,10 +994,11 @@
             this.tabPage1.Controls.Add(this.panelLateral);
             this.tabPage1.Controls.Add(this.panel_versiones);
             this.tabPage1.Controls.Add(this.panelMap);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1029, 532);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(1052, 559);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Planer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -994,9 +1006,10 @@
             // btnLimpiarRuta
             // 
             this.btnLimpiarRuta.BackColor = System.Drawing.Color.Red;
-            this.btnLimpiarRuta.Location = new System.Drawing.Point(490, 470);
+            this.btnLimpiarRuta.Location = new System.Drawing.Point(368, 382);
+            this.btnLimpiarRuta.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiarRuta.Name = "btnLimpiarRuta";
-            this.btnLimpiarRuta.Size = new System.Drawing.Size(210, 30);
+            this.btnLimpiarRuta.Size = new System.Drawing.Size(158, 24);
             this.btnLimpiarRuta.TabIndex = 6;
             this.btnLimpiarRuta.Text = "Limpiar Ruta";
             this.btnLimpiarRuta.UseVisualStyleBackColor = false;
@@ -1004,9 +1017,10 @@
             // btnCargarRuta
             // 
             this.btnCargarRuta.BackColor = System.Drawing.Color.Cyan;
-            this.btnCargarRuta.Location = new System.Drawing.Point(260, 470);
+            this.btnCargarRuta.Location = new System.Drawing.Point(195, 382);
+            this.btnCargarRuta.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargarRuta.Name = "btnCargarRuta";
-            this.btnCargarRuta.Size = new System.Drawing.Size(210, 30);
+            this.btnCargarRuta.Size = new System.Drawing.Size(158, 24);
             this.btnCargarRuta.TabIndex = 5;
             this.btnCargarRuta.Text = "Cargar Ruta";
             this.btnCargarRuta.UseVisualStyleBackColor = false;
@@ -1014,9 +1028,10 @@
             // btnActualizarRuta
             // 
             this.btnActualizarRuta.BackColor = System.Drawing.Color.Yellow;
-            this.btnActualizarRuta.Location = new System.Drawing.Point(30, 500);
+            this.btnActualizarRuta.Location = new System.Drawing.Point(22, 406);
+            this.btnActualizarRuta.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizarRuta.Name = "btnActualizarRuta";
-            this.btnActualizarRuta.Size = new System.Drawing.Size(220, 30);
+            this.btnActualizarRuta.Size = new System.Drawing.Size(165, 24);
             this.btnActualizarRuta.TabIndex = 4;
             this.btnActualizarRuta.Text = "Actualizar Ruta";
             this.btnActualizarRuta.UseVisualStyleBackColor = false;
@@ -1025,9 +1040,10 @@
             // btnGuardarRuta
             // 
             this.btnGuardarRuta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnGuardarRuta.Location = new System.Drawing.Point(30, 470);
+            this.btnGuardarRuta.Location = new System.Drawing.Point(22, 382);
+            this.btnGuardarRuta.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardarRuta.Name = "btnGuardarRuta";
-            this.btnGuardarRuta.Size = new System.Drawing.Size(210, 30);
+            this.btnGuardarRuta.Size = new System.Drawing.Size(158, 24);
             this.btnGuardarRuta.TabIndex = 3;
             this.btnGuardarRuta.Text = "Guardar Ruta";
             this.btnGuardarRuta.UseVisualStyleBackColor = false;
@@ -1040,9 +1056,10 @@
             this.panelLateral.Controls.Add(this.btnBajar);
             this.panelLateral.Controls.Add(this.btnSubir);
             this.panelLateral.Controls.Add(this.waypointListBox);
-            this.panelLateral.Location = new System.Drawing.Point(730, 10);
+            this.panelLateral.Location = new System.Drawing.Point(548, 8);
+            this.panelLateral.Margin = new System.Windows.Forms.Padding(2);
             this.panelLateral.Name = "panelLateral";
-            this.panelLateral.Size = new System.Drawing.Size(290, 520);
+            this.panelLateral.Size = new System.Drawing.Size(218, 422);
             this.panelLateral.TabIndex = 2;
             // 
             // groupBoxFunciones
@@ -1055,9 +1072,11 @@
             this.groupBoxFunciones.Controls.Add(this.nudAltitud);
             this.groupBoxFunciones.Controls.Add(this.label10);
             this.groupBoxFunciones.Controls.Add(this.cbFuncion);
-            this.groupBoxFunciones.Location = new System.Drawing.Point(5, 297);
+            this.groupBoxFunciones.Location = new System.Drawing.Point(4, 241);
+            this.groupBoxFunciones.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxFunciones.Name = "groupBoxFunciones";
-            this.groupBoxFunciones.Size = new System.Drawing.Size(280, 215);
+            this.groupBoxFunciones.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxFunciones.Size = new System.Drawing.Size(210, 175);
             this.groupBoxFunciones.TabIndex = 5;
             this.groupBoxFunciones.TabStop = false;
             this.groupBoxFunciones.Text = "Función Waypoint";
@@ -1065,9 +1084,10 @@
             // btnAplicar
             // 
             this.btnAplicar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAplicar.Location = new System.Drawing.Point(5, 190);
+            this.btnAplicar.Location = new System.Drawing.Point(4, 154);
+            this.btnAplicar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAplicar.Name = "btnAplicar";
-            this.btnAplicar.Size = new System.Drawing.Size(270, 30);
+            this.btnAplicar.Size = new System.Drawing.Size(202, 24);
             this.btnAplicar.TabIndex = 9;
             this.btnAplicar.Text = "Aplicar Cambios";
             this.btnAplicar.UseVisualStyleBackColor = false;
@@ -1075,60 +1095,66 @@
             // lblLongitud
             // 
             this.lblLongitud.AutoSize = true;
-            this.lblLongitud.Location = new System.Drawing.Point(120, 165);
+            this.lblLongitud.Location = new System.Drawing.Point(90, 134);
+            this.lblLongitud.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLongitud.Name = "lblLongitud";
-            this.lblLongitud.Size = new System.Drawing.Size(43, 16);
+            this.lblLongitud.Size = new System.Drawing.Size(37, 13);
             this.lblLongitud.TabIndex = 8;
             this.lblLongitud.Text = "Lon: --";
             // 
             // lblLatitud
             // 
             this.lblLatitud.AutoSize = true;
-            this.lblLatitud.Location = new System.Drawing.Point(5, 165);
+            this.lblLatitud.Location = new System.Drawing.Point(4, 134);
+            this.lblLatitud.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLatitud.Name = "lblLatitud";
-            this.lblLatitud.Size = new System.Drawing.Size(39, 16);
+            this.lblLatitud.Size = new System.Drawing.Size(34, 13);
             this.lblLatitud.TabIndex = 7;
             this.lblLatitud.Text = "Lat: --";
             // 
             // nudHeading
             // 
-            this.nudHeading.Location = new System.Drawing.Point(5, 130);
+            this.nudHeading.Location = new System.Drawing.Point(4, 106);
+            this.nudHeading.Margin = new System.Windows.Forms.Padding(2);
             this.nudHeading.Maximum = new decimal(new int[] {
             359,
             0,
             0,
             0});
             this.nudHeading.Name = "nudHeading";
-            this.nudHeading.Size = new System.Drawing.Size(270, 22);
+            this.nudHeading.Size = new System.Drawing.Size(202, 20);
             this.nudHeading.TabIndex = 6;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 105);
+            this.label11.Location = new System.Drawing.Point(4, 85);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 16);
+            this.label11.Size = new System.Drawing.Size(63, 13);
             this.label11.TabIndex = 5;
             this.label11.Text = "Heading (º):";
             // 
             // nudAltitud
             // 
-            this.nudAltitud.Location = new System.Drawing.Point(5, 75);
+            this.nudAltitud.Location = new System.Drawing.Point(4, 61);
+            this.nudAltitud.Margin = new System.Windows.Forms.Padding(2);
             this.nudAltitud.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.nudAltitud.Name = "nudAltitud";
-            this.nudAltitud.Size = new System.Drawing.Size(270, 22);
+            this.nudAltitud.Size = new System.Drawing.Size(202, 20);
             this.nudAltitud.TabIndex = 4;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 50);
+            this.label10.Location = new System.Drawing.Point(4, 41);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 16);
+            this.label10.Size = new System.Drawing.Size(56, 13);
             this.label10.TabIndex = 3;
             this.label10.Text = "Altitud (m):";
             // 
@@ -1136,35 +1162,39 @@
             // 
             this.cbFuncion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFuncion.FormattingEnabled = true;
-            this.cbFuncion.Location = new System.Drawing.Point(5, 20);
+            this.cbFuncion.Location = new System.Drawing.Point(4, 16);
+            this.cbFuncion.Margin = new System.Windows.Forms.Padding(2);
             this.cbFuncion.Name = "cbFuncion";
-            this.cbFuncion.Size = new System.Drawing.Size(270, 24);
+            this.cbFuncion.Size = new System.Drawing.Size(204, 21);
             this.cbFuncion.TabIndex = 0;
             // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
-            this.btnEliminar.Location = new System.Drawing.Point(200, 265);
+            this.btnEliminar.Location = new System.Drawing.Point(150, 215);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(85, 25);
+            this.btnEliminar.Size = new System.Drawing.Size(64, 20);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnBajar
             // 
-            this.btnBajar.Location = new System.Drawing.Point(104, 265);
+            this.btnBajar.Location = new System.Drawing.Point(78, 215);
+            this.btnBajar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBajar.Name = "btnBajar";
-            this.btnBajar.Size = new System.Drawing.Size(85, 25);
+            this.btnBajar.Size = new System.Drawing.Size(64, 20);
             this.btnBajar.TabIndex = 3;
             this.btnBajar.Text = "▼ Bajar";
             this.btnBajar.UseVisualStyleBackColor = true;
             // 
             // btnSubir
             // 
-            this.btnSubir.Location = new System.Drawing.Point(5, 265);
+            this.btnSubir.Location = new System.Drawing.Point(4, 215);
+            this.btnSubir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(85, 25);
+            this.btnSubir.Size = new System.Drawing.Size(64, 20);
             this.btnSubir.TabIndex = 2;
             this.btnSubir.Text = "▲ Subir";
             this.btnSubir.UseVisualStyleBackColor = true;
@@ -1172,27 +1202,29 @@
             // waypointListBox
             // 
             this.waypointListBox.FormattingEnabled = true;
-            this.waypointListBox.ItemHeight = 16;
             this.waypointListBox.Location = new System.Drawing.Point(0, 0);
+            this.waypointListBox.Margin = new System.Windows.Forms.Padding(2);
             this.waypointListBox.Name = "waypointListBox";
-            this.waypointListBox.Size = new System.Drawing.Size(290, 260);
+            this.waypointListBox.Size = new System.Drawing.Size(218, 212);
             this.waypointListBox.TabIndex = 0;
             // 
             // panel_versiones
             // 
             this.panel_versiones.BackColor = System.Drawing.Color.Silver;
-            this.panel_versiones.Location = new System.Drawing.Point(31, 24);
+            this.panel_versiones.Location = new System.Drawing.Point(23, 20);
+            this.panel_versiones.Margin = new System.Windows.Forms.Padding(2);
             this.panel_versiones.Name = "panel_versiones";
-            this.panel_versiones.Size = new System.Drawing.Size(670, 35);
+            this.panel_versiones.Size = new System.Drawing.Size(502, 28);
             this.panel_versiones.TabIndex = 1;
             this.panel_versiones.Visible = false;
             // 
             // panelMap
             // 
             this.panelMap.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelMap.Location = new System.Drawing.Point(31, 87);
+            this.panelMap.Location = new System.Drawing.Point(23, 71);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(2);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(670, 370);
+            this.panelMap.Size = new System.Drawing.Size(502, 301);
             this.panelMap.TabIndex = 0;
             // 
             // menuStrip1
@@ -1200,25 +1232,331 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1037, 30);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
             this.menuStrip1.TabIndex = 33;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // Form1
+            // groupBox3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.groupBox3.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox3.Controls.Add(this.detectionPanel);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.galleryBtn);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.captureBtn);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.stopVideoBtn);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.startVideoBtn);
+            this.groupBox3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(672, 271);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(370, 200);
+            this.groupBox3.TabIndex = 54;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Video Options";
+            // 
+            // label12
+            // 
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label12.Location = new System.Drawing.Point(737, 49);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 30);
+            this.label12.TabIndex = 13;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(651, 50);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 24);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Batery";
+            // 
+            // label19
+            // 
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label19.Location = new System.Drawing.Point(581, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(64, 30);
+            this.label19.TabIndex = 6;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(517, 50);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(87, 24);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Altitude";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label15.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(285, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 19);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Longitude";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(583, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 19);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Heading";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label16.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(737, 29);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(57, 19);
+            this.label16.TabIndex = 55;
+            this.label16.Text = "Altitude";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(884, 29);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(56, 19);
+            this.label17.TabIndex = 55;
+            this.label17.Text = "Battery";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.vuelosNextBtn);
+            this.groupBox5.Controls.Add(this.vuelosPreviousBtn);
+            this.groupBox5.Controls.Add(this.vuelosPageLabel);
+            this.groupBox5.Controls.Add(this.vuelosListBox);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(12, 12);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(298, 272);
+            this.groupBox5.TabIndex = 55;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Flight Plans List:";
+            // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Location = new System.Drawing.Point(737, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 30);
+            this.label2.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(651, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 24);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Batery";
+            // 
+            // label14
+            // 
+            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label14.Location = new System.Drawing.Point(581, 49);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 30);
+            this.label14.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(517, 50);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(87, 24);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Altitude";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.label23);
+            this.groupBox6.Controls.Add(this.label24);
+            this.groupBox6.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(443, 344);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(370, 200);
+            this.groupBox6.TabIndex = 56;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Video Options";
+            // 
+            // label21
+            // 
+            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label21.Location = new System.Drawing.Point(737, 49);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(64, 30);
+            this.label21.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(651, 50);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(75, 24);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Batery";
+            // 
+            // label23
+            // 
+            this.label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label23.Location = new System.Drawing.Point(581, 49);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(64, 30);
+            this.label23.TabIndex = 6;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(517, 50);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(87, 24);
+            this.label24.TabIndex = 4;
+            this.label24.Text = "Altitude";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox7.Controls.Add(this.label25);
+            this.groupBox7.Controls.Add(this.label26);
+            this.groupBox7.Controls.Add(this.label27);
+            this.groupBox7.Controls.Add(this.label28);
+            this.groupBox7.Controls.Add(this.loadFromDBBtn);
+            this.groupBox7.Controls.Add(this.pauseResumeBDBtn);
+            this.groupBox7.Controls.Add(this.stopBDFlightBtn);
+            this.groupBox7.Controls.Add(this.startBDFlightBtn);
+            this.groupBox7.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(12, 295);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(298, 234);
+            this.groupBox7.TabIndex = 57;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Control Pannel";
+            // 
+            // label25
+            // 
+            this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label25.Location = new System.Drawing.Point(737, 49);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(64, 30);
+            this.label25.TabIndex = 13;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(651, 50);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(75, 24);
+            this.label26.TabIndex = 12;
+            this.label26.Text = "Batery";
+            // 
+            // label27
+            // 
+            this.label27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label27.Location = new System.Drawing.Point(581, 49);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(64, 30);
+            this.label27.TabIndex = 6;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(517, 50);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(87, 24);
+            this.label28.TabIndex = 4;
+            this.label28.Text = "Altitude";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox8.Controls.Add(this.label29);
+            this.groupBox8.Controls.Add(this.label30);
+            this.groupBox8.Controls.Add(this.label31);
+            this.groupBox8.Controls.Add(this.label32);
+            this.groupBox8.Controls.Add(this.bdWaypointsLabel);
+            this.groupBox8.Controls.Add(this.bdWaypointsListBox);
+            this.groupBox8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(851, 8);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(174, 285);
+            this.groupBox8.TabIndex = 58;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Current Waypoints";
+            // 
+            // label29
+            // 
+            this.label29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label29.Location = new System.Drawing.Point(737, 49);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(64, 30);
+            this.label29.TabIndex = 13;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(651, 50);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(75, 24);
+            this.label30.TabIndex = 12;
+            this.label30.Text = "Batery";
+            // 
+            // label31
+            // 
+            this.label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label31.Location = new System.Drawing.Point(581, 49);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(64, 30);
+            this.label31.TabIndex = 6;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(517, 50);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(87, 24);
+            this.label32.TabIndex = 4;
+            this.label32.Text = "Altitude";
+            // 
+            // App
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 591);
+            this.ClientSize = new System.Drawing.Size(1060, 609);
             this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "App";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mainTabControl.ResumeLayout(false);
             this.tabPageControl.ResumeLayout(false);
-            this.tabPageControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Alt_changeTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlturatrackBar)).EndInit();
@@ -1229,16 +1567,26 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPageFlight.ResumeLayout(false);
             this.tabPageFlight.PerformLayout();
             this.tabPageLoadBD.ResumeLayout(false);
-            this.tabPageLoadBD.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.panelLateral.ResumeLayout(false);
             this.groupBoxFunciones.ResumeLayout(false);
             this.groupBoxFunciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltitud)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1253,14 +1601,11 @@
         private System.Windows.Forms.Label velocidadLbl;
         private System.Windows.Forms.TrackBar velocidadTrackBar;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label headLbl;
         private System.Windows.Forms.Label longitudLbl;
         private System.Windows.Forms.Label latitudLbl;
         private System.Windows.Forms.Label altitudLbl;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1284,7 +1629,6 @@
         private System.Windows.Forms.Label AlturaLbl;
         private System.Windows.Forms.TrackBar AlturatrackBar;
         private System.Windows.Forms.Label BatteryLbl;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TrackBar Alt_changeTrackBar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label AltChangeLbl;
@@ -1308,7 +1652,6 @@
         private System.Windows.Forms.Panel bdMapPanel;
         private System.Windows.Forms.Button loadFromDBBtn;
         private System.Windows.Forms.ListBox vuelosListBox;
-        private System.Windows.Forms.Label vuelosLabel;
         private System.Windows.Forms.Label vuelosPageLabel;
         private System.Windows.Forms.Button vuelosPreviousBtn;
         private System.Windows.Forms.Button vuelosNextBtn;
@@ -1339,6 +1682,35 @@
         private System.Windows.Forms.Button btnActualizarRuta;
         private System.Windows.Forms.Button btnGuardarRuta;
         private System.Windows.Forms.Button btnLimpiarRuta;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
     }
 }
 

@@ -19,7 +19,7 @@ namespace Formulario
 {
 
     
-    public partial class Form1 : Form
+    public partial class App : Form
     {
         // Instancia del dron
         private Dron dron = new Dron();
@@ -153,7 +153,7 @@ namespace Formulario
 
         private string vueloActualCargado = null;
 
-        public Form1()
+        public App()
         {
             InitializeComponent();
 
@@ -3090,8 +3090,23 @@ namespace Formulario
                 $"{Nametag}  ({(Datetime?.Length > 10 ? Datetime.Substring(0, 10) : Datetime)})";
         }
 
+        private void mapPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void headLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // APLICAR TEMA 
 
-        
+
     }
 }
