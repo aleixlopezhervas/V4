@@ -3105,6 +3105,11 @@ namespace Formulario
 
         }
 
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // APLICAR TEMA 
 
 

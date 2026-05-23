@@ -34,8 +34,8 @@
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\UPC\\4B\\PD\\V4_final\\V4\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeDocumentMoniker": "Formulario\\Form1.cs",
-              "ToolTip": "C:\\UPC\\4B\\PD\\V4_final\\V4\\DashboardLocalCsharp\\Formulario\\Form1.cs [Design]*",
-              "RelativeToolTip": "Formulario\\Form1.cs [Design]*",
+              "ToolTip": "C:\\UPC\\4B\\PD\\V4_final\\V4\\DashboardLocalCsharp\\Formulario\\Form1.cs [Design]",
+              "RelativeToolTip": "Formulario\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T15:52:11.162Z",
               "EditorCaption": " [Design]"
@@ -46,8 +46,8 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\UPC\\4B\\PD\\V4_final\\V4\\DashboardLocalCsharp\\Formulario\\Form1.cs",
               "RelativeDocumentMoniker": "Formulario\\Form1.cs",
-              "ToolTip": "C:\\UPC\\4B\\PD\\V4_final\\V4\\DashboardLocalCsharp\\Formulario\\Form1.cs*",
-              "RelativeToolTip": "Formulario\\Form1.cs*",
+              "ToolTip": "C:\\UPC\\4B\\PD\\V4_final\\V4\\DashboardLocalCsharp\\Formulario\\Form1.cs",
+              "RelativeToolTip": "Formulario\\Form1.cs",
               "ViewState": "AgIAABQMAAAAAAAAAIA/wCMMAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-23T15:52:06.694Z",
@@ -63,7 +63,8 @@
               "RelativeToolTip": "Formulario\\Form1.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T15:51:43.786Z"
+              "WhenOpened": "2026-05-23T15:51:43.786Z",
+              "EditorCaption": ""
             }
           ]
         }

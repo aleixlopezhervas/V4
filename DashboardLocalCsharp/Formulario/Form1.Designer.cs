@@ -124,6 +124,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.bdMapPanel = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label33 = new System.Windows.Forms.Label();
             this.btnLimpiarRuta = new System.Windows.Forms.Button();
             this.btnCargarRuta = new System.Windows.Forms.Button();
             this.btnActualizarRuta = new System.Windows.Forms.Button();
@@ -145,7 +146,6 @@
             this.panel_versiones = new System.Windows.Forms.Panel();
             this.panelMap = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label33 = new System.Windows.Forms.Label();
             this.mainTabControl.SuspendLayout();
             this.tabPageControl.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1384,6 +1384,17 @@
             this.tabPage1.Text = "Planer";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label33.Location = new System.Drawing.Point(30, 30);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(184, 32);
+            this.label33.TabIndex = 7;
+            this.label33.Text = "Route Planer";
+            this.label33.Click += new System.EventHandler(this.label33_Click);
+            // 
             // btnLimpiarRuta
             // 
             this.btnLimpiarRuta.BackColor = System.Drawing.Color.Crimson;
@@ -1624,16 +1635,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1413, 24);
             this.menuStrip1.TabIndex = 33;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(30, 30);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(182, 32);
-            this.label33.TabIndex = 7;
-            this.label33.Text = "Flight Planer";
             // 
             // App
             // 
