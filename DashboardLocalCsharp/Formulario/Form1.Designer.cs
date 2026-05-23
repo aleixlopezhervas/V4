@@ -1422,10 +1422,10 @@
             // btnActualizarRuta
             // 
             this.btnActualizarRuta.BackColor = System.Drawing.Color.Yellow;
-            this.btnActualizarRuta.Location = new System.Drawing.Point(386, 638);
+            this.btnActualizarRuta.Location = new System.Drawing.Point(30, 642);
             this.btnActualizarRuta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizarRuta.Name = "btnActualizarRuta";
-            this.btnActualizarRuta.Size = new System.Drawing.Size(220, 30);
+            this.btnActualizarRuta.Size = new System.Drawing.Size(300, 40);
             this.btnActualizarRuta.TabIndex = 4;
             this.btnActualizarRuta.Text = "Actualizar Ruta";
             this.btnActualizarRuta.UseVisualStyleBackColor = false;
@@ -1645,7 +1645,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "App";
-            this.Text = "Form1";
+            this.Text = "Control y Planificación de Rutas. Grupo 3";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.mainTabControl.ResumeLayout(false);
             this.tabPageControl.ResumeLayout(false);
