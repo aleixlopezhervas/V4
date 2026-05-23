@@ -1381,7 +1381,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Size = new System.Drawing.Size(1405, 697);
             this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Planer";
+            this.tabPage1.Text = "Planner";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label33
@@ -1390,9 +1390,9 @@
             this.label33.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
             this.label33.Location = new System.Drawing.Point(30, 30);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(184, 32);
+            this.label33.Size = new System.Drawing.Size(201, 32);
             this.label33.TabIndex = 7;
-            this.label33.Text = "Route Planer";
+            this.label33.Text = "Route Planner";
             this.label33.Click += new System.EventHandler(this.label33_Click);
             // 
             // btnLimpiarRuta
