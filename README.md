@@ -210,8 +210,8 @@ Para esta primera prueba de vuelo en el DroneLab se escoge una ruta de 4 waypoin
 *Figura 4. Ruta de la demostración en DroneLab*
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=87cAKgqNABY">
-    <img src="https://img.youtube.com/vi/87cAKgqNABY/maxresdefault.jpg" width="700">
+  <a href="https://www.youtube.com/watch?v=DnPmp2ks7oI&feature=youtu.be">
+    <img src="https://img.youtube.com/vi/DnPmp2ks7oI/hqdefault.jpg" width="700">
   </a>
 </p>
 
@@ -227,7 +227,7 @@ En esta demostración se incluye una ruta más larga donde se pueden comprobar t
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=87cAKgqNABY">
-    <img src="https://img.youtube.com/vi/87cAKgqNABY/maxresdefault.jpg" width="700">
+    <img src="https://img.youtube.com/vi/87cAKgqNABY/hqdefault.jpg" width="700">
   </a>
 </p>
 
