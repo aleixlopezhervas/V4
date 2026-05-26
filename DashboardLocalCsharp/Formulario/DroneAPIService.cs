@@ -15,9 +15,7 @@ namespace Formulario
         TakePhoto,
         StartVideoRecording,
         StopVideoRecording,
-        ChangeAltitude,
         ChangeHeading,
-        Hover,
         ReturnToHome,
         Wait
     }

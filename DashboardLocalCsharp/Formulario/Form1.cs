@@ -1808,20 +1808,10 @@ namespace Formulario
                              Task.Run(() => DetenerGrabacionVideoBD(wp.InstruccionId ?? currentBdFirstInstruccionId));
                         }
                         break;
-                    case "ChangeAltitude":
-                        dron.IrAlPunto((float)currentLatDeg, (float)currentLonDeg, wp.Altitud);
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(3); // Dar tiempo al dron para ajustar altitud
-                        break;
                     case "ChangeHeading":
                         dron.CambiarHeading(wp.Heading, bloquear: false);
                         isBdWaiting = true;
                         bdWaitEndTime = DateTime.Now.AddSeconds(3); // Dar tiempo al dron para rotar
-                        break;
-                    case "Hover":
-                        dron.Navegar("Stop");
-                        isBdWaiting = true;
-                        bdWaitEndTime = DateTime.Now.AddSeconds(5); // Mantener 5 segundos
                         break;
                     case "Wait":
                         dron.Navegar("Stop");
