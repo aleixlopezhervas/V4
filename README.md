@@ -210,11 +210,26 @@ Para esta primera prueba de vuelo en el DroneLab se escoge una ruta de 4 waypoin
 *Figura 4. Ruta de la demostración en DroneLab*
 
 <p align="center">
-  <a href="[https://www.youtube.com/watch?v=MSE9zdbZ_DE](https://www.youtube.com/watch?v=87cAKgqNABY&feature=youtu.be)">
-    <img src="[https://img.youtube.com/vi/MSE9zdbZ_DE](https://www.youtube.com/watch?v=87cAKgqNABY&feature=youtu.be)/maxresdefault.jpg" width="700">
+  <a href="https://www.youtube.com/watch?v=87cAKgqNABY">
+    <img src="https://img.youtube.com/vi/87cAKgqNABY/maxresdefault.jpg" width="700">
   </a>
 </p>
 
 *Vídeo 1. Vuelo de la ruta de la Figura 4*
 
+### Demo 2: Vuelo en Simulación
+
+En esta demostración se incluye una ruta más larga donde se pueden comprobar todas las funcionalidades del planificador.
+
+<img width="734" height="287" alt="imagen" src="https://github.com/user-attachments/assets/2835034b-210e-46da-84bd-2923285aa666" />
+
+*Figura 5. Ruta de la demostración en simulación*
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=87cAKgqNABY">
+    <img src="https://img.youtube.com/vi/87cAKgqNABY/maxresdefault.jpg" width="700">
+  </a>
+</p>
+
+*Vídeo 2. Vuelo de la ruta de la Figura 5*
 ```
