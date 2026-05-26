@@ -104,20 +104,27 @@ El módulo de Ejecución de Vuelos es el componente responsable de materializar 
 
 ### Funcionalidades del Módulo de Vuelo BD
 
+<img width="1056" height="558" alt="imagen" src="https://github.com/user-attachments/assets/78d9ca31-c5b8-4a9a-8158-3ff1e6e1eee4" />
+
+*Figura 3. Interfaz del Ejecutor de Rutas*
+
 <br>
 <p align="center"><b>Tabla de Funcionalidades</b></p>
 
-| Funcionalidad | Control de Interfaz | Descripción de la Operación |
-|---|---|---|
-| Carga de Vuelo | Botón "Cargar Vuelo BD" | Realiza una petición a la API, muestra los vuelos disponibles paginados de 10 en 10 y renderiza la ruta seleccionada en el mapa de ejecución. |
-| Paginación de Vuelos | Botones "Anterior" / "Siguiente" | Permite navegar por el listado completo de vuelos almacenados cuando supera los 10 registros. |
-| Inicio de Vuelo | Botón "Iniciar Vuelo" | Ordena el despegue (si el dron está en tierra) y comienza la secuencia de navegación autónoma hacia los waypoints en orden de `Trail`. |
-| Pausa / Reanudación | Botón "Pausar Vuelo" / "Reanudar Vuelo" | Detiene el movimiento del dron en su posición actual y lo reanuda dirigiéndolo de nuevo al waypoint pendiente. |
-| Detención | Botón "Detener Vuelo" | Aborta la secuencia de vuelo, detiene el dron y finaliza cualquier grabación de video en curso. |
-| Grabación Automática | Automático al iniciar | Si la ruta no contiene directrices explícitas de video, el sistema inicia la grabación del vuelo completo por defecto. |
-| Preview en Vivo | Panel izquierdo de video | Muestra el stream MJPEG del dron en tiempo real mientras se graba, con indicadores del número de frames y tamaño acumulado. |
-| Reproducción de Video Previo | Panel derecho de video | Reproduce el último video asociado a la primera instrucción del vuelo cargado (recuperado de Cloudinary). |
-| Traza de Vuelo | Mapa interactivo | Dibuja en tiempo real el rastro de la trayectoria efectivamente recorrida por el dron, solapándose sobre la ruta planificada. |
+| Ref. en Fig. 3 | Funcionalidad | Control de Interfaz | Descripción de la Operación |
+| ---------------- | ---------------- | ---------------- | ---------------- |
+|   1 | Lista de Planes | Lista interactiva | Realiza una petición a la API, muestra los vuelos disponibles paginados de 10 en 10 y renderiza la ruta seleccionada en el mapa de ejecución. |
+|   2 | Paginación de Vuelos | Botones "Anterior" / "Siguiente" | Permite navegar por el listado completo de vuelos almacenados cuando supera los 10 registros. |
+|   3 | Carga de Rutas | Botón "Cargar Ruta" | Realiza una petición GET a la API, presenta un selector de vuelos disponibles y renderiza la ruta seleccionada en el mapa de edición. |
+|   4 | Inicio de Vuelo | Botón "Iniciar Vuelo" | Ordena el despegue (si el dron está en tierra) y comienza la secuencia de navegación autónoma hacia los waypoints en orden de `Trail`. |
+|   5 | Pausa / Reanudación | Botón "Pausar Vuelo" / "Reanudar Vuelo" | Detiene el movimiento del dron en su posición actual y lo reanuda dirigiéndolo de nuevo al waypoint pendiente. |
+|   6 | Detención | Botón "Detener Vuelo" | Aborta la secuencia de vuelo, detiene el dron y finaliza cualquier grabación de video en curso. |
+|   7 | Traza de Vuelo | Mapa interactivo | Dibuja en tiempo real el rastro de la trayectoria efectivamente recorrida por el dron, solapándose sobre la ruta planificada. |
+|   8 | Lista de Waypoints | Lista interactiva | Gracias a la petición GET de la API se muestra el listado de puntos de la ruta escogida. |
+|   9 | Reproducción de Video Previo | Panel derecho de video | Reproduce el último video asociado a la primera instrucción del vuelo cargado (recuperado de Cloudinary). |
+|   10 | Grabación Automática | Automático al iniciar | Si la ruta no contiene directrices explícitas de video, el sistema inicia la grabación del vuelo completo por defecto. |
+|   11 | Label vídeo | Label interactivo | Se muestra el volumen del archivo de grabación en vivo / Se activa en los tramos donde se solicita una grabación de vídeo. |
+|   12 | Carpeta vídeos | Botón "Abrir Vídeos" | Nos redirige a la copia de los vídeos / fotos realizadas durante el recorrido. |
 
 ### Guía de Uso del Módulo de Vuelo
 
@@ -139,7 +146,7 @@ Si el vuelo tiene un video asociado de una ejecución anterior, este se cargará
 
 1. **Iniciar vuelo:** Pulse `Iniciar Vuelo`. Si el dron se encuentra en tierra, el sistema ejecutará automáticamente el despegue a la altitud del primer waypoint antes de comenzar la navegación.
 
-2. **Seguimiento en tiempo real:** La posición actual del dron (marcador rojo) se actualiza continuamente a partir de los datos de telemetría. El sistema compara esta posición con el waypoint objetivo y, cuando la diferencia es inferior al umbral de llegada (~4,5 metros), considera el punto alcanzado y avanza al siguiente.
+2. **Seguimiento en tiempo real:** La posición actual del dron (marcador rojo) se actualiza continuamente a partir de los datos de telemetría. El sistema compara esta posición con el waypoint objetivo y, cuando la diferencia es inferior al umbral de llegada (~1 metro), considera el punto alcanzado y avanza al siguiente.
 
 3. **Ejecución de directrices:** Al alcanzar cada waypoint, el sistema ejecuta la acción asociada (ver tabla de directrices). Algunas directrices introducen una espera controlada para garantizar que el dron se estabiliza antes de continuar.
 
@@ -178,7 +185,7 @@ Un temporizador de 500 ms actúa como bucle principal de control de vuelo. En ca
 
 1. Obtiene la posición actual del dron desde la telemetría (`currentLatDeg`, `currentLonDeg`).
 2. Calcula la distancia al waypoint objetivo (`bdCurrentWaypointIndex`) en diferencia de coordenadas.
-3. Si `ΔLat` y `ΔLon` son ambos inferiores a `WAYPOINT_ARRIVAL_THRESHOLD` (≈ 4,5 m), el punto se considera alcanzado.
+3. Si `ΔLat` y `ΔLon` son ambos inferiores a `WAYPOINT_ARRIVAL_THRESHOLD` (≈ 1 m), el punto se considera alcanzado.
 4. Se ejecuta la directriz asociada (si la hay) y se avanza el índice al siguiente waypoint.
 5. Se ordena `IrAlPunto` al dron con las coordenadas y altitud del nuevo objetivo.
 6. El marcador de dron y la traza de vuelo se actualizan en el mapa.
@@ -195,35 +202,4 @@ El sistema de grabación opera de forma completamente autónoma:
 - Al finalizar la grabación, `GuardarVideoDesdeFrames` ensambla un contenedor AVI válido (RIFF/MJPEG) de forma nativa en C#, sin dependencias externas, incluyendo las cabeceras `avih`, `strh`, `strf` e índice `idx1`.
 - El archivo resultante se sube a Cloudinary mediante un `POST` multipart a través de `DroneAPIService.SubirMediaAsync`.
 
-#### Paginación de Vuelos
-
-La lista de misiones disponibles se obtiene de la caché local (`allVuelosCache`), que se rellena al inicio de la aplicación con todos los vuelos del servidor. La paginación es puramente local: el índice `flightPageIndex` controla qué bloque de 10 entradas se muestra en el `ListBox`, permitiendo la navegación sin peticiones adicionales a la API.
-
-### Diagrama de Flujo de Ejecución
-
-```
-[Seleccionar Vuelo] ──► [CargarRutaAsync] ──► [Ordenar por Trail] ──► [Renderizar en Mapa]
-                                                                              │
-                                                                    [Iniciar Vuelo]
-                                                                              │
-                                                              ┌───────────────▼──────────────┐
-                                                              │  BDWaypointTimer (500 ms)    │
-                                                              │                              │
-                                                              │  ¿Telemetría disponible?     │
-                                                              │        │  No ──► Esperar     │
-                                                              │        │  Sí                 │
-                                                              │  ¿Waypoint alcanzado?        │
-                                                              │        │  No ──► Continuar   │
-                                                              │        │  Sí                 │
-                                                              │  Ejecutar Directriz          │
-                                                              │  Avanzar índice              │
-                                                              │  IrAlPunto (siguiente)       │
-                                                              │        │                     │
-                                                              │  ¿Último waypoint?           │
-                                                              │        │  Sí ──► Finalizar   │
-                                                              └────────┼─────────────────────┘
-                                                                       │
-                                                              [Detener grabación]
-                                                              [Ensamblar AVI]
-                                                              [Subir a Cloudinary]
 ```
