@@ -839,25 +839,7 @@ namespace Formulario
             // Pestaña "Vuelo" eliminada
         }
 
-        private void loadWaypointsBtn_Click(object sender, EventArgs e)
-        {
-            // Función removida - Pestaña "Vuelo" eliminada
-        }
-
-        private void startFlightBtn_Click(object sender, EventArgs e)
-        {
-            // Función removida - Pestaña "Vuelo" eliminada
-        }
-
-        private void stopFlightBtn_Click(object sender, EventArgs e)
-        {
-            // Función removida - Pestaña "Vuelo" eliminada
-        }
-
-        private void WaypointTimer_Tick(object sender, EventArgs e)
-        {
-            // Función removida - Pestaña "Vuelo" eliminada
-        }
+        
 
         // =========================================================
         // PESTAÑA CARGAR VUELO DESDE BASE DE DATOS
