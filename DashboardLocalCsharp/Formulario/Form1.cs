@@ -21,13 +21,9 @@ namespace Formulario
     
     public partial class App : Form
     {
-        // Instancia del dron
         private Dron dron = new Dron();
-
-        //video streaming:
         private string mjpegUrl = "http://localhost:8888/";
 
-        //galeria
         private List<string> capturedPhotoPaths = new List<string>();
         private string photosFolder = System.IO.Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "DronePhotos");
@@ -35,10 +31,8 @@ namespace Formulario
         private byte[] latestJpegBytes = null;
         private readonly object jpegLock = new object();
 
-        //detection
         private List<int> selectedObjectIds = new List<int>();
 
-        //map
         private double currentLatDeg = double.NaN;
         private double currentLonDeg = double.NaN;
         private double currentHeading = 0;
@@ -80,11 +74,9 @@ namespace Formulario
             }
         }
 
-        // Constantes para vuelo BD
-        private const double WAYPOINT_ARRIVAL_THRESHOLD = 0.00004; // Aprox 4.5 metros
+        private const double WAYPOINT_ARRIVAL_THRESHOLD = 0.00004;
         private const float FLIGHT_ALTITUDE = 5f;
 
-        // Variables de paginación para vuelos
         private const string API_BASE = "http://dronseetac.upc.edu:8104/api";
         private DroneAPIService droneAPIService;
         private GMapControl bdGmap;
@@ -166,8 +158,6 @@ namespace Formulario
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-
-
             if (DesignMode) return;
 
             // Inicializar servicio API (compartido por BD y edición de rutas)
@@ -189,7 +179,6 @@ namespace Formulario
             InicializarControlesFunciones();
             await CargarListaVuelos();
         }
-
 
         // =========================================================
         // COMANDOS DEL DRON (USANDO CLASE DRON)
@@ -215,7 +204,7 @@ namespace Formulario
             }
             else
             {
-                return; // Cancelado
+                return;
             }
 
             but_connect.BackColor = Color.Green;
@@ -337,7 +326,6 @@ namespace Formulario
             {
                 double altDestino = double.IsNaN(currentAlt) ? 5 : currentAlt;
                 EnviarDronHacia(destLat, destLon, altDestino);
-                Console.WriteLine($"Navegando a: Lat={destLat}, Lon={destLon}, Alt={altDestino}");
             }
         }
 
@@ -354,7 +342,6 @@ namespace Formulario
         private void Alt_changeTrackBar_MouseUp(object sender, MouseEventArgs e)
         {
             int altitud = Alt_changeTrackBar.Value;
-            Console.WriteLine($"Cambiando altitud a: {altitud}");
             if (!double.IsNaN(currentLatDeg) && !double.IsNaN(currentLonDeg))
             {
                 // Para cambiar de altitud se comanda un IrAlPunto sobre la misma coordenada
@@ -362,8 +349,6 @@ namespace Formulario
             }
         }
 
-        private void AlturaLbl_Click(object sender, EventArgs e) { }
-        private void AltChangeLbl_Click(object sender, EventArgs e) { }
 
         // =========================================================
         // PROCESAMIENTO DE DATOS LOCALES DEL MAPA
@@ -389,13 +374,12 @@ namespace Formulario
                 if (method != null)
                 {
                     method.Invoke(dron, new object[] { lat, lon, destAlt, false });
-                    Console.WriteLine($"Navegando hacia: Lat={lat}, Lon={lon}, Alt={destAlt}");
                     return;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al invocar goto: {ex.Message}");
+                // Error al invocar goto
             }
 
             if (navigationTimer == null)
@@ -1262,9 +1246,7 @@ namespace Formulario
                         dron.EscribirParametros(new List<(string, float)> { ("WP_YAW_BEHAVIOR", 1f) });
                         Thread.Sleep(300);
                     }
-                    Console.WriteLine($"[COMANDO ENVIADO] IrAlPunto(Lat={wp.Position.Lat:F8}, Lon={wp.Position.Lng:F8}, Alt={wp.Altitud}m)");
                     dron.IrAlPunto((float)wp.Position.Lat, (float)wp.Position.Lng, wp.Altitud);
-                    Console.WriteLine($"[COMANDO COMPLETADO] IrAlPunto ejecutado sin excepciones");
                 }
                 catch (Exception ex)
                 {
@@ -1785,13 +1767,11 @@ namespace Formulario
                                 Thread.Sleep(300);
                             }
 
-                            Console.WriteLine($"[COMANDO ENVIADO] IrAlPunto(Lat={nextWp.Position.Lat:F8}, Lon={nextWp.Position.Lng:F8}, Alt={nextWp.Altitud}m) - Waypoint {currentIndex + 1}");
                             dron.IrAlPunto((float)nextWp.Position.Lat, (float)nextWp.Position.Lng, nextWp.Altitud);
-                            Console.WriteLine($"[COMANDO COMPLETADO] Waypoint {currentIndex + 1}");
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"[ERROR] Al navegar a waypoint {currentIndex + 1}: {ex.Message}");
+                            // Error al navegar a waypoint
                         }
                     });
 
@@ -1809,8 +1789,6 @@ namespace Formulario
         private void EjecutarDirectrizWaypointBD(WaypointData wp)
         {
             if (string.IsNullOrEmpty(wp.Directriz) || wp.Directriz == "None") return;
-
-            Console.WriteLine($"[DIRECTRIZ] Ejecutando {wp.Directriz} en Waypoint");
 
             try
             {
@@ -2550,81 +2528,6 @@ namespace Formulario
             }
         }
 
-        /*
-        private void MostrarSelectorVersiones(Vuelo vuelo)
-        {
-            panel_versiones.Controls.Clear();
-
-            MessageBox.Show($"Debug: NumVersiones = {vuelo.NumVersiones}", "Info");
-
-            Label lblVersiones = new Label
-            {
-                Text = $"Versiones disponibles ({vuelo.NumVersiones}):",
-                Location = new Point(10, 10),
-                AutoSize = true,
-                Font = new Font("Arial", 10, FontStyle.Bold)
-            };
-            panel_versiones.Controls.Add(lblVersiones);
-
-            int xPos = 250;
-            for (int i = vuelo.NumVersiones; i >= 1; i--)
-            {
-                Button btn = new Button
-                {
-                    Text = $"V{i}",
-                    Size = new Size(40, 30),
-                    Location = new Point(xPos, 12),
-                    Font = new Font("Arial", 10, FontStyle.Bold),
-                    BackColor = (i == vuelo.NumVersiones) ? Color.LightGreen : Color.LightGray,
-                    Tag = i,
-                    Cursor = Cursors.Hand
-                };
-
-                int version = i;
-                btn.Click += async (s, e) =>
-                {
-                    await CargarVersion(vueloActualCargado, version);
-                };
-
-                panel_versiones.Controls.Add(btn);
-                xPos += 50;
-            }
-
-            panel_versiones.Visible = true;
-        }
-        
-
-        private async Task CargarVersion(string vueloId, int version)
-        {
-            try
-            {
-                Instruccion.ReiniciarContador();
-
-                var vueloCompleto = await droneAPIService.ObtenerVueloAsync(vueloId);
-                vueloCompleto.Instrucciones = await droneAPIService.ObtenerInstruccionesVueloVersionAsync(vueloId, version);
-
-                instrucciones.Clear();
-                instruccionSeleccionada = null;
-                instruccionCounter = 0;
-
-                instrucciones = new List<Instruccion>(vueloCompleto.Instrucciones);
-
-                ActualizarListaInstrucciones();
-                ActualizarRutaEdicion();
-                RefrescarMarcadoresEdicion();
-
-                MessageBox.Show(
-                    $"Versión {version} cargada\n{vueloCompleto.Instrucciones.Count} instrucciones",
-                    "Éxito"
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error al cargar versión");
-            }
-        }
-        */
-
         // =========================================================
         // CLASES AUXILIARES
         // =========================================================
@@ -2648,19 +2551,9 @@ namespace Formulario
         {
 
         }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label33_Click(object sender, EventArgs e)
         {
 
         }
-
-        // APLICAR TEMA 
-
-
     }
 }

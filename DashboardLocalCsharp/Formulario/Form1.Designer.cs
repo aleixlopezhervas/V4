@@ -168,8 +168,8 @@
             // mainTabControl
             // 
             this.mainTabControl.Controls.Add(this.tabPageControl);
-            this.mainTabControl.Controls.Add(this.tabPageLoadBD);
             this.mainTabControl.Controls.Add(this.tabPage1);
+            this.mainTabControl.Controls.Add(this.tabPageLoadBD);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabControl.Location = new System.Drawing.Point(0, 24);
             this.mainTabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -752,7 +752,6 @@
             this.AltChangeLbl.TabIndex = 44;
             this.AltChangeLbl.Text = "0";
             this.AltChangeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.AltChangeLbl.Click += new System.EventHandler(this.AltChangeLbl_Click);
             // 
             // label8
             // 
@@ -789,7 +788,6 @@
             this.AlturaLbl.TabIndex = 41;
             this.AlturaLbl.Text = "0";
             this.AlturaLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.AlturaLbl.Click += new System.EventHandler(this.AlturaLbl_Click);
             // 
             // velocidadLbl
             // 
