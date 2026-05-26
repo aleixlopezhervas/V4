@@ -6,9 +6,13 @@ Utiliza una interfaz gráfica basada en mapas interactivos y se apoya en una arq
 ### Funcionalidades del Planificador
 La aplicación ofrece un conjunto completo de herramientas para la manipulación de rutas, gestionadas a través de la interfaz gráfica y eventos de control. 
 
-<img width="1319" height="691" alt="Interfaz del Planificador de Rutas" src="https://github.com/user-attachments/assets/321f738c-b788-4483-ac9c-7da63b2b4a8c" />
+<p align="center">
+  <img width="1319" height="691" alt="Interfaz del Planificador de Rutas" src="https://github.com/user-attachments/assets/321f738c-b788-4483-ac9c-7da63b2b4a8c" />
+</p>
 
-*Figura 1. Interfaz del Planificador de Rutas*
+<p align="center">
+  <em>Figura 1. Interfaz del Planificador de Rutas</em>
+</p>
 
 <br>
 <p align="center"><b>Tabla de Funcionalidades</b></p>
@@ -59,9 +63,12 @@ Una vez finalizado el diseño:
 2. El sistema solicitará un identificador o nombre para la misión.
 
 3. Se presentará un resumen (preview) detallado con todas las coordenadas y comandos. Confirme la operación para que la ruta sea almacenada en la base de datos central, quedando disponible para su ejecución posterior en el módulo de vuelo.
-<img width="690" height="450" alt="Captura de pantalla 2026-05-23 200612" src="https://github.com/user-attachments/assets/4b877152-5d21-4e7e-ba26-1fcf7f445856" />
 
-*Figura 2. Preview de Ruta de Ejemplo*
+<p align="center">
+  <img width="690" height="450" alt="Captura de pantalla 2026-05-23 200612" src="https://github.com/user-attachments/assets/4b877152-5d21-4e7e-ba26-1fcf7f445856" />
+</p>
+
+<p align="center"><i>Figura 2. Preview de Ruta de Ejemplo</i></p>
 
 ### 4. Estructura de Datos y Arquitectura Subyacente
 
@@ -104,9 +111,11 @@ El módulo de Ejecución de Vuelos es el componente responsable de materializar 
 
 ### Funcionalidades del Módulo de Vuelo BD
 
-<img width="1056" height="558" alt="imagen" src="https://github.com/user-attachments/assets/78d9ca31-c5b8-4a9a-8158-3ff1e6e1eee4" />
+<p align="center">
+  <img width="1056" height="558" alt="imagen" src="https://github.com/user-attachments/assets/78d9ca31-c5b8-4a9a-8158-3ff1e6e1eee4" />
+</p>
 
-*Figura 3. Interfaz del Ejecutor de Rutas*
+<p align="center"><i>Figura 3. Interfaz del Ejecutor de Rutas</i></p>
 
 <br>
 <p align="center"><b>Tabla de Funcionalidades</b></p>
@@ -205,9 +214,11 @@ El sistema de grabación opera de forma completamente autónoma:
 
 Para esta primera prueba de vuelo en el DroneLab se escoge una ruta de 4 waypoints para comprobar su funcionamiento básico y instrucciones simples.
 
-<img width="737" height="287" alt="imagen" src="https://github.com/user-attachments/assets/d7c593f0-11e7-4322-a683-e0d1df24e7b9" />
+<p align="center">
+  <img width="737" height="287" alt="imagen" src="https://github.com/user-attachments/assets/d7c593f0-11e7-4322-a683-e0d1df24e7b9" />
+</p>
 
-*Figura 4. Ruta de la demostración en DroneLab*
+<p align="center"><i>Figura 4. Ruta de la demostración en DroneLab</i></p>
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=DnPmp2ks7oI&feature=youtu.be">
@@ -215,15 +226,17 @@ Para esta primera prueba de vuelo en el DroneLab se escoge una ruta de 4 waypoin
   </a>
 </p>
 
-*Vídeo 1. Vuelo de la ruta de la Figura 4*
+<p align="center"><i>Vídeo 1. Vuelo de la ruta de la Figura 4</i></p>
 
 ### Demo 2: Vuelo en Simulación
 
 En esta demostración se incluye una ruta más larga donde se pueden comprobar todas las funcionalidades del planificador.
 
-<img width="734" height="287" alt="imagen" src="https://github.com/user-attachments/assets/2835034b-210e-46da-84bd-2923285aa666" />
+<p align="center">
+  <img width="734" height="287" alt="imagen" src="https://github.com/user-attachments/assets/2835034b-210e-46da-84bd-2923285aa666" />
+</p>
 
-*Figura 5. Ruta de la demostración en simulación*
+<p align="center"><i>Figura 5. Ruta de la demostración en simulación</i></p>
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=87cAKgqNABY">
@@ -231,5 +244,5 @@ En esta demostración se incluye una ruta más larga donde se pueden comprobar t
   </a>
 </p>
 
-*Vídeo 2. Vuelo de la ruta de la Figura 5*
+<p align="center"><i>Vídeo 2. Vuelo de la ruta de la Figura 5</i></p>
 ```
