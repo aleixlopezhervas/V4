@@ -7,7 +7,7 @@ Utiliza una interfaz gráfica basada en mapas interactivos y se apoya en una arq
 La aplicación ofrece un conjunto completo de herramientas para la manipulación de rutas, gestionadas a través de la interfaz gráfica y eventos de control. 
 
 <p align="center">
-  <img width="1319" height="691" alt="Interfaz del Planificador de Rutas" src="https://github.com/user-attachments/assets/321f738c-b788-4483-ac9c-7da63b2b4a8c" />
+  <img width="1319" height="691" alt="Interfaz del Planificador de Rutas" src="https://github.com/user-attachments/assets/69160a33-0839-48ca-b3a8-a489c67f0540" />
 </p>
 
 <p align="center">
