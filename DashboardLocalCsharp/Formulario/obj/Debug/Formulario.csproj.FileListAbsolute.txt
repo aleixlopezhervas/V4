@@ -40,10 +40,10 @@ C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\bin\Debug\System.Text.
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\bin\Debug\System.Text.Json.xml
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.csproj.AssemblyReference.cache
+C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.App.resources
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.Properties.Resources.resources
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.csproj.GenerateResource.cache
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.csproj.CoreCompileInputs.cache
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.csproj.Up2Date
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.exe
 C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.pdb
-C:\Users\aleix\Desktop\V4\DashboardLocalCsharp\Formulario\obj\Debug\Formulario.App.resources

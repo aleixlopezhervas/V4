@@ -83,40 +83,6 @@
             this.headingLbl = new System.Windows.Forms.Label();
             this.headingTrackBar = new System.Windows.Forms.TrackBar();
             this.label9 = new System.Windows.Forms.Label();
-            this.tabPageLoadBD = new System.Windows.Forms.TabPage();
-            this.panelVideoPlayback = new System.Windows.Forms.Panel();
-            this.bdVideoPlaybackBrowser = new System.Windows.Forms.WebBrowser();
-            this.panelVideoRecording = new System.Windows.Forms.Panel();
-            this.bdVideoPreview = new System.Windows.Forms.PictureBox();
-            this.bdRecordingStatusLabel = new System.Windows.Forms.Label();
-            this.bdOpenFolderBtn = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.bdWaypointsLabel = new System.Windows.Forms.Label();
-            this.bdWaypointsListBox = new System.Windows.Forms.ListBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.loadFromDBBtn = new System.Windows.Forms.Button();
-            this.pauseResumeBDBtn = new System.Windows.Forms.Button();
-            this.stopBDFlightBtn = new System.Windows.Forms.Button();
-            this.startBDFlightBtn = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.vuelosNextBtn = new System.Windows.Forms.Button();
-            this.vuelosPreviousBtn = new System.Windows.Forms.Button();
-            this.vuelosPageLabel = new System.Windows.Forms.Label();
-            this.vuelosListBox = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.bdMapPanel = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label33 = new System.Windows.Forms.Label();
             this.btnLimpiarRuta = new System.Windows.Forms.Button();
@@ -138,6 +104,40 @@
             this.waypointListBox = new System.Windows.Forms.ListBox();
             this.panel_versiones = new System.Windows.Forms.Panel();
             this.panelMap = new System.Windows.Forms.Panel();
+            this.tabPageLoadBD = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.bdWaypointsLabel = new System.Windows.Forms.Label();
+            this.bdWaypointsListBox = new System.Windows.Forms.ListBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.loadFromDBBtn = new System.Windows.Forms.Button();
+            this.pauseResumeBDBtn = new System.Windows.Forms.Button();
+            this.stopBDFlightBtn = new System.Windows.Forms.Button();
+            this.startBDFlightBtn = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.panelVideoRecording = new System.Windows.Forms.Panel();
+            this.bdVideoPreview = new System.Windows.Forms.PictureBox();
+            this.bdRecordingStatusLabel = new System.Windows.Forms.Label();
+            this.bdOpenFolderBtn = new System.Windows.Forms.Button();
+            this.panelVideoPlayback = new System.Windows.Forms.Panel();
+            this.bdVideoPlaybackBrowser = new System.Windows.Forms.WebBrowser();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.vuelosNextBtn = new System.Windows.Forms.Button();
+            this.vuelosPreviousBtn = new System.Windows.Forms.Button();
+            this.vuelosPageLabel = new System.Windows.Forms.Label();
+            this.vuelosListBox = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.bdMapPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainTabControl.SuspendLayout();
             this.tabPageControl.SuspendLayout();
@@ -150,19 +150,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.Alt_changeTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlturatrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headingTrackBar)).BeginInit();
-            this.tabPageLoadBD.SuspendLayout();
-            this.panelVideoPlayback.SuspendLayout();
-            this.panelVideoRecording.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdVideoPreview)).BeginInit();
-            this.groupBox8.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelLateral.SuspendLayout();
             this.groupBoxFunciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltitud)).BeginInit();
+            this.tabPageLoadBD.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.panelVideoRecording.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdVideoPreview)).BeginInit();
+            this.panelVideoPlayback.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -172,7 +172,7 @@
             this.mainTabControl.Controls.Add(this.tabPageLoadBD);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabControl.Location = new System.Drawing.Point(0, 24);
-            this.mainTabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainTabControl.Margin = new System.Windows.Forms.Padding(2);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(1060, 570);
@@ -189,9 +189,9 @@
             this.tabPageControl.Controls.Add(this.groupBox2);
             this.tabPageControl.Controls.Add(this.groupBox1);
             this.tabPageControl.Location = new System.Drawing.Point(4, 22);
-            this.tabPageControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageControl.Name = "tabPageControl";
-            this.tabPageControl.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageControl.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageControl.Size = new System.Drawing.Size(1052, 544);
             this.tabPageControl.TabIndex = 0;
             this.tabPageControl.Text = "Control";
@@ -222,7 +222,7 @@
             this.detectionPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.detectionPanel.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.detectionPanel.Location = new System.Drawing.Point(5, 109);
-            this.detectionPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.detectionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.detectionPanel.Name = "detectionPanel";
             this.detectionPanel.Size = new System.Drawing.Size(360, 86);
             this.detectionPanel.TabIndex = 53;
@@ -240,7 +240,7 @@
             this.galleryBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.galleryBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.galleryBtn.Location = new System.Drawing.Point(185, 71);
-            this.galleryBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.galleryBtn.Margin = new System.Windows.Forms.Padding(2);
             this.galleryBtn.Name = "galleryBtn";
             this.galleryBtn.Size = new System.Drawing.Size(169, 32);
             this.galleryBtn.TabIndex = 52;
@@ -262,7 +262,7 @@
             this.captureBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.captureBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.captureBtn.Location = new System.Drawing.Point(5, 72);
-            this.captureBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.captureBtn.Margin = new System.Windows.Forms.Padding(2);
             this.captureBtn.Name = "captureBtn";
             this.captureBtn.Size = new System.Drawing.Size(165, 32);
             this.captureBtn.TabIndex = 51;
@@ -283,7 +283,7 @@
             this.stopVideoBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.stopVideoBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stopVideoBtn.Location = new System.Drawing.Point(185, 35);
-            this.stopVideoBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stopVideoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stopVideoBtn.Name = "stopVideoBtn";
             this.stopVideoBtn.Size = new System.Drawing.Size(169, 32);
             this.stopVideoBtn.TabIndex = 50;
@@ -305,7 +305,7 @@
             this.startVideoBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.startVideoBtn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startVideoBtn.Location = new System.Drawing.Point(5, 36);
-            this.startVideoBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startVideoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startVideoBtn.Name = "startVideoBtn";
             this.startVideoBtn.Size = new System.Drawing.Size(165, 32);
             this.startVideoBtn.TabIndex = 49;
@@ -317,7 +317,7 @@
             // 
             this.videoPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.videoPictureBox.Location = new System.Drawing.Point(672, 11);
-            this.videoPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.videoPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.videoPictureBox.Name = "videoPictureBox";
             this.videoPictureBox.Size = new System.Drawing.Size(370, 250);
             this.videoPictureBox.TabIndex = 47;
@@ -327,7 +327,7 @@
             // 
             this.mapPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mapPanel.Location = new System.Drawing.Point(293, 11);
-            this.mapPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mapPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mapPanel.Name = "mapPanel";
             this.mapPanel.Size = new System.Drawing.Size(370, 250);
             this.mapPanel.TabIndex = 46;
@@ -730,7 +730,7 @@
             // 
             this.Alt_changeTrackBar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Alt_changeTrackBar.Location = new System.Drawing.Point(208, 252);
-            this.Alt_changeTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Alt_changeTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.Alt_changeTrackBar.Maximum = 100;
             this.Alt_changeTrackBar.Name = "Alt_changeTrackBar";
             this.Alt_changeTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -838,6 +838,258 @@
             this.label9.TabIndex = 38;
             this.label9.Text = "Velocity";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label33);
+            this.tabPage1.Controls.Add(this.btnLimpiarRuta);
+            this.tabPage1.Controls.Add(this.btnCargarRuta);
+            this.tabPage1.Controls.Add(this.btnGuardarRuta);
+            this.tabPage1.Controls.Add(this.panelLateral);
+            this.tabPage1.Controls.Add(this.panel_versiones);
+            this.tabPage1.Controls.Add(this.panelMap);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(1052, 544);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Planner";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label33.Location = new System.Drawing.Point(22, 24);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(153, 24);
+            this.label33.TabIndex = 7;
+            this.label33.Text = "Route Planner";
+            this.label33.Click += new System.EventHandler(this.label33_Click);
+            // 
+            // btnLimpiarRuta
+            // 
+            this.btnLimpiarRuta.BackColor = System.Drawing.Color.Crimson;
+            this.btnLimpiarRuta.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiarRuta.Location = new System.Drawing.Point(495, 471);
+            this.btnLimpiarRuta.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiarRuta.Name = "btnLimpiarRuta";
+            this.btnLimpiarRuta.Size = new System.Drawing.Size(225, 32);
+            this.btnLimpiarRuta.TabIndex = 6;
+            this.btnLimpiarRuta.Text = "Limpiar Ruta";
+            this.btnLimpiarRuta.UseVisualStyleBackColor = false;
+            // 
+            // btnCargarRuta
+            // 
+            this.btnCargarRuta.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCargarRuta.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarRuta.Location = new System.Drawing.Point(259, 471);
+            this.btnCargarRuta.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCargarRuta.Name = "btnCargarRuta";
+            this.btnCargarRuta.Size = new System.Drawing.Size(225, 32);
+            this.btnCargarRuta.TabIndex = 5;
+            this.btnCargarRuta.Text = "Cargar Ruta";
+            this.btnCargarRuta.UseVisualStyleBackColor = false;
+            // 
+            // btnGuardarRuta
+            // 
+            this.btnGuardarRuta.BackColor = System.Drawing.Color.LightGreen;
+            this.btnGuardarRuta.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnGuardarRuta.Location = new System.Drawing.Point(22, 471);
+            this.btnGuardarRuta.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarRuta.Name = "btnGuardarRuta";
+            this.btnGuardarRuta.Size = new System.Drawing.Size(225, 32);
+            this.btnGuardarRuta.TabIndex = 3;
+            this.btnGuardarRuta.Text = "Guardar Ruta";
+            this.btnGuardarRuta.UseVisualStyleBackColor = false;
+            // 
+            // panelLateral
+            // 
+            this.panelLateral.BackColor = System.Drawing.Color.LightGray;
+            this.panelLateral.Controls.Add(this.groupBoxFunciones);
+            this.panelLateral.Controls.Add(this.btnEliminar);
+            this.panelLateral.Controls.Add(this.btnBajar);
+            this.panelLateral.Controls.Add(this.btnSubir);
+            this.panelLateral.Controls.Add(this.waypointListBox);
+            this.panelLateral.Location = new System.Drawing.Point(744, 20);
+            this.panelLateral.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLateral.Name = "panelLateral";
+            this.panelLateral.Size = new System.Drawing.Size(292, 484);
+            this.panelLateral.TabIndex = 2;
+            // 
+            // groupBoxFunciones
+            // 
+            this.groupBoxFunciones.Controls.Add(this.btnAplicar);
+            this.groupBoxFunciones.Controls.Add(this.lblLongitud);
+            this.groupBoxFunciones.Controls.Add(this.lblLatitud);
+            this.groupBoxFunciones.Controls.Add(this.nudHeading);
+            this.groupBoxFunciones.Controls.Add(this.label11);
+            this.groupBoxFunciones.Controls.Add(this.nudAltitud);
+            this.groupBoxFunciones.Controls.Add(this.label10);
+            this.groupBoxFunciones.Controls.Add(this.cbFuncion);
+            this.groupBoxFunciones.Font = new System.Drawing.Font("Arial", 10F);
+            this.groupBoxFunciones.Location = new System.Drawing.Point(11, 296);
+            this.groupBoxFunciones.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxFunciones.Name = "groupBoxFunciones";
+            this.groupBoxFunciones.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxFunciones.Size = new System.Drawing.Size(270, 179);
+            this.groupBoxFunciones.TabIndex = 5;
+            this.groupBoxFunciones.TabStop = false;
+            this.groupBoxFunciones.Text = "Función Waypoint";
+            // 
+            // btnAplicar
+            // 
+            this.btnAplicar.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAplicar.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAplicar.Location = new System.Drawing.Point(0, 154);
+            this.btnAplicar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAplicar.Name = "btnAplicar";
+            this.btnAplicar.Size = new System.Drawing.Size(270, 24);
+            this.btnAplicar.TabIndex = 9;
+            this.btnAplicar.Text = "Aplicar Cambios";
+            this.btnAplicar.UseVisualStyleBackColor = false;
+            // 
+            // lblLongitud
+            // 
+            this.lblLongitud.AutoSize = true;
+            this.lblLongitud.Location = new System.Drawing.Point(135, 134);
+            this.lblLongitud.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLongitud.Name = "lblLongitud";
+            this.lblLongitud.Size = new System.Drawing.Size(49, 16);
+            this.lblLongitud.TabIndex = 8;
+            this.lblLongitud.Text = "Lon: --";
+            // 
+            // lblLatitud
+            // 
+            this.lblLatitud.AutoSize = true;
+            this.lblLatitud.Location = new System.Drawing.Point(4, 134);
+            this.lblLatitud.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLatitud.Name = "lblLatitud";
+            this.lblLatitud.Size = new System.Drawing.Size(45, 16);
+            this.lblLatitud.TabIndex = 7;
+            this.lblLatitud.Text = "Lat: --";
+            // 
+            // nudHeading
+            // 
+            this.nudHeading.Location = new System.Drawing.Point(4, 106);
+            this.nudHeading.Margin = new System.Windows.Forms.Padding(2);
+            this.nudHeading.Maximum = new decimal(new int[] {
+            359,
+            0,
+            0,
+            0});
+            this.nudHeading.Name = "nudHeading";
+            this.nudHeading.Size = new System.Drawing.Size(266, 23);
+            this.nudHeading.TabIndex = 6;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(4, 85);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 16);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Heading (º):";
+            // 
+            // nudAltitud
+            // 
+            this.nudAltitud.Location = new System.Drawing.Point(4, 61);
+            this.nudAltitud.Margin = new System.Windows.Forms.Padding(2);
+            this.nudAltitud.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudAltitud.Name = "nudAltitud";
+            this.nudAltitud.Size = new System.Drawing.Size(266, 23);
+            this.nudAltitud.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(4, 41);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 16);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Altitud (m):";
+            // 
+            // cbFuncion
+            // 
+            this.cbFuncion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFuncion.FormattingEnabled = true;
+            this.cbFuncion.Location = new System.Drawing.Point(4, 16);
+            this.cbFuncion.Margin = new System.Windows.Forms.Padding(2);
+            this.cbFuncion.Name = "cbFuncion";
+            this.cbFuncion.Size = new System.Drawing.Size(267, 24);
+            this.cbFuncion.TabIndex = 0;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Crimson;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnEliminar.Location = new System.Drawing.Point(195, 260);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(90, 24);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // btnBajar
+            // 
+            this.btnBajar.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnBajar.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnBajar.Location = new System.Drawing.Point(101, 260);
+            this.btnBajar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBajar.Name = "btnBajar";
+            this.btnBajar.Size = new System.Drawing.Size(90, 24);
+            this.btnBajar.TabIndex = 3;
+            this.btnBajar.Text = "▼ Bajar";
+            this.btnBajar.UseVisualStyleBackColor = false;
+            // 
+            // btnSubir
+            // 
+            this.btnSubir.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSubir.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnSubir.Location = new System.Drawing.Point(8, 260);
+            this.btnSubir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(90, 24);
+            this.btnSubir.TabIndex = 2;
+            this.btnSubir.Text = "▲ Subir";
+            this.btnSubir.UseVisualStyleBackColor = false;
+            // 
+            // waypointListBox
+            // 
+            this.waypointListBox.FormattingEnabled = true;
+            this.waypointListBox.Location = new System.Drawing.Point(2, 2);
+            this.waypointListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.waypointListBox.Name = "waypointListBox";
+            this.waypointListBox.Size = new System.Drawing.Size(289, 251);
+            this.waypointListBox.TabIndex = 0;
+            // 
+            // panel_versiones
+            // 
+            this.panel_versiones.BackColor = System.Drawing.Color.Silver;
+            this.panel_versiones.Location = new System.Drawing.Point(218, 20);
+            this.panel_versiones.Margin = new System.Windows.Forms.Padding(2);
+            this.panel_versiones.Name = "panel_versiones";
+            this.panel_versiones.Size = new System.Drawing.Size(502, 28);
+            this.panel_versiones.TabIndex = 1;
+            this.panel_versiones.Visible = false;
+            // 
+            // panelMap
+            // 
+            this.panelMap.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelMap.Location = new System.Drawing.Point(22, 73);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(2);
+            this.panelMap.Name = "panelMap";
+            this.panelMap.Size = new System.Drawing.Size(698, 390);
+            this.panelMap.TabIndex = 0;
+            // 
             // tabPageLoadBD
             // 
             this.tabPageLoadBD.AutoScroll = true;
@@ -848,87 +1100,17 @@
             this.tabPageLoadBD.Controls.Add(this.groupBox5);
             this.tabPageLoadBD.Controls.Add(this.bdMapPanel);
             this.tabPageLoadBD.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLoadBD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageLoadBD.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageLoadBD.Name = "tabPageLoadBD";
-            this.tabPageLoadBD.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageLoadBD.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageLoadBD.Size = new System.Drawing.Size(1052, 544);
             this.tabPageLoadBD.TabIndex = 2;
             this.tabPageLoadBD.Text = "Cargar Vuelo BD";
             // 
-            // panelVideoPlayback
-            // 
-            this.panelVideoPlayback.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelVideoPlayback.Controls.Add(this.bdVideoPlaybackBrowser);
-            this.panelVideoPlayback.Location = new System.Drawing.Point(370, 30);
-            this.panelVideoPlayback.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelVideoPlayback.Name = "panelVideoPlayback";
-            this.panelVideoPlayback.Size = new System.Drawing.Size(354, 196);
-            this.panelVideoPlayback.TabIndex = 60;
-            // 
-            // bdVideoPlaybackBrowser
-            // 
-            this.bdVideoPlaybackBrowser.Location = new System.Drawing.Point(-1, -1);
-            this.bdVideoPlaybackBrowser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bdVideoPlaybackBrowser.Name = "bdVideoPlaybackBrowser";
-            this.bdVideoPlaybackBrowser.ScriptErrorsSuppressed = true;
-            this.bdVideoPlaybackBrowser.ScrollBarsEnabled = false;
-            this.bdVideoPlaybackBrowser.Size = new System.Drawing.Size(354, 196);
-            this.bdVideoPlaybackBrowser.TabIndex = 63;
-            // 
-            // panelVideoRecording
-            // 
-            this.panelVideoRecording.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelVideoRecording.Controls.Add(this.bdVideoPreview);
-            this.panelVideoRecording.Controls.Add(this.bdRecordingStatusLabel);
-            this.panelVideoRecording.Controls.Add(this.bdOpenFolderBtn);
-            this.panelVideoRecording.Location = new System.Drawing.Point(12, 30);
-            this.panelVideoRecording.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelVideoRecording.Name = "panelVideoRecording";
-            this.panelVideoRecording.Size = new System.Drawing.Size(354, 196);
-            this.panelVideoRecording.TabIndex = 59;
-            // 
-            // bdVideoPreview
-            // 
-            this.bdVideoPreview.BackColor = System.Drawing.Color.Black;
-            this.bdVideoPreview.Location = new System.Drawing.Point(-1, -1);
-            this.bdVideoPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bdVideoPreview.Name = "bdVideoPreview";
-            this.bdVideoPreview.Size = new System.Drawing.Size(354, 169);
-            this.bdVideoPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bdVideoPreview.TabIndex = 60;
-            this.bdVideoPreview.TabStop = false;
-            // 
-            // bdRecordingStatusLabel
-            // 
-            this.bdRecordingStatusLabel.BackColor = System.Drawing.Color.Black;
-            this.bdRecordingStatusLabel.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
-            this.bdRecordingStatusLabel.ForeColor = System.Drawing.Color.Gray;
-            this.bdRecordingStatusLabel.Location = new System.Drawing.Point(2, 172);
-            this.bdRecordingStatusLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bdRecordingStatusLabel.Name = "bdRecordingStatusLabel";
-            this.bdRecordingStatusLabel.Size = new System.Drawing.Size(296, 20);
-            this.bdRecordingStatusLabel.TabIndex = 61;
-            this.bdRecordingStatusLabel.Text = "Esperando grabación...";
-            this.bdRecordingStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bdOpenFolderBtn
-            // 
-            this.bdOpenFolderBtn.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bdOpenFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bdOpenFolderBtn.Enabled = false;
-            this.bdOpenFolderBtn.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
-            this.bdOpenFolderBtn.ForeColor = System.Drawing.Color.White;
-            this.bdOpenFolderBtn.Location = new System.Drawing.Point(302, 171);
-            this.bdOpenFolderBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bdOpenFolderBtn.Name = "bdOpenFolderBtn";
-            this.bdOpenFolderBtn.Size = new System.Drawing.Size(48, 22);
-            this.bdOpenFolderBtn.TabIndex = 62;
-            this.bdOpenFolderBtn.Text = "📁";
-            this.bdOpenFolderBtn.UseVisualStyleBackColor = false;
-            this.bdOpenFolderBtn.Click += new System.EventHandler(this.BdOpenFolderBtn_Click);
-            // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.BackColor = System.Drawing.Color.LightGray;
             this.groupBox8.Controls.Add(this.label29);
             this.groupBox8.Controls.Add(this.label30);
@@ -937,9 +1119,9 @@
             this.groupBox8.Controls.Add(this.bdWaypointsLabel);
             this.groupBox8.Controls.Add(this.bdWaypointsListBox);
             this.groupBox8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(851, 8);
+            this.groupBox8.Location = new System.Drawing.Point(732, 12);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(193, 285);
+            this.groupBox8.Size = new System.Drawing.Size(312, 281);
             this.groupBox8.TabIndex = 58;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Current Waypoints";
@@ -981,7 +1163,7 @@
             // bdWaypointsLabel
             // 
             this.bdWaypointsLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdWaypointsLabel.Location = new System.Drawing.Point(5, 56);
+            this.bdWaypointsLabel.Location = new System.Drawing.Point(2, 28);
             this.bdWaypointsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bdWaypointsLabel.Name = "bdWaypointsLabel";
             this.bdWaypointsLabel.Size = new System.Drawing.Size(163, 16);
@@ -990,13 +1172,16 @@
             // 
             // bdWaypointsListBox
             // 
+            this.bdWaypointsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bdWaypointsListBox.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bdWaypointsListBox.FormattingEnabled = true;
             this.bdWaypointsListBox.ItemHeight = 14;
-            this.bdWaypointsListBox.Location = new System.Drawing.Point(5, 81);
-            this.bdWaypointsListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bdWaypointsListBox.Location = new System.Drawing.Point(5, 48);
+            this.bdWaypointsListBox.Margin = new System.Windows.Forms.Padding(2);
             this.bdWaypointsListBox.Name = "bdWaypointsListBox";
-            this.bdWaypointsListBox.Size = new System.Drawing.Size(183, 200);
+            this.bdWaypointsListBox.Size = new System.Drawing.Size(302, 228);
             this.bdWaypointsListBox.TabIndex = 5;
             // 
             // groupBox7
@@ -1011,9 +1196,9 @@
             this.groupBox7.Controls.Add(this.stopBDFlightBtn);
             this.groupBox7.Controls.Add(this.startBDFlightBtn);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(12, 295);
+            this.groupBox7.Location = new System.Drawing.Point(12, 298);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(298, 234);
+            this.groupBox7.Size = new System.Drawing.Size(298, 231);
             this.groupBox7.TabIndex = 57;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Control Pannel";
@@ -1057,7 +1242,7 @@
             this.loadFromDBBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.loadFromDBBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadFromDBBtn.Location = new System.Drawing.Point(10, 33);
-            this.loadFromDBBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loadFromDBBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loadFromDBBtn.Name = "loadFromDBBtn";
             this.loadFromDBBtn.Size = new System.Drawing.Size(281, 59);
             this.loadFromDBBtn.TabIndex = 3;
@@ -1071,7 +1256,7 @@
             this.pauseResumeBDBtn.Enabled = false;
             this.pauseResumeBDBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pauseResumeBDBtn.Location = new System.Drawing.Point(150, 96);
-            this.pauseResumeBDBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pauseResumeBDBtn.Margin = new System.Windows.Forms.Padding(2);
             this.pauseResumeBDBtn.Name = "pauseResumeBDBtn";
             this.pauseResumeBDBtn.Size = new System.Drawing.Size(141, 59);
             this.pauseResumeBDBtn.TabIndex = 7;
@@ -1084,7 +1269,7 @@
             this.stopBDFlightBtn.BackColor = System.Drawing.Color.Crimson;
             this.stopBDFlightBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stopBDFlightBtn.Location = new System.Drawing.Point(8, 171);
-            this.stopBDFlightBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stopBDFlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stopBDFlightBtn.Name = "stopBDFlightBtn";
             this.stopBDFlightBtn.Size = new System.Drawing.Size(283, 44);
             this.stopBDFlightBtn.TabIndex = 8;
@@ -1097,7 +1282,7 @@
             this.startBDFlightBtn.BackColor = System.Drawing.Color.LightSkyBlue;
             this.startBDFlightBtn.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startBDFlightBtn.Location = new System.Drawing.Point(10, 96);
-            this.startBDFlightBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startBDFlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.startBDFlightBtn.Name = "startBDFlightBtn";
             this.startBDFlightBtn.Size = new System.Drawing.Size(138, 59);
             this.startBDFlightBtn.TabIndex = 6;
@@ -1118,6 +1303,78 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Video Options";
             // 
+            // panelVideoRecording
+            // 
+            this.panelVideoRecording.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelVideoRecording.Controls.Add(this.bdVideoPreview);
+            this.panelVideoRecording.Controls.Add(this.bdRecordingStatusLabel);
+            this.panelVideoRecording.Controls.Add(this.bdOpenFolderBtn);
+            this.panelVideoRecording.Location = new System.Drawing.Point(12, 30);
+            this.panelVideoRecording.Margin = new System.Windows.Forms.Padding(2);
+            this.panelVideoRecording.Name = "panelVideoRecording";
+            this.panelVideoRecording.Size = new System.Drawing.Size(354, 196);
+            this.panelVideoRecording.TabIndex = 59;
+            // 
+            // bdVideoPreview
+            // 
+            this.bdVideoPreview.BackColor = System.Drawing.Color.Black;
+            this.bdVideoPreview.Location = new System.Drawing.Point(-1, -1);
+            this.bdVideoPreview.Margin = new System.Windows.Forms.Padding(2);
+            this.bdVideoPreview.Name = "bdVideoPreview";
+            this.bdVideoPreview.Size = new System.Drawing.Size(354, 169);
+            this.bdVideoPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bdVideoPreview.TabIndex = 60;
+            this.bdVideoPreview.TabStop = false;
+            // 
+            // bdRecordingStatusLabel
+            // 
+            this.bdRecordingStatusLabel.BackColor = System.Drawing.Color.Black;
+            this.bdRecordingStatusLabel.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.bdRecordingStatusLabel.ForeColor = System.Drawing.Color.Gray;
+            this.bdRecordingStatusLabel.Location = new System.Drawing.Point(2, 172);
+            this.bdRecordingStatusLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.bdRecordingStatusLabel.Name = "bdRecordingStatusLabel";
+            this.bdRecordingStatusLabel.Size = new System.Drawing.Size(296, 20);
+            this.bdRecordingStatusLabel.TabIndex = 61;
+            this.bdRecordingStatusLabel.Text = "Esperando grabación...";
+            this.bdRecordingStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bdOpenFolderBtn
+            // 
+            this.bdOpenFolderBtn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bdOpenFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bdOpenFolderBtn.Enabled = false;
+            this.bdOpenFolderBtn.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
+            this.bdOpenFolderBtn.ForeColor = System.Drawing.Color.White;
+            this.bdOpenFolderBtn.Location = new System.Drawing.Point(302, 171);
+            this.bdOpenFolderBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.bdOpenFolderBtn.Name = "bdOpenFolderBtn";
+            this.bdOpenFolderBtn.Size = new System.Drawing.Size(48, 22);
+            this.bdOpenFolderBtn.TabIndex = 62;
+            this.bdOpenFolderBtn.Text = "📁";
+            this.bdOpenFolderBtn.UseVisualStyleBackColor = false;
+            this.bdOpenFolderBtn.Click += new System.EventHandler(this.BdOpenFolderBtn_Click);
+            // 
+            // panelVideoPlayback
+            // 
+            this.panelVideoPlayback.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelVideoPlayback.Controls.Add(this.bdVideoPlaybackBrowser);
+            this.panelVideoPlayback.Location = new System.Drawing.Point(370, 30);
+            this.panelVideoPlayback.Margin = new System.Windows.Forms.Padding(2);
+            this.panelVideoPlayback.Name = "panelVideoPlayback";
+            this.panelVideoPlayback.Size = new System.Drawing.Size(354, 196);
+            this.panelVideoPlayback.TabIndex = 60;
+            // 
+            // bdVideoPlaybackBrowser
+            // 
+            this.bdVideoPlaybackBrowser.Location = new System.Drawing.Point(-1, -1);
+            this.bdVideoPlaybackBrowser.Margin = new System.Windows.Forms.Padding(2);
+            this.bdVideoPlaybackBrowser.Name = "bdVideoPlaybackBrowser";
+            this.bdVideoPlaybackBrowser.ScriptErrorsSuppressed = true;
+            this.bdVideoPlaybackBrowser.ScrollBarsEnabled = false;
+            this.bdVideoPlaybackBrowser.Size = new System.Drawing.Size(354, 196);
+            this.bdVideoPlaybackBrowser.TabIndex = 63;
+            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.LightGray;
@@ -1132,7 +1389,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(12, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(298, 272);
+            this.groupBox5.Size = new System.Drawing.Size(298, 281);
             this.groupBox5.TabIndex = 55;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Flight Plans List:";
@@ -1166,8 +1423,8 @@
             // 
             this.vuelosNextBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.vuelosNextBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vuelosNextBtn.Location = new System.Drawing.Point(150, 234);
-            this.vuelosNextBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.vuelosNextBtn.Location = new System.Drawing.Point(150, 241);
+            this.vuelosNextBtn.Margin = new System.Windows.Forms.Padding(2);
             this.vuelosNextBtn.Name = "vuelosNextBtn";
             this.vuelosNextBtn.Size = new System.Drawing.Size(143, 29);
             this.vuelosNextBtn.TabIndex = 22;
@@ -1179,8 +1436,8 @@
             // 
             this.vuelosPreviousBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.vuelosPreviousBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vuelosPreviousBtn.Location = new System.Drawing.Point(5, 234);
-            this.vuelosPreviousBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.vuelosPreviousBtn.Location = new System.Drawing.Point(5, 241);
+            this.vuelosPreviousBtn.Margin = new System.Windows.Forms.Padding(2);
             this.vuelosPreviousBtn.Name = "vuelosPreviousBtn";
             this.vuelosPreviousBtn.Size = new System.Drawing.Size(143, 29);
             this.vuelosPreviousBtn.TabIndex = 21;
@@ -1192,7 +1449,7 @@
             // 
             this.vuelosPageLabel.AutoSize = true;
             this.vuelosPageLabel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vuelosPageLabel.Location = new System.Drawing.Point(5, 216);
+            this.vuelosPageLabel.Location = new System.Drawing.Point(5, 223);
             this.vuelosPageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.vuelosPageLabel.Name = "vuelosPageLabel";
             this.vuelosPageLabel.Size = new System.Drawing.Size(87, 16);
@@ -1205,8 +1462,8 @@
             this.vuelosListBox.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vuelosListBox.FormattingEnabled = true;
             this.vuelosListBox.ItemHeight = 16;
-            this.vuelosListBox.Location = new System.Drawing.Point(5, 30);
-            this.vuelosListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.vuelosListBox.Location = new System.Drawing.Point(5, 46);
+            this.vuelosListBox.Margin = new System.Windows.Forms.Padding(2);
             this.vuelosListBox.Name = "vuelosListBox";
             this.vuelosListBox.Size = new System.Drawing.Size(288, 164);
             this.vuelosListBox.TabIndex = 2;
@@ -1223,264 +1480,15 @@
             // 
             // bdMapPanel
             // 
+            this.bdMapPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bdMapPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.bdMapPanel.Location = new System.Drawing.Point(315, 8);
-            this.bdMapPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bdMapPanel.Location = new System.Drawing.Point(315, 12);
+            this.bdMapPanel.Margin = new System.Windows.Forms.Padding(2);
             this.bdMapPanel.Name = "bdMapPanel";
-            this.bdMapPanel.Size = new System.Drawing.Size(531, 285);
+            this.bdMapPanel.Size = new System.Drawing.Size(412, 281);
             this.bdMapPanel.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label33);
-            this.tabPage1.Controls.Add(this.btnLimpiarRuta);
-            this.tabPage1.Controls.Add(this.btnCargarRuta);
-            this.tabPage1.Controls.Add(this.btnGuardarRuta);
-            this.tabPage1.Controls.Add(this.panelLateral);
-            this.tabPage1.Controls.Add(this.panel_versiones);
-            this.tabPage1.Controls.Add(this.panelMap);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1052, 544);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Planner";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(22, 24);
-            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(153, 24);
-            this.label33.TabIndex = 7;
-            this.label33.Text = "Route Planner";
-            this.label33.Click += new System.EventHandler(this.label33_Click);
-            // 
-            // btnLimpiarRuta
-            // 
-            this.btnLimpiarRuta.BackColor = System.Drawing.Color.Crimson;
-            this.btnLimpiarRuta.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiarRuta.Location = new System.Drawing.Point(495, 471);
-            this.btnLimpiarRuta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnLimpiarRuta.Name = "btnLimpiarRuta";
-            this.btnLimpiarRuta.Size = new System.Drawing.Size(225, 32);
-            this.btnLimpiarRuta.TabIndex = 6;
-            this.btnLimpiarRuta.Text = "Limpiar Ruta";
-            this.btnLimpiarRuta.UseVisualStyleBackColor = false;
-            // 
-            // btnCargarRuta
-            // 
-            this.btnCargarRuta.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnCargarRuta.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarRuta.Location = new System.Drawing.Point(259, 471);
-            this.btnCargarRuta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnCargarRuta.Name = "btnCargarRuta";
-            this.btnCargarRuta.Size = new System.Drawing.Size(225, 32);
-            this.btnCargarRuta.TabIndex = 5;
-            this.btnCargarRuta.Text = "Cargar Ruta";
-            this.btnCargarRuta.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardarRuta
-            // 
-            this.btnGuardarRuta.BackColor = System.Drawing.Color.LightGreen;
-            this.btnGuardarRuta.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnGuardarRuta.Location = new System.Drawing.Point(22, 471);
-            this.btnGuardarRuta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGuardarRuta.Name = "btnGuardarRuta";
-            this.btnGuardarRuta.Size = new System.Drawing.Size(225, 32);
-            this.btnGuardarRuta.TabIndex = 3;
-            this.btnGuardarRuta.Text = "Guardar Ruta";
-            this.btnGuardarRuta.UseVisualStyleBackColor = false;
-            // 
-            // panelLateral
-            // 
-            this.panelLateral.BackColor = System.Drawing.Color.LightGray;
-            this.panelLateral.Controls.Add(this.groupBoxFunciones);
-            this.panelLateral.Controls.Add(this.btnEliminar);
-            this.panelLateral.Controls.Add(this.btnBajar);
-            this.panelLateral.Controls.Add(this.btnSubir);
-            this.panelLateral.Controls.Add(this.waypointListBox);
-            this.panelLateral.Location = new System.Drawing.Point(744, 20);
-            this.panelLateral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelLateral.Name = "panelLateral";
-            this.panelLateral.Size = new System.Drawing.Size(292, 484);
-            this.panelLateral.TabIndex = 2;
-            // 
-            // groupBoxFunciones
-            // 
-            this.groupBoxFunciones.Controls.Add(this.btnAplicar);
-            this.groupBoxFunciones.Controls.Add(this.lblLongitud);
-            this.groupBoxFunciones.Controls.Add(this.lblLatitud);
-            this.groupBoxFunciones.Controls.Add(this.nudHeading);
-            this.groupBoxFunciones.Controls.Add(this.label11);
-            this.groupBoxFunciones.Controls.Add(this.nudAltitud);
-            this.groupBoxFunciones.Controls.Add(this.label10);
-            this.groupBoxFunciones.Controls.Add(this.cbFuncion);
-            this.groupBoxFunciones.Font = new System.Drawing.Font("Arial", 10F);
-            this.groupBoxFunciones.Location = new System.Drawing.Point(11, 296);
-            this.groupBoxFunciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxFunciones.Name = "groupBoxFunciones";
-            this.groupBoxFunciones.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxFunciones.Size = new System.Drawing.Size(270, 179);
-            this.groupBoxFunciones.TabIndex = 5;
-            this.groupBoxFunciones.TabStop = false;
-            this.groupBoxFunciones.Text = "Función Waypoint";
-            // 
-            // btnAplicar
-            // 
-            this.btnAplicar.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnAplicar.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAplicar.Location = new System.Drawing.Point(0, 154);
-            this.btnAplicar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAplicar.Name = "btnAplicar";
-            this.btnAplicar.Size = new System.Drawing.Size(270, 24);
-            this.btnAplicar.TabIndex = 9;
-            this.btnAplicar.Text = "Aplicar Cambios";
-            this.btnAplicar.UseVisualStyleBackColor = false;
-            // 
-            // lblLongitud
-            // 
-            this.lblLongitud.AutoSize = true;
-            this.lblLongitud.Location = new System.Drawing.Point(135, 134);
-            this.lblLongitud.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLongitud.Name = "lblLongitud";
-            this.lblLongitud.Size = new System.Drawing.Size(49, 16);
-            this.lblLongitud.TabIndex = 8;
-            this.lblLongitud.Text = "Lon: --";
-            // 
-            // lblLatitud
-            // 
-            this.lblLatitud.AutoSize = true;
-            this.lblLatitud.Location = new System.Drawing.Point(4, 134);
-            this.lblLatitud.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLatitud.Name = "lblLatitud";
-            this.lblLatitud.Size = new System.Drawing.Size(45, 16);
-            this.lblLatitud.TabIndex = 7;
-            this.lblLatitud.Text = "Lat: --";
-            // 
-            // nudHeading
-            // 
-            this.nudHeading.Location = new System.Drawing.Point(4, 106);
-            this.nudHeading.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.nudHeading.Maximum = new decimal(new int[] {
-            359,
-            0,
-            0,
-            0});
-            this.nudHeading.Name = "nudHeading";
-            this.nudHeading.Size = new System.Drawing.Size(266, 23);
-            this.nudHeading.TabIndex = 6;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 85);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 16);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Heading (º):";
-            // 
-            // nudAltitud
-            // 
-            this.nudAltitud.Location = new System.Drawing.Point(4, 61);
-            this.nudAltitud.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.nudAltitud.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudAltitud.Name = "nudAltitud";
-            this.nudAltitud.Size = new System.Drawing.Size(266, 23);
-            this.nudAltitud.TabIndex = 4;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 41);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 16);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Altitud (m):";
-            // 
-            // cbFuncion
-            // 
-            this.cbFuncion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFuncion.FormattingEnabled = true;
-            this.cbFuncion.Location = new System.Drawing.Point(4, 16);
-            this.cbFuncion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbFuncion.Name = "cbFuncion";
-            this.cbFuncion.Size = new System.Drawing.Size(267, 24);
-            this.cbFuncion.TabIndex = 0;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Crimson;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 10F);
-            this.btnEliminar.Location = new System.Drawing.Point(195, 260);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 24);
-            this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnBajar
-            // 
-            this.btnBajar.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnBajar.Font = new System.Drawing.Font("Arial", 10F);
-            this.btnBajar.Location = new System.Drawing.Point(101, 260);
-            this.btnBajar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBajar.Name = "btnBajar";
-            this.btnBajar.Size = new System.Drawing.Size(90, 24);
-            this.btnBajar.TabIndex = 3;
-            this.btnBajar.Text = "▼ Bajar";
-            this.btnBajar.UseVisualStyleBackColor = false;
-            // 
-            // btnSubir
-            // 
-            this.btnSubir.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSubir.Font = new System.Drawing.Font("Arial", 10F);
-            this.btnSubir.Location = new System.Drawing.Point(8, 260);
-            this.btnSubir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(90, 24);
-            this.btnSubir.TabIndex = 2;
-            this.btnSubir.Text = "▲ Subir";
-            this.btnSubir.UseVisualStyleBackColor = false;
-            // 
-            // waypointListBox
-            // 
-            this.waypointListBox.FormattingEnabled = true;
-            this.waypointListBox.Location = new System.Drawing.Point(2, 2);
-            this.waypointListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.waypointListBox.Name = "waypointListBox";
-            this.waypointListBox.Size = new System.Drawing.Size(289, 251);
-            this.waypointListBox.TabIndex = 0;
-            // 
-            // panel_versiones
-            // 
-            this.panel_versiones.BackColor = System.Drawing.Color.Silver;
-            this.panel_versiones.Location = new System.Drawing.Point(218, 20);
-            this.panel_versiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel_versiones.Name = "panel_versiones";
-            this.panel_versiones.Size = new System.Drawing.Size(502, 28);
-            this.panel_versiones.TabIndex = 1;
-            this.panel_versiones.Visible = false;
-            // 
-            // panelMap
-            // 
-            this.panelMap.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelMap.Location = new System.Drawing.Point(22, 73);
-            this.panelMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(698, 390);
-            this.panelMap.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -1517,17 +1525,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Alt_changeTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AlturatrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headingTrackBar)).EndInit();
-            this.tabPageLoadBD.ResumeLayout(false);
-            this.panelVideoPlayback.ResumeLayout(false);
-            this.panelVideoRecording.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdVideoPreview)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panelLateral.ResumeLayout(false);
@@ -1535,6 +1532,17 @@
             this.groupBoxFunciones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltitud)).EndInit();
+            this.tabPageLoadBD.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.panelVideoRecording.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bdVideoPreview)).EndInit();
+            this.panelVideoPlayback.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
