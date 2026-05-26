@@ -200,4 +200,21 @@ El sistema de grabación opera de forma completamente autónoma:
 - Al finalizar la grabación, `GuardarVideoDesdeFrames` ensambla un contenedor AVI válido (RIFF/MJPEG) de forma nativa en C#, sin dependencias externas, incluyendo las cabeceras `avih`, `strh`, `strf` e índice `idx1`.
 - El archivo resultante se sube a Cloudinary mediante un `POST` multipart a través de `DroneAPIService.SubirMediaAsync`.
 
+## Demostración del Proyecto
+### Demo 1: Vuelo en DroneLab
+
+Para esta primera prueba de vuelo en el DroneLab se escoge una ruta de 4 waypoints para comprobar su funcionamiento básico y instrucciones simples.
+
+<img width="737" height="287" alt="imagen" src="https://github.com/user-attachments/assets/d7c593f0-11e7-4322-a683-e0d1df24e7b9" />
+
+*Figura 4. Ruta de la demostración en DroneLab*
+
+<p align="center">
+  <a href="[https://www.youtube.com/watch?v=MSE9zdbZ_DE](https://www.youtube.com/watch?v=87cAKgqNABY&feature=youtu.be)">
+    <img src="[https://img.youtube.com/vi/MSE9zdbZ_DE](https://www.youtube.com/watch?v=87cAKgqNABY&feature=youtu.be)/maxresdefault.jpg" width="700">
+  </a>
+</p>
+
+*Vídeo 1. Vuelo de la ruta de la Figura 4*
+
 ```
