@@ -168,9 +168,7 @@ Al alcanzar el último waypoint, o al pulsar `Detener Vuelo`, el sistema:
 | `TakePhoto` | Captura un fotograma del stream activo y lo guarda como JPEG. Introduce una pausa de 2 segundos para estabilización. |
 | `StartVideoRecording` | Inicia la grabación del stream de video si no estaba activa. |
 | `StopVideoRecording` | Detiene la grabación y desencadena el guardado y subida del video. |
-| `ChangeAltitude` | Ordena al dron ir a la altitud definida en el punto, manteniéndose en la misma coordenada horizontal. Pausa de 3 segundos. |
 | `ChangeHeading` | Rota el morro del dron al ángulo `Heading` del punto sin desplazamiento lateral. Pausa de 3 segundos. |
-| `Hover` | Detiene el dron en su posición durante 5 segundos antes de continuar. |
 | `Wait` | Equivalente a `Hover`: pausa de 5 segundos en el punto. |
 | `ReturnToHome` | Activa el modo RTL del dron y detiene la secuencia de waypoints. |
 | `None` | Sin acción asociada; el dron avanza directamente al siguiente waypoint. |
