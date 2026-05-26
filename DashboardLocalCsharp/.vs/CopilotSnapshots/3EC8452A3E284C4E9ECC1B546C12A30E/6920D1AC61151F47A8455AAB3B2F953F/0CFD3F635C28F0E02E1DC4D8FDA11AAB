@@ -894,7 +894,112 @@ namespace Formulario
 
         private void CrearControlesPreviewVideo()
         {
-            // Los controles ya están en el Designer, solo inicializar el timer para preview en vivo
+            // Ajustar mapa para dar espacio abajo
+            var bdMapPanel = this.Controls.Find("bdMapPanel", true).FirstOrDefault() as Panel;
+            if (bdMapPanel != null) bdMapPanel.Size = new Size(760, 270);
+
+            // Ajustar label
+            var lblWaypoints = this.Controls.Find("bdWaypointsLabel", true).FirstOrDefault() as Label;
+            if (lblWaypoints != null) 
+            {
+                lblWaypoints.Location = new Point(260, 280);
+                lblWaypoints.Size = new Size(760, 20);
+            }
+
+            // Ajustar listbox
+            var lstWaypoints = this.Controls.Find("bdWaypointsListBox", true).FirstOrDefault() as ListBox;
+            if (lstWaypoints != null) 
+            {
+                lstWaypoints.Location = new Point(260, 300);
+                lstWaypoints.Size = new Size(760, 60);
+            }
+
+            // Panel contenedor principal de vídeos (debajo de listbox)
+            Panel bdVideoPanel = new Panel
+            {
+                Location = new Point(260, 365),
+                Size = new Size(760, 170),
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.Transparent
+            };
+
+            // ---- CAJA IZQUIERDA: GRABANDO ----
+            Panel boxIzquierda = new Panel
+            {
+                Location = new Point(0, 0),
+                Size = new Size(375, 170),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.Black
+            };
+
+            bdVideoPreview = new PictureBox
+            {
+                Location = new Point(0, 0),
+                Size = new Size(375, 145),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                BackColor = Color.Black,
+                BorderStyle = BorderStyle.None,
+            };
+            boxIzquierda.Controls.Add(bdVideoPreview);
+
+            bdRecordingStatusLabel = new Label
+            {
+                Location = new Point(2, 150),
+                Size = new Size(310, 15),
+                AutoSize = false,
+                Text = "Esperando grabación...",
+                ForeColor = Color.Gray,
+                BackColor = Color.Black,
+                Font = new Font("Arial", 8, FontStyle.Bold),
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+            boxIzquierda.Controls.Add(bdRecordingStatusLabel);
+
+            bdOpenFolderBtn = new Button
+            {
+                Location = new Point(320, 148),
+                Size = new Size(50, 20),
+                Text = "📁",
+                Font = new Font("Arial", 7, FontStyle.Bold),
+                BackColor = Color.DodgerBlue,
+                ForeColor = Color.White,
+                Cursor = Cursors.Hand
+            };
+            bdOpenFolderBtn.Click += BdOpenFolderBtn_Click;
+            bdOpenFolderBtn.Enabled = false;
+            boxIzquierda.Controls.Add(bdOpenFolderBtn);
+
+            bdVideoPanel.Controls.Add(boxIzquierda);
+
+            // ---- CAJA DERECHA: REPRODUCCIÓN ----
+            Panel boxDerecha = new Panel
+            {
+                Location = new Point(385, 0),
+                Size = new Size(375, 170),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.Black
+            };
+
+            bdVideoPlaybackBrowser = new WebBrowser
+            {
+                Location = new Point(0, 0),
+                Size = new Size(375, 170),
+                ScrollBarsEnabled = false,
+                ScriptErrorsSuppressed = true,
+                BackColor = Color.Black
+            };
+            boxDerecha.Controls.Add(bdVideoPlaybackBrowser);
+
+            bdVideoPanel.Controls.Add(boxDerecha);
+
+            // Añadir panel a la pestaña
+            TabPage bdTab = this.Controls.Find("tabPageLoadBD", true).FirstOrDefault() as TabPage;
+            if (bdTab != null)
+            {
+                bdTab.Controls.Add(bdVideoPanel);
+            }
+
+            // Inicializar timer para preview en vivo (caja izquierda)
             bdVideoPreviewTimer = new System.Windows.Forms.Timer();
             bdVideoPreviewTimer.Interval = 66; // 15 FPS
             bdVideoPreviewTimer.Tick += BdVideoPreviewTimer_Tick;

@@ -115,8 +115,6 @@
             this.vuelosListBox = new System.Windows.Forms.ListBox();
             this.label18 = new System.Windows.Forms.Label();
             this.bdMapPanel = new System.Windows.Forms.Panel();
-            this.panelVideoRecording = new System.Windows.Forms.Panel();
-            this.panelVideoPlayback = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label33 = new System.Windows.Forms.Label();
             this.btnLimpiarRuta = new System.Windows.Forms.Button();
@@ -139,11 +137,13 @@
             this.waypointListBox = new System.Windows.Forms.ListBox();
             this.panel_versiones = new System.Windows.Forms.Panel();
             this.panelMap = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.panelVideoRecording = new System.Windows.Forms.Panel();
             this.bdVideoPreview = new System.Windows.Forms.PictureBox();
             this.bdRecordingStatusLabel = new System.Windows.Forms.Label();
             this.bdOpenFolderBtn = new System.Windows.Forms.Button();
+            this.panelVideoPlayback = new System.Windows.Forms.Panel();
             this.bdVideoPlaybackBrowser = new System.Windows.Forms.WebBrowser();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainTabControl.SuspendLayout();
             this.tabPageControl.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -164,7 +164,6 @@
             this.groupBoxFunciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHeading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAltitud)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdVideoPreview)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -895,8 +894,6 @@
             // 
             this.tabPageLoadBD.AutoScroll = true;
             this.tabPageLoadBD.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPageLoadBD.Controls.Add(this.panelVideoPlayback);
-            this.tabPageLoadBD.Controls.Add(this.panelVideoRecording);
             this.tabPageLoadBD.Controls.Add(this.groupBox8);
             this.tabPageLoadBD.Controls.Add(this.groupBox7);
             this.tabPageLoadBD.Controls.Add(this.groupBox6);
@@ -1271,81 +1268,6 @@
             this.bdMapPanel.Size = new System.Drawing.Size(707, 350);
             this.bdMapPanel.TabIndex = 0;
             // 
-            // panelVideoRecording
-            // 
-            this.panelVideoRecording.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelVideoRecording.Controls.Add(this.bdVideoPreview);
-            this.panelVideoRecording.Controls.Add(this.bdRecordingStatusLabel);
-            this.panelVideoRecording.Controls.Add(this.bdOpenFolderBtn);
-            this.panelVideoRecording.Location = new System.Drawing.Point(420, 365);
-            this.panelVideoRecording.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelVideoRecording.Name = "panelVideoRecording";
-            this.panelVideoRecording.Size = new System.Drawing.Size(375, 170);
-            this.panelVideoRecording.TabIndex = 59;
-            // 
-            // bdVideoPreview
-            // 
-            this.bdVideoPreview.BackColor = System.Drawing.Color.Black;
-            this.bdVideoPreview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bdVideoPreview.Location = new System.Drawing.Point(0, 0);
-            this.bdVideoPreview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bdVideoPreview.Name = "bdVideoPreview";
-            this.bdVideoPreview.Size = new System.Drawing.Size(375, 145);
-            this.bdVideoPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bdVideoPreview.TabIndex = 60;
-            this.bdVideoPreview.TabStop = false;
-            // 
-            // bdRecordingStatusLabel
-            // 
-            this.bdRecordingStatusLabel.AutoSize = false;
-            this.bdRecordingStatusLabel.BackColor = System.Drawing.Color.Black;
-            this.bdRecordingStatusLabel.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
-            this.bdRecordingStatusLabel.ForeColor = System.Drawing.Color.Gray;
-            this.bdRecordingStatusLabel.Location = new System.Drawing.Point(2, 150);
-            this.bdRecordingStatusLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bdRecordingStatusLabel.Name = "bdRecordingStatusLabel";
-            this.bdRecordingStatusLabel.Size = new System.Drawing.Size(310, 15);
-            this.bdRecordingStatusLabel.TabIndex = 61;
-            this.bdRecordingStatusLabel.Text = "Esperando grabación...";
-            this.bdRecordingStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bdOpenFolderBtn
-            // 
-            this.bdOpenFolderBtn.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bdOpenFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bdOpenFolderBtn.Enabled = false;
-            this.bdOpenFolderBtn.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
-            this.bdOpenFolderBtn.ForeColor = System.Drawing.Color.White;
-            this.bdOpenFolderBtn.Location = new System.Drawing.Point(320, 148);
-            this.bdOpenFolderBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bdOpenFolderBtn.Name = "bdOpenFolderBtn";
-            this.bdOpenFolderBtn.Size = new System.Drawing.Size(50, 20);
-            this.bdOpenFolderBtn.TabIndex = 62;
-            this.bdOpenFolderBtn.Text = "📁";
-            this.bdOpenFolderBtn.UseVisualStyleBackColor = false;
-            this.bdOpenFolderBtn.Click += new System.EventHandler(this.BdOpenFolderBtn_Click);
-            // 
-            // panelVideoPlayback
-            // 
-            this.panelVideoPlayback.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelVideoPlayback.Controls.Add(this.bdVideoPlaybackBrowser);
-            this.panelVideoPlayback.Location = new System.Drawing.Point(805, 365);
-            this.panelVideoPlayback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelVideoPlayback.Name = "panelVideoPlayback";
-            this.panelVideoPlayback.Size = new System.Drawing.Size(375, 170);
-            this.panelVideoPlayback.TabIndex = 60;
-            // 
-            // bdVideoPlaybackBrowser
-            // 
-            this.bdVideoPlaybackBrowser.BackColor = System.Drawing.Color.Black;
-            this.bdVideoPlaybackBrowser.Location = new System.Drawing.Point(0, 0);
-            this.bdVideoPlaybackBrowser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bdVideoPlaybackBrowser.Name = "bdVideoPlaybackBrowser";
-            this.bdVideoPlaybackBrowser.ScriptErrorsSuppressed = true;
-            this.bdVideoPlaybackBrowser.Size = new System.Drawing.Size(375, 170);
-            this.bdVideoPlaybackBrowser.TabIndex = 63;
-            this.bdVideoPlaybackBrowser.ScrollBarsEnabled = false;
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label33);
@@ -1648,9 +1570,6 @@
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.panelVideoRecording.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdVideoPreview)).EndInit();
-            this.panelVideoPlayback.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1779,8 +1698,6 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Panel panelVideoRecording;
-        private System.Windows.Forms.Panel panelVideoPlayback;
     }
 }
 
